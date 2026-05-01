@@ -2,6 +2,8 @@
 
 ## 2026-05-01
 
+- resolved task `004-implement-minimal-query`: 004-implement-minimal-query
+
 - resolved task `003-implement-minimal-ingest`: 003-implement-minimal-ingest
 
 All notable changes to this project will be documented in this file.
