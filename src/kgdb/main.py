@@ -29,6 +29,10 @@ def _build_parser() -> argparse.ArgumentParser:
     edges_parser.add_argument("--graph", required=True)
     edges_parser.add_argument("--node", required=True)
 
+    ingest_parser = subparsers.add_parser("ingest")
+    ingest_parser.add_argument("--input", required=True)
+    ingest_parser.add_argument("--output", required=True)
+
     return parser
 
 
@@ -40,6 +44,23 @@ def _load_query(query_file: Path) -> StructuredQuery:
 def main() -> None:
     parser = _build_parser()
     args = parser.parse_args()
+
+    if args.command == "ingest":
+        from kgdb.contracts.io import GraphSnapshot
+        from kgdb.graph.utils import add_knowledge_node, save_graph
+        import networkx as nx
+        
+        data = json.loads(Path(args.input).read_text(encoding="utf-8"))
+        snapshot = GraphSnapshot.model_validate(data)
+        
+        graph = nx.DiGraph()
+        for node in snapshot.nodes:
+            add_knowledge_node(graph, node)
+            
+        save_graph(graph, Path(args.output))
+        print(f"Ingested {len(snapshot.nodes)} nodes to {args.output}")
+        return
+
     graph = load_graph(Path(args.graph))
 
     if args.command == "get":

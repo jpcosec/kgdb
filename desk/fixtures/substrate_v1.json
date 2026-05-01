@@ -1,0 +1,102 @@
+{
+  "version": "1.0",
+  "created_at": "2024-05-24T12:00:00Z",
+  "nodes": [
+    {
+      "identity": {
+        "node_id": "repo://wikipu-ecosystem",
+        "node_type": "system"
+      },
+      "edges": [
+        { "target_id": "repo://wikipu", "relation_type": "contains" },
+        { "target_id": "repo://repopackage", "relation_type": "contains" },
+        { "target_id": "repo://sldb", "relation_type": "contains" },
+        { "target_id": "repo://kgdb", "relation_type": "contains" },
+        { "target_id": "repo://ontology", "relation_type": "contains" },
+        { "target_id": "repo://truth_machine", "relation_type": "contains" },
+        { "target_id": "repo://graph_ui", "relation_type": "contains" },
+        { "target_id": "repo://ontomap", "relation_type": "contains" },
+        { "target_id": "repo://spec2viz", "relation_type": "contains" }
+      ]
+    },
+    {
+      "identity": {
+        "node_id": "repo://wikipu",
+        "node_type": "directory"
+      },
+      "edges": [
+        { "target_id": "repo://repopackage", "relation_type": "depends_on" },
+        { "target_id": "repo://kgdb", "relation_type": "depends_on" }
+      ]
+    },
+    {
+      "identity": {
+        "node_id": "repo://repopackage",
+        "node_type": "directory"
+      },
+      "edges": []
+    },
+    {
+      "identity": {
+        "node_id": "repo://sldb",
+        "node_type": "directory"
+      },
+      "edges": []
+    },
+    {
+      "identity": {
+        "node_id": "repo://kgdb",
+        "node_type": "directory"
+      },
+      "edges": [
+        { "target_id": "repo://sldb", "relation_type": "depends_on" }
+      ]
+    },
+    {
+      "identity": {
+        "node_id": "repo://ontology",
+        "node_type": "directory"
+      },
+      "edges": [
+        { "target_id": "repo://kgdb", "relation_type": "depends_on" }
+      ]
+    },
+    {
+      "identity": {
+        "node_id": "repo://truth_machine",
+        "node_type": "directory"
+      },
+      "edges": [
+        { "target_id": "repo://kgdb", "relation_type": "depends_on" }
+      ]
+    },
+    {
+      "identity": {
+        "node_id": "repo://graph_ui",
+        "node_type": "directory"
+      },
+      "edges": [
+        { "target_id": "repo://kgdb", "relation_type": "depends_on" }
+      ]
+    },
+    {
+      "identity": {
+        "node_id": "repo://ontomap",
+        "node_type": "directory"
+      },
+      "edges": []
+    },
+    {
+      "identity": {
+        "node_id": "repo://spec2viz",
+        "node_type": "directory"
+      },
+      "edges": [
+        { "target_id": "repo://kgdb", "relation_type": "depends_on" }
+      ]
+    }
+  ],
+  "metadata": {
+    "description": "Initial ecosystem substrate fixture representing core repositories and their relationships."
+  }
+}

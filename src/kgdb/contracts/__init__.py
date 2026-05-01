@@ -5,8 +5,12 @@ from importlib import import_module
 
 _EXPORTS = {
     "Edge": "kgdb.contracts.base",
+    "GraphSnapshot": "kgdb.contracts.io",
     "KnowledgeNode": "kgdb.contracts.node",
+    "PersistenceEntry": "kgdb.contracts.persistence",
+    "QueryResult": "kgdb.contracts.io",
     "SystemIdentity": "kgdb.contracts.base",
+    "TransactionManifest": "kgdb.contracts.persistence",
 }
 
 __all__ = sorted(_EXPORTS)
