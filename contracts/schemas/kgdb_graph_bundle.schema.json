@@ -1,0 +1,10 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "KGDB Graph Bundle",
+  "type": "object",
+  "properties": {
+    "nodes": {"type": "array"},
+    "edges": {"type": "array"}
+  },
+  "required": ["nodes", "edges"]
+}

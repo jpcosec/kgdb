@@ -1,0 +1,27 @@
+name: kgdb
+version: 0.1.0
+exports:
+  - name: kgdb_graph_bundle
+    schema: contracts/schemas/kgdb_graph_bundle.schema.json
+consumes:
+  - name: sldb_document_payload
+    schema: contracts/schemas/sldb_document_payload.schema.json
+compatibility:
+  requires:
+    sldb:
+      url: /home/jp/proyectos/wikipu-ecosystem/sldb
+      branch: main
+      version: ">=0.1.0"
+export_surface:
+  package_name: kgdb
+  version: 0.1.0
+  commands: {}
+  aliases: {}
+  contracts:
+    kgdb_graph_bundle:
+      name: kgdb_graph_bundle
+      description: Graph exchange bundle used as the ecosystem hub surface.
+      schema_ref: contracts/schemas/kgdb_graph_bundle.schema.json
+      version: 0.1.0
+  procedures: {}
+  surfaces: {}
