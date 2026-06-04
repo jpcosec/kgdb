@@ -33,6 +33,10 @@ def _build_parser() -> argparse.ArgumentParser:
     ingest_parser.add_argument("--input", required=True)
     ingest_parser.add_argument("--output", required=True)
 
+    ingest_sldb_parser = subparsers.add_parser("ingest-sldb")
+    ingest_sldb_parser.add_argument("--input", required=True)
+    ingest_sldb_parser.add_argument("--output", required=True)
+
     return parser
 
 
@@ -59,6 +63,22 @@ def main() -> None:
             
         save_graph(graph, Path(args.output))
         print(f"Ingested {len(snapshot.nodes)} nodes to {args.output}")
+        return
+
+    if args.command == "ingest-sldb":
+        from kgdb.graph.utils import add_knowledge_node, save_graph
+        from kgdb.ingest import sldb_semantic_export_to_snapshot
+        import networkx as nx
+
+        data = json.loads(Path(args.input).read_text(encoding="utf-8"))
+        snapshot = sldb_semantic_export_to_snapshot(data)
+
+        graph = nx.DiGraph()
+        for node in snapshot.nodes:
+            add_knowledge_node(graph, node)
+
+        save_graph(graph, Path(args.output))
+        print(f"Ingested {len(snapshot.nodes)} SLDB semantic nodes to {args.output}")
         return
 
     graph = load_graph(Path(args.graph))
