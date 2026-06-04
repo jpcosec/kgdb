@@ -1,0 +1,148 @@
+{
+  "contract": {
+    "name": "sldb_kgdb_semantic_export",
+    "version": 1,
+    "generated_at": "2026-06-04T00:00:00Z"
+  },
+  "producer": {
+    "name": "sldb",
+    "version": "0.1.0",
+    "command": [
+      "sldb",
+      "semantic",
+      "export",
+      "--format",
+      "kgdb"
+    ]
+  },
+  "store": {
+    "root": ".",
+    "store_path": ".sldb",
+    "hash_a": "hash-store-001",
+    "runtime_sources": {
+      "store_index": ".sldb/core/store_index.yaml",
+      "semantic_index": ".sldb/runtime/semantic_index.yaml",
+      "semantic_dag": ".sldb/runtime/semantic_dag.yaml",
+      "sections_indexes": [
+        ".sldb/runtime/sections/TaskDoc.yaml"
+      ]
+    }
+  },
+  "models": [
+    {
+      "name": "TaskDoc",
+      "model_ref": "desk.models:TaskDoc",
+      "path": "desk/models.py",
+      "models_index": ".sldb/core/models/TaskDoc.yaml",
+      "documents_index": ".sldb/core/documents/TaskDoc.yaml",
+      "sections_index": ".sldb/runtime/sections/TaskDoc.yaml",
+      "version": 1,
+      "canonical": true,
+      "family": "desk",
+      "semantics": [
+        "domain.workflow.task",
+        "system.desk"
+      ],
+      "base_models": [
+        "StructuredNLDoc"
+      ],
+      "hash_b": "hash-model-001"
+    }
+  ],
+  "documents": [
+    {
+      "id": "TaskDoc:001-define-kgdb-semantic-export-payload",
+      "name": "001-define-kgdb-semantic-export-payload",
+      "model": "TaskDoc",
+      "path": "desk/tasks/001-define-kgdb-semantic-export-payload.md",
+      "hash_c": "hash-doc-index-001",
+      "hash_d": "hash-doc-content-001",
+      "semantic_tags": [
+        "domain.contract",
+        "domain.workflow.task",
+        "integration.kgdb",
+        "system.desk"
+      ]
+    }
+  ],
+  "sections": [
+    {
+      "id": "TaskDoc:001-define-kgdb-semantic-export-payload#define-kgdb-semantic-export-payload",
+      "document_id": "TaskDoc:001-define-kgdb-semantic-export-payload",
+      "path": "define-kgdb-semantic-export-payload",
+      "title": "Define KGDB semantic export payload",
+      "breadcrumbs": [
+        "Define KGDB semantic export payload"
+      ],
+      "about": [
+        "Define KGDB semantic export payload",
+        "define kgdb semantic export payload",
+        "domain.contract",
+        "domain.workflow.task",
+        "integration.kgdb",
+        "system.desk"
+      ],
+      "semantic_tags": [
+        "domain.contract",
+        "domain.workflow.task",
+        "integration.kgdb",
+        "system.desk"
+      ],
+      "slug": "define-kgdb-semantic-export-payload",
+      "level": 1,
+      "line_start": 10,
+      "line_end": 11
+    }
+  ],
+  "semantic_dag": {
+    "nodes": [
+      {
+        "id": "domain",
+        "parents": []
+      },
+      {
+        "id": "domain.contract",
+        "parents": [
+          "domain"
+        ]
+      },
+      {
+        "id": "domain.workflow",
+        "parents": [
+          "domain"
+        ]
+      },
+      {
+        "id": "domain.workflow.task",
+        "parents": [
+          "domain.workflow"
+        ]
+      },
+      {
+        "id": "integration",
+        "parents": []
+      },
+      {
+        "id": "integration.kgdb",
+        "parents": [
+          "integration"
+        ]
+      },
+      {
+        "id": "system",
+        "parents": []
+      },
+      {
+        "id": "system.desk",
+        "parents": [
+          "system"
+        ]
+      }
+    ],
+    "equivalences": {
+      "integration.kgdb": [
+        "knowledge_graph.kgdb"
+      ]
+    }
+  }
+}

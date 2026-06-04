@@ -4,12 +4,40 @@ exports:
   - name: kgdb_graph_bundle
     schema: contracts/schemas/kgdb_graph_bundle.schema.json
 consumes:
-  - name: sldb_document_payload
-    schema: contracts/schemas/sldb_document_payload.schema.json
+  - name: sldb_kgdb_semantic_export
+    schema: contracts/schemas/sldb_kgdb_semantic_export.schema.json
+    version: 1
+    producer: sldb
+    description: Versioned semantic artifacts exported by SLDB for KGDB graph ingestion.
+    generated_graph_contract:
+      node_types:
+        model: sldb_model
+        document: sldb_document
+        section: sldb_section
+        semantic_tag: semantic_tag
+        store: sldb_store
+      relation_types:
+        store_to_model: has_model
+        model_to_document: has_document
+        document_to_section: has_section
+        model_to_tag: tagged_as
+        document_to_tag: tagged_as
+        section_to_tag: tagged_as
+        semantic_child_to_parent: semantic_parent
+        semantic_equivalence: semantic_equivalent
+      provenance_fields:
+        - producer
+        - store.root
+        - store.store_path
+        - store.hash_a
+        - model.hash_b
+        - document.hash_c
+        - document.hash_d
+        - runtime_sources
 compatibility:
   requires:
     sldb:
-      url: /home/jp/proyectos/wikipu-ecosystem/sldb
+      url: /home/jp/proyectos/hum-ecosystem/sldb
       branch: main
       version: ">=0.1.0"
 export_surface:
