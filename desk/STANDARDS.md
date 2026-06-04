@@ -25,3 +25,8 @@ Active implementation planning belongs here.
 2. Every task must include a concrete validation step.
 3. Every task should prefer explicit graph IO over vague architecture language.
 4. Keep `kgdb` dumb: persistence and query belong here; semantic judgment does not.
+
+## Testing
+
+- Run tests from the repository root with plain `pytest`.
+- Resolve repository fixtures from the test file or repository root; do not rely on package-relative working-directory paths.

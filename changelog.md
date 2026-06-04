@@ -17,3 +17,4 @@ All notable changes to this project will be documented in this file.
 - Defined `GraphSnapshot` and `QueryResult` contracts in `kgdb.contracts.io`.
 - Exported new contracts via `kgdb.contracts`.
 - resolved task `005-create-substrate-fixture`: Created `kgdb/desk/fixtures/substrate_v1.json` representing the core ecosystem modules
+- resolved task `007-stabilize-local-test-workflow`: Plain `pytest` now works from the repo root and tests resolve the substrate fixture deterministically.

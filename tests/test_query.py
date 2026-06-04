@@ -4,10 +4,13 @@ import pytest
 from kgdb.main import main
 import sys
 
+REPO_ROOT = Path(__file__).resolve().parents[1]
+SUBSTRATE_FIXTURE = REPO_ROOT / "desk" / "fixtures" / "substrate_v1.json"
+
 def test_query_scoped(tmp_path, monkeypatch):
     """Verify that a scoped query works via CLI."""
     # 1. Ingest substrate to temp file
-    input_fixture = Path("kgdb/desk/fixtures/substrate_v1.json")
+    input_fixture = SUBSTRATE_FIXTURE
     graph_file = tmp_path / "substrate.kg.json"
     
     # Ingest first
@@ -22,10 +25,10 @@ def test_query_scoped(tmp_path, monkeypatch):
     save_graph(graph, graph_file)
     
     # 2. Create a query file
-    # Query for descendants of 'repo://wikipu-ecosystem'
+    # Query for descendants of 'repo://hum-ecosystem'
     query_data = {
         "scope": {
-            "descendant_of": "repo://wikipu-ecosystem"
+            "descendant_of": "repo://hum-ecosystem"
         },
         "filters": []
     }
@@ -50,16 +53,16 @@ def test_query_scoped(tmp_path, monkeypatch):
     output = f.getvalue()
     results = json.loads(output)
     
-    # In the substrate, wikipu-ecosystem contains all other nodes (repos)
-    # nx.descendants(graph, 'repo://wikipu-ecosystem') should return 9 nodes
+    # In the substrate, hum-ecosystem contains all other nodes (repos)
+    # nx.descendants(graph, 'repo://hum-ecosystem') should return 9 nodes
     assert len(results) == 9
     node_ids = [n["identity"]["node_id"] for n in results]
-    assert "repo://wikipu" in node_ids
+    assert "repo://hum" in node_ids
     assert "repo://repopackage" in node_ids
 
 def test_query_filter(tmp_path, monkeypatch):
     """Verify that a filtered query works via CLI."""
-    input_fixture = Path("kgdb/desk/fixtures/substrate_v1.json")
+    input_fixture = SUBSTRATE_FIXTURE
     graph_file = tmp_path / "substrate.kg.json"
     
     # Ingest
@@ -97,4 +100,4 @@ def test_query_filter(tmp_path, monkeypatch):
     
     results = json.loads(f.getvalue())
     assert len(results) == 1
-    assert results[0]["identity"]["node_id"] == "repo://wikipu-ecosystem"
+    assert results[0]["identity"]["node_id"] == "repo://hum-ecosystem"

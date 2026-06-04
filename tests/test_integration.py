@@ -4,6 +4,9 @@ import pytest
 from kgdb.contracts.io import QueryResult
 from kgdb.graph.utils import load_graph, load_knowledge_node
 
+REPO_ROOT = Path(__file__).resolve().parents[1]
+SUBSTRATE_FIXTURE = REPO_ROOT / "desk" / "fixtures" / "substrate_v1.json"
+
 def test_downstream_consumption_contract():
     """
     Prove that kgdb output can be transformed into a Graph UI payload.
@@ -13,7 +16,7 @@ def test_downstream_consumption_contract():
     from kgdb.graph.utils import add_knowledge_node
     import networkx as nx
     
-    graph_path = Path("kgdb/desk/fixtures/substrate_v1.json")
+    graph_path = SUBSTRATE_FIXTURE
     snapshot = GraphSnapshot.model_validate_json(graph_path.read_text())
     
     graph = nx.DiGraph()
@@ -55,9 +58,9 @@ def test_downstream_consumption_contract():
     assert len(ui_payload["edges"]) > 0
     
     # Check one node
-    repo_node = next(n for n in ui_payload["nodes"] if n["id"] == "repo://wikipu-ecosystem")
+    repo_node = next(n for n in ui_payload["nodes"] if n["id"] == "repo://hum-ecosystem")
     assert repo_node["node_type"] == "system"
     
     # Check one edge
-    edge = next(e for e in ui_payload["edges"] if e["source"] == "repo://wikipu-ecosystem" and e["target"] == "repo://kgdb")
+    edge = next(e for e in ui_payload["edges"] if e["source"] == "repo://hum-ecosystem" and e["target"] == "repo://kgdb")
     assert edge["relation_type"] == "contains"
