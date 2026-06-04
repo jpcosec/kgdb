@@ -1,0 +1,63 @@
+{
+  "version": "1.0",
+  "created_at": "2026-06-04T00:00:00Z",
+  "nodes": [
+    {
+      "identity": {
+        "node_id": "deskops://atom/kgdb",
+        "node_type": "atom"
+      },
+      "edges": [
+        { "target_id": "deskops://task/008", "relation_type": "materializes" },
+        { "target_id": "deskops://source/src-kgdb-main", "relation_type": "source_for" }
+      ]
+    },
+    {
+      "identity": {
+        "node_id": "deskops://task/008",
+        "node_type": "task"
+      },
+      "edges": [
+        { "target_id": "deskops://issue/support-vocabulary", "relation_type": "generated_from" },
+        { "target_id": "deskops://test/test-vocabulary", "relation_type": "validates" }
+      ]
+    },
+    {
+      "identity": {
+        "node_id": "deskops://issue/support-vocabulary",
+        "node_type": "issue"
+      },
+      "edges": [
+        { "target_id": "deskops://sldb/model/document", "relation_type": "routes" }
+      ]
+    },
+    {
+      "identity": {
+        "node_id": "deskops://sldb/model/document",
+        "node_type": "sldb_model"
+      },
+      "edges": [
+        { "target_id": "deskops://source/src-kgdb-main", "relation_type": "invokes" }
+      ]
+    },
+    {
+      "identity": {
+        "node_id": "deskops://source/src-kgdb-main",
+        "node_type": "source_file"
+      },
+      "edges": [
+        { "target_id": "deskops://issue/support-vocabulary", "relation_type": "violates" }
+      ]
+    },
+    {
+      "identity": {
+        "node_id": "deskops://test/test-vocabulary",
+        "node_type": "test_file"
+      },
+      "edges": []
+    }
+  ],
+  "metadata": {
+    "description": "Downstream vocabulary fixture proving KGDB stores project-defined node and edge tokens without semantic reasoning."
+  }
+}

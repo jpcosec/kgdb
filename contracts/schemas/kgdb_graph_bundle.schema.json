@@ -3,8 +3,58 @@
   "title": "KGDB Graph Bundle",
   "type": "object",
   "properties": {
-    "nodes": {"type": "array"},
-    "edges": {"type": "array"}
+    "version": {"type": "string"},
+    "created_at": {"type": "string", "format": "date-time"},
+    "nodes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {"type": "string"},
+          "type": {"$ref": "#/$defs/vocabularyTerm"},
+          "identity": {
+            "type": "object",
+            "properties": {
+              "node_id": {"type": "string"},
+              "node_type": {"$ref": "#/$defs/vocabularyTerm"}
+            },
+            "required": ["node_id", "node_type"]
+          },
+          "edges": {
+            "type": "array",
+            "items": {"$ref": "#/$defs/edge"}
+          }
+        }
+      }
+    },
+    "edges": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/edge"}
+    },
+    "links": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/edge"}
+    },
+    "metadata": {"type": "object"}
+  },
+  "$defs": {
+    "vocabularyTerm": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "^[A-Za-z][A-Za-z0-9_.:-]*$",
+      "description": "Downstream-defined graph vocabulary token. KGDB validates token shape but does not assign semantics."
+    },
+    "edge": {
+      "type": "object",
+      "properties": {
+        "source": {"type": "string"},
+        "target": {"type": "string"},
+        "target_id": {"type": "string"},
+        "relation": {"$ref": "#/$defs/vocabularyTerm"},
+        "relation_type": {"$ref": "#/$defs/vocabularyTerm"},
+        "metadata": {"type": "object"}
+      }
+    }
   },
   "required": ["nodes", "edges"]
 }

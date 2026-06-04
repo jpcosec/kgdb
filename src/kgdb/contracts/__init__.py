@@ -11,6 +11,7 @@ _EXPORTS = {
     "QueryResult": "kgdb.contracts.io",
     "SystemIdentity": "kgdb.contracts.base",
     "TransactionManifest": "kgdb.contracts.persistence",
+    "VocabularyTerm": "kgdb.contracts.base",
 }
 
 __all__ = sorted(_EXPORTS)
