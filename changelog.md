@@ -12,6 +12,17 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+### Fixed
+- `load_graph` now produces GraphSnapshot format (task 007).
+- User-facing errors no longer expose raw Python tracebacks (task 008).
+- Ingest commands validate input before processing (task 009).
+- UTF-8 output and exit codes are consistent across all commands (task 010).
+- Help text describes flags, formats, and `--version` is available (task 011).
+
+### Docs
+- Snapshot validation and graph trace surface documented in `README.md`.
+- CLI alignment standards and drift signals documented in `desk/STANDARDS.md`.
+
 ### Added
 - Defined `PersistenceEntry` and `TransactionManifest` contracts in `kgdb.contracts.persistence` for ledger-based graph storage.
 - Defined `GraphSnapshot` and `QueryResult` contracts in `kgdb.contracts.io`.

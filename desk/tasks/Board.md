@@ -19,6 +19,13 @@
 - `desk/tasks/005-create-substrate-fixture.md`
 - `desk/tasks/006-prove-downstream-consumer-contract.md`
 
+### Phase 4 - Stress-Test Corrections *(closed)*
+- `desk/tasks/007-fix-load_graph-graphsnapshot-format.md` ✓
+- `desk/tasks/008-add-user-friendly-error-messages.md` ✓
+- `desk/tasks/009-add-ingest-input-validation.md` ✓
+- `desk/tasks/010-fix-utf8-output-and-exit-code-consistency.md` ✓
+- `desk/tasks/011-improve-cli-discoverability.md` ✓
+
 ## Active
 
 | ID | Domain | Task | Priority | Depends On |
