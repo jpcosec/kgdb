@@ -45,6 +45,7 @@ def sldb_semantic_export_to_snapshot(payload: dict[str, Any]) -> GraphSnapshot:
         nodes.append(_section_node(section, provenance))
 
     return GraphSnapshot(
+        version="1.0",
         nodes=nodes,
         metadata={
             "source_contract": payload["contract"],

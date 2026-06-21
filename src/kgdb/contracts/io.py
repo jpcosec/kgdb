@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from datetime import datetime
+from datetime import datetime, timezone
 from typing import Any
 
 from pydantic import BaseModel, Field
@@ -17,10 +17,10 @@ class GraphSnapshot(BaseModel):
     """
 
     version: str = Field(
-        default="1.0", description="Schema version of the snapshot format."
+        ..., description="Schema version of the snapshot format."
     )
     created_at: datetime = Field(
-        default_factory=datetime.utcnow,
+        default_factory=lambda: datetime.now(timezone.utc),
         description="The UTC timestamp when this snapshot was generated.",
     )
     nodes: list[KnowledgeNode] = Field(

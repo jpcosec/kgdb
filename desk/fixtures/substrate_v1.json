@@ -4,11 +4,11 @@
   "nodes": [
     {
       "identity": {
-        "node_id": "repo://wikipu-ecosystem",
+        "node_id": "repo://hum-ecosystem",
         "node_type": "system"
       },
       "edges": [
-        { "target_id": "repo://wikipu", "relation_type": "contains" },
+        { "target_id": "repo://hum", "relation_type": "contains" },
         { "target_id": "repo://repopackage", "relation_type": "contains" },
         { "target_id": "repo://sldb", "relation_type": "contains" },
         { "target_id": "repo://kgdb", "relation_type": "contains" },
@@ -21,7 +21,7 @@
     },
     {
       "identity": {
-        "node_id": "repo://wikipu",
+        "node_id": "repo://hum",
         "node_type": "directory"
       },
       "edges": [

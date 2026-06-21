@@ -3,46 +3,93 @@
 from __future__ import annotations
 
 import argparse
+import sys
 import json
 from pathlib import Path
+
+from pydantic import ValidationError
 
 from kgdb.graph import load_graph, load_knowledge_node
 from kgdb.query import StructuredQuery, execute_query
 
 
+def _handle_error(e: Exception, context: str = "") -> None:
+    if isinstance(e, FileNotFoundError):
+        print(f"Error: file not found: {e.filename}", file=sys.stderr)
+        sys.exit(1)
+    if isinstance(e, IsADirectoryError):
+        print(f"Error: path is a directory: {e.filename}", file=sys.stderr)
+        sys.exit(1)
+    if isinstance(e, json.JSONDecodeError):
+        filename = getattr(e, "filename", "") or ""
+        if str(filename).endswith(".yaml") or str(filename).endswith(".yml"):
+             print(f"Error: YAML not supported, use JSON: {filename}", file=sys.stderr)
+             sys.exit(1)
+        print("Error: invalid JSON", file=sys.stderr)
+        sys.exit(1)
+    if isinstance(e, ValidationError) and context == "ingest":
+        print("Error: validation failed. If this is an SLDB export, use `ingest-sldb` command instead.", file=sys.stderr)
+        sys.exit(1)
+    print(f"Error: {e}", file=sys.stderr)
+    sys.exit(1)
+
 def _build_parser() -> argparse.ArgumentParser:
-    parser = argparse.ArgumentParser(prog="kgdb")
-    subparsers = parser.add_subparsers(dest="command", required=True)
+    class _NoDuplicateAction(argparse.Action):
+        def __call__(self, parser, namespace, values, option_string=None):
+            if getattr(namespace, self.dest, None) is not None:
+                parser.error(f"argument {option_string}: not allowed multiple times")
+            setattr(namespace, self.dest, values)
 
-    get_parser = subparsers.add_parser("get")
-    get_parser.add_argument("--graph", required=True)
-    get_parser.add_argument("--node", required=True)
+    from kgdb import __version__
 
-    list_parser = subparsers.add_parser("list")
-    list_parser.add_argument("--graph", required=True)
+    parser = argparse.ArgumentParser(
+        prog="kgdb",
+        description="Knowledge Graph Database (KGDB) command line interface."
+    )
+    parser.add_argument(
+        "--version", action="version", version=f"%(prog)s {__version__}"
+    )
+    subparsers = parser.add_subparsers(dest="command", required=True, description="Available commands")
 
-    query_parser = subparsers.add_parser("query")
-    query_parser.add_argument("--graph", required=True)
-    query_parser.add_argument("--query-file", required=True)
+    get_parser = subparsers.add_parser("get", help="Get a specific node from the graph")
+    get_parser.add_argument("--graph", required=True, action=_NoDuplicateAction, help="Path to the JSON graph file")
+    get_parser.add_argument("--node", required=True, action=_NoDuplicateAction, help="ID of the node to retrieve")
 
-    edges_parser = subparsers.add_parser("edges")
-    edges_parser.add_argument("--graph", required=True)
-    edges_parser.add_argument("--node", required=True)
+    list_parser = subparsers.add_parser("list", help="List all node IDs in the graph")
+    list_parser.add_argument("--graph", required=True, action=_NoDuplicateAction, help="Path to the JSON graph file")
 
-    ingest_parser = subparsers.add_parser("ingest")
-    ingest_parser.add_argument("--input", required=True)
-    ingest_parser.add_argument("--output", required=True)
+    query_parser = subparsers.add_parser("query", help="Query the graph using a declarative JSON query file")
+    query_parser.add_argument("--graph", required=True, action=_NoDuplicateAction, help="Path to the JSON graph file")
+    query_parser.add_argument(
+        "--query-file",
+        required=True,
+        action=_NoDuplicateAction,
+        help="Path to a JSON file containing the query definition (e.g., node identity filters or graph scope/neighborhood rules)"
+    )
 
-    ingest_sldb_parser = subparsers.add_parser("ingest-sldb")
-    ingest_sldb_parser.add_argument("--input", required=True)
-    ingest_sldb_parser.add_argument("--output", required=True)
+    edges_parser = subparsers.add_parser("edges", help="Get outbound edges for a specific node")
+    edges_parser.add_argument("--graph", required=True, action=_NoDuplicateAction, help="Path to the JSON graph file")
+    edges_parser.add_argument("--node", required=True, action=_NoDuplicateAction, help="ID of the source node")
+
+    ingest_parser = subparsers.add_parser("ingest", help="Ingest a GraphSnapshot format payload into a persistent networkx graph")
+    ingest_parser.add_argument("--input", required=True, action=_NoDuplicateAction, help="Path to the input JSON file (must be GraphSnapshot format)")
+    ingest_parser.add_argument("--output", required=True, action=_NoDuplicateAction, help="Path where the output networkx JSON graph will be saved")
+
+    ingest_sldb_parser = subparsers.add_parser("ingest-sldb", help="Ingest an SLDB semantic export payload into a persistent networkx graph")
+    ingest_sldb_parser.add_argument("--input", required=True, action=_NoDuplicateAction, help="Path to the input JSON file (must be sldb_kgdb_semantic_export format)")
+    ingest_sldb_parser.add_argument("--output", required=True, action=_NoDuplicateAction, help="Path where the output networkx JSON graph will be saved")
 
     return parser
 
 
 def _load_query(query_file: Path) -> StructuredQuery:
-    data = json.loads(query_file.read_text(encoding="utf-8"))
-    return StructuredQuery.model_validate(data)
+    try:
+        data = json.loads(query_file.read_text(encoding="utf-8"))
+        return StructuredQuery.model_validate(data)
+    except Exception as e:
+        if isinstance(e, json.JSONDecodeError):
+            e.filename = query_file
+        _handle_error(e)
 
 
 def main() -> None:
@@ -54,15 +101,45 @@ def main() -> None:
         from kgdb.graph.utils import add_knowledge_node, save_graph
         import networkx as nx
         
-        data = json.loads(Path(args.input).read_text(encoding="utf-8"))
-        snapshot = GraphSnapshot.model_validate(data)
-        
-        graph = nx.DiGraph()
-        for node in snapshot.nodes:
-            add_knowledge_node(graph, node)
+        try:
+            input_path = Path(args.input)
+            data = json.loads(input_path.read_text(encoding="utf-8"))
+            if "version" not in data:
+                print("Error: missing version field in graph snapshot", file=sys.stderr)
+                sys.exit(1)
             
-        save_graph(graph, Path(args.output))
-        print(f"Ingested {len(snapshot.nodes)} nodes to {args.output}")
+            if data["version"] not in ("1.0", "1"):
+                try:
+                    v = float(data["version"])
+                    if v > 1.0:
+                        print(f"Error: unsupported version '{data['version']}'", file=sys.stderr)
+                        sys.exit(1)
+                    else:
+                        print(f"Error: invalid version format: {data['version']}", file=sys.stderr)
+                        sys.exit(1)
+                except ValueError:
+                    print(f"Error: invalid version format: {data['version']}", file=sys.stderr)
+                    sys.exit(1)
+
+            snapshot = GraphSnapshot.model_validate(data)
+            
+            # Check for dangling edges
+            node_ids = {node.identity.node_id for node in snapshot.nodes}
+            for node in snapshot.nodes:
+                for edge in node.edges:
+                    if edge.target_id not in node_ids:
+                        print(f"Warning: dangling edge from '{node.identity.node_id}' to nonexistent node '{edge.target_id}'", file=sys.stderr)
+                        
+            graph = nx.DiGraph()
+            for node in snapshot.nodes:
+                add_knowledge_node(graph, node)
+                
+            save_graph(graph, Path(args.output))
+            print(f"Ingested {len(snapshot.nodes)} nodes to {args.output}")
+        except Exception as e:
+            if isinstance(e, json.JSONDecodeError):
+                e.filename = input_path
+            _handle_error(e, context="ingest")
         return
 
     if args.command == "ingest-sldb":
@@ -70,40 +147,82 @@ def main() -> None:
         from kgdb.ingest import sldb_semantic_export_to_snapshot
         import networkx as nx
 
-        data = json.loads(Path(args.input).read_text(encoding="utf-8"))
-        snapshot = sldb_semantic_export_to_snapshot(data)
+        try:
+            input_path = Path(args.input)
+            data = json.loads(input_path.read_text(encoding="utf-8"))
+            snapshot = sldb_semantic_export_to_snapshot(data)
 
-        graph = nx.DiGraph()
-        for node in snapshot.nodes:
-            add_knowledge_node(graph, node)
+            # Check for dangling edges
+            node_ids = {node.identity.node_id for node in snapshot.nodes}
+            for node in snapshot.nodes:
+                for edge in node.edges:
+                    if edge.target_id not in node_ids:
+                        print(f"Warning: dangling edge from '{node.identity.node_id}' to nonexistent node '{edge.target_id}'", file=sys.stderr)
 
-        save_graph(graph, Path(args.output))
-        print(f"Ingested {len(snapshot.nodes)} SLDB semantic nodes to {args.output}")
+            graph = nx.DiGraph()
+            for node in snapshot.nodes:
+                add_knowledge_node(graph, node)
+
+            save_graph(graph, Path(args.output))
+            print(f"Ingested {len(snapshot.nodes)} SLDB semantic nodes to {args.output}")
+        except Exception as e:
+            if isinstance(e, json.JSONDecodeError):
+                e.filename = input_path
+            _handle_error(e)
         return
 
-    graph = load_graph(Path(args.graph))
+    try:
+        graph_path = Path(args.graph)
+        try:
+            # Need to trigger read_text to catch IsADirectoryError and FileNotFoundError consistently here
+            graph_path.read_text(encoding="utf-8")
+        except IsADirectoryError as e:
+            raise
+        except FileNotFoundError as e:
+            raise
+        
+        graph = load_graph(graph_path)
+    except Exception as e:
+        if isinstance(e, json.JSONDecodeError):
+            e.filename = graph_path
+        _handle_error(e)
 
-    if args.command == "get":
-        node = load_knowledge_node(graph, args.node)
-        print(json.dumps(node.model_dump(), indent=2))
-        return
+    try:
+        if args.command == "get":
+            node = load_knowledge_node(graph, args.node)
+            try:
+                print(json.dumps(node.model_dump(), indent=2, ensure_ascii=False))
+            except BrokenPipeError:
+                pass
+            return
 
-    if args.command == "list":
-        print(json.dumps(sorted(graph.nodes), indent=2))
-        return
+        if args.command == "list":
+            try:
+                print(json.dumps(sorted(graph.nodes), indent=2, ensure_ascii=False))
+            except BrokenPipeError:
+                pass
+            return
 
-    if args.command == "query":
-        query = _load_query(Path(args.query_file))
-        nodes = [node.model_dump() for node in execute_query(graph, query)]
-        print(json.dumps(nodes, indent=2))
-        return
+        if args.command == "query":
+            query = _load_query(Path(args.query_file))
+            nodes = [node.model_dump() for node in execute_query(graph, query)]
+            try:
+                print(json.dumps(nodes, indent=2, ensure_ascii=False))
+            except BrokenPipeError:
+                pass
+            return
 
-    if args.command == "edges":
-        edges = []
-        for _, target, data in graph.out_edges(args.node, data=True):
-            edges.append({"target_id": target, **data})
-        print(json.dumps(edges, indent=2))
-        return
+        if args.command == "edges":
+            edges = []
+            for _, target, data in graph.out_edges(args.node, data=True):
+                edges.append({"target_id": target, **data})
+            try:
+                print(json.dumps(edges, indent=2, ensure_ascii=False))
+            except BrokenPipeError:
+                pass
+            return
+    except Exception as e:
+        _handle_error(e)
 
     parser.error(f"Unknown command: {args.command}")
 

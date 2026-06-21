@@ -34,8 +34,46 @@ def add_knowledge_node(graph: nx.DiGraph, node: KnowledgeNode) -> None:
 def load_graph(graph_path: Path) -> nx.DiGraph:
     """
     Loads a Knowledge Graph from a JSON file into a NetworkX DiGraph instance.
+    Supports both NetworkX node-link format and native GraphSnapshot format.
     """
     data = json.loads(graph_path.read_text(encoding="utf-8"))
+    
+    # Check if this is a GraphSnapshot format (has 'nodes' but no top-level 'links'/'edges')
+    if "nodes" in data and "links" not in data and "edges" not in data:
+        graph = nx.DiGraph()
+        for node_data in data["nodes"]:
+            # Handle possible KnowledgeNode dict parsing
+            node_id = node_data.get("identity", {}).get("node_id")
+            if not node_id:
+                continue
+                
+            node_type = node_data.get("identity", {}).get("node_type", "concept")
+            
+            # The schema is stored on the node in add_knowledge_node
+            status = "unknown"
+            if "compliance" in node_data and isinstance(node_data["compliance"], dict):
+                status = node_data["compliance"].get("status", "unknown")
+                
+            graph.add_node(
+                node_id,
+                type=node_type,
+                status=status,
+                schema=node_data,
+            )
+            
+            # Process edges nested inside the node
+            for edge in node_data.get("edges", []):
+                target_id = edge.get("target_id")
+                if target_id:
+                    graph.add_edge(
+                        node_id,
+                        target_id,
+                        relation=edge.get("relation_type"),
+                        metadata=edge.get("metadata", {}),
+                    )
+        return graph
+        
+    # Fallback to standard NetworkX format
     edge_key = "links" if "links" in data else "edges"
     return json_graph.node_link_graph(data, edges=edge_key)
 

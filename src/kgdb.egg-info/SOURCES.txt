@@ -15,6 +15,8 @@ src/kgdb/contracts/node.py
 src/kgdb/contracts/persistence.py
 src/kgdb/graph/__init__.py
 src/kgdb/graph/utils.py
+src/kgdb/ingest/__init__.py
+src/kgdb/ingest/sldb.py
 src/kgdb/query/__init__.py
 src/kgdb/query/executor.py
 src/kgdb/query/language.py
@@ -23,3 +25,7 @@ src/kgdb/query/server.py
 tests/test_ingest.py
 tests/test_integration.py
 tests/test_query.py
+tests/test_sldb_semantic_contract.py
+tests/test_sldb_semantic_ingest.py
+tests/test_sldb_semantic_query_examples.py
+tests/test_vocabulary.py

@@ -1,0 +1,17 @@
+---
+id: edge-task-graph-trace-query-surface-cli-and-python-api-activate-to-testing
+status: active
+source: operator-task-graph-trace-query-surface-cli-and-python-api-activate
+target: checklist-task-graph-trace-query-surface-cli-and-python-api-testing-ready
+condition_ref: ''
+tags:
+- primitive:edge
+---
+
+# Activation to testing gate
+
+## Summary
+
+_Summarize the transition this edge represents._
+
+Activation complete.

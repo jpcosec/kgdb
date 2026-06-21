@@ -56,5 +56,5 @@
       }
     }
   },
-  "required": ["nodes", "edges"]
+  "required": ["nodes"]
 }
