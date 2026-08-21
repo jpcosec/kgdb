@@ -32,6 +32,24 @@ class GraphScope(BaseModel):
     node_id_prefix: str | None = None
 
 
+class RelationFilter(BaseModel):
+    """Filter edges by relation_type membership and direction."""
+
+    relation_types: list[str] = Field(
+        default_factory=list,
+        description="Allow-list of relation types; empty = all types pass through.",
+    )
+    direction: Literal["outgoing", "incoming", "both"] = Field(
+        default="both",
+        description=(
+            "Which edges to consider relative to the source node. "
+            "'outgoing' = edges where this node is the source. "
+            "'incoming' = edges where this node is the target. "
+            "'both' = all edges."
+        ),
+    )
+
+
 class StructuredQuery(BaseModel):
     """
     A typed query over the knowledge graph.
@@ -39,7 +57,12 @@ class StructuredQuery(BaseModel):
     Single-facet:  one FacetFilter  -> answers one-dimensional questions.
     Compound:      multiple filters -> intersection, answers multi-dimensional questions.
     Scoped:        with GraphScope  -> restricts to a region of the graph.
+    Relation:      one or more RelationFilters -> filters which edges are returned.
     """
 
     filters: list[FacetFilter] = Field(default_factory=list)
+    relations: list[RelationFilter] = Field(
+        default_factory=list,
+        description="Filter edges by relation_type. Empty list = no edge filtering applied.",
+    )
     scope: GraphScope | None = None

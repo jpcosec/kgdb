@@ -13,7 +13,9 @@ from typing import IO
 
 import networkx as nx
 
-from .adapters import StructuredQuery, execute_query, load_graph, load_knowledge_node
+from kgdb.query.language import StructuredQuery
+from kgdb.query.executor import execute_query
+from kgdb.graph.utils import load_graph, load_knowledge_node
 
 
 def serve_structured_queries(

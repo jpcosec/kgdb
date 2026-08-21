@@ -29,6 +29,26 @@ Use KGDB to:
 
 KGDB is intentionally dumb. It stores and traverses graph facts; it does not decide whether SLDB's semantic interpretation is correct.
 
+### Snapshot validation
+
+KGDB owns snapshot validation. Invalid snapshots must be caught before they propagate to downstream consumers or drift checks. Validation must:
+
+- Report specific contract violations (missing fields, wrong types, unknown node/edge types).
+- Never crash on malformed input.
+- Apply to all ingest paths (`ingest`, `ingest-sldb`) consistently.
+
+Consumers (deskops, hum, truth_machine) should call KGDB's validation API, not parse raw snapshot JSON themselves.
+
+### Graph trace surface
+
+KGDB's query surface includes graph traceability: resolving relationships between atoms, files, documents, tests, and other graph nodes. Deskops lifecycle gates and drift checks consume this surface.
+
+The trace surface must:
+
+- Handle missing nodes, disconnected graphs, and edge cases gracefully without crashing.
+- Be available through both the CLI (`kgdb query`, `kgdb get`, `kgdb edges`) and the Python API.
+- Not require downstream consumers to understand internal NetworkX serialization details.
+
 ## Non-Goals
 
 KGDB does not own:

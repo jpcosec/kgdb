@@ -6,9 +6,9 @@ from typing import Any
 
 import networkx as nx
 
-from kgdb.contracts import KnowledgeNode
+from kgdb.contracts import Edge, KnowledgeNode
 from kgdb.graph import load_knowledge_node
-from kgdb.query.language import FacetFilter, FieldCondition, GraphScope, StructuredQuery
+from kgdb.query.language import FacetFilter, FieldCondition, GraphScope, RelationFilter, StructuredQuery
 
 
 def execute_query(graph: nx.DiGraph, query: StructuredQuery) -> list[KnowledgeNode]:
@@ -18,6 +18,7 @@ def execute_query(graph: nx.DiGraph, query: StructuredQuery) -> list[KnowledgeNo
     for node_id in candidate_ids:
         node = load_knowledge_node(graph, node_id)
         if all(_facet_matches(node, facet_filter) for facet_filter in query.filters):
+            _apply_relation_filters(node, graph, query.relations)
             results.append(node)
     return results
 
@@ -97,3 +98,48 @@ def _resolve_field(facet_value: object, field: str) -> Any:
         non_null = [value for value in values if value is not None]
         return non_null[0] if non_null else None
     return getattr(facet_value, field, None)
+
+
+def _apply_relation_filters(
+    node: KnowledgeNode, graph: nx.DiGraph, relation_filters: list[RelationFilter]
+) -> None:
+    """Filter a node's edges in-place based on RelationFilter constraints.
+
+    When no relation filters are provided, all edges are kept unchanged.
+    When multiple filters are provided, an edge matching *any* filter passes.
+    Within a single filter, relation_types (allow-list) and direction are both
+    enforced. Empty relation_types = no type filtering (all types pass).
+    """
+    if not relation_filters:
+        return
+
+    allowed_outgoing = _collect_allowed_types(relation_filters)
+    filtered: list[Edge] = []
+
+    for edge in node.edges:
+        for rf in relation_filters:
+            if not _edge_matches_filter(edge, rf, allowed_outgoing):
+                continue
+            filtered.append(edge)
+            break
+
+    node.edges = filtered
+
+
+def _collect_allowed_types(relation_filters: list[RelationFilter]) -> set[str] | None:
+    """Collect all allowed relation types across filters. None = no type filtering."""
+    all_types: set[str] = set()
+    for rf in relation_filters:
+        if not rf.relation_types:
+            return None  # Any filter with empty list = all types pass
+        all_types.update(rf.relation_types)
+    return all_types
+
+
+def _edge_matches_filter(
+    edge: Edge, rf: RelationFilter, allowed_types: set[str] | None
+) -> bool:
+    """Check if a single edge satisfies one RelationFilter."""
+    if allowed_types is not None and edge.relation_type not in allowed_types:
+        return False
+    return True

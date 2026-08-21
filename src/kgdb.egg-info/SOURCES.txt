@@ -24,6 +24,7 @@ src/kgdb/query/neighborhood.py
 src/kgdb/query/server.py
 tests/test_ingest.py
 tests/test_integration.py
+tests/test_io.py
 tests/test_query.py
 tests/test_sldb_semantic_contract.py
 tests/test_sldb_semantic_ingest.py
