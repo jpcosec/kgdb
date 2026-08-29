@@ -1,11 +1,14 @@
----
-kind: suggestion
-sender_project: graph_ui
-created_at: 2026-08-28T22:11:00
-status: open
----
-
 # Relation-as-first-class + express gemini_test flow view as a lens over kgdb
+
+ID: task-relation-as-first-class-express-gemini-test-flow-view-as-a-lens-over-kgdb
+Status: deferred
+Priority: medium
+
+## Goal
+
+Triage and resolve the inbox message promoted from `desk/inbox/20260828-220340-suggestion-relation-model-and-flow-lens-over-kgdb.md`.
+
+## Scope
 
 Origen: análisis de arquitectura en graph_ui. Specs en
 `graph_ui/desk/drawer/RELATION_MODEL_LAYER_SPEC.md` y
@@ -48,3 +51,11 @@ La pieza (2) necesita que ConversationStep esté disponible como node type en
 graph_ui (ya resuelto: build-time generator sldb-model -> NodeTypeDefinition,
 commit 8123184 en graph_ui) y un export sldb->GraphSnapshot real. GUARDRAIL: sin
 mocks — requiere GraphSnapshot real, no fixtures fabricados.
+
+## Source
+
+- `desk/inbox/20260828-220340-suggestion-relation-model-and-flow-lens-over-kgdb.md`
+
+## Done When
+
+- The message is resolved, answered, or promoted into active work.
