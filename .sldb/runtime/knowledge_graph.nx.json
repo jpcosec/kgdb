@@ -1,0 +1,3177 @@
+{
+  "directed": true,
+  "multigraph": false,
+  "graph": {},
+  "nodes": [
+    {
+      "type": "atom",
+      "status": "unknown",
+      "schema": {
+        "identity": {
+          "node_id": "atom:atom-kgdb",
+          "node_type": "atom"
+        },
+        "edges": [],
+        "semantics": {
+          "aliases": [
+            "atom-kgdb"
+          ],
+          "atom_id": "atom-kgdb",
+          "five_wh_one_plus": [],
+          "identity": "atom-kgdb",
+          "label": "atom-kgdb",
+          "path": "desk/atoms/atom-kgdb.md",
+          "tags": [],
+          "title": "atom-kgdb"
+        },
+        "ast": null,
+        "io_ports": [],
+        "compliance": null,
+        "adr": null,
+        "test_map": null,
+        "git": null,
+        "source": {
+          "extractor": "deskops_kgdb_snapshot_v1",
+          "provenance": [
+            {
+              "extractor": "desk_kgdb_coverage_v1",
+              "path": "desk/atoms/atom-kgdb.md",
+              "source_kind": "atom_frontmatter"
+            }
+          ]
+        }
+      },
+      "id": "atom:atom-kgdb"
+    },
+    {
+      "type": "atom",
+      "status": "unknown",
+      "schema": {
+        "identity": {
+          "node_id": "atom:desk/atoms/atom-kgdb.md",
+          "node_type": "atom"
+        },
+        "edges": [],
+        "semantics": {
+          "identity": "desk/atoms/atom-kgdb.md",
+          "label": "KGDB",
+          "path": "desk/atoms/atom-kgdb.md"
+        },
+        "ast": null,
+        "io_ports": [],
+        "compliance": null,
+        "adr": null,
+        "test_map": null,
+        "git": null,
+        "source": {
+          "extractor": "deskops_kgdb_snapshot_v1",
+          "provenance": [
+            {
+              "extractor": "desk_doc_nodes_v1",
+              "path": "desk/atoms/atom-kgdb.md",
+              "source_kind": "file_metadata"
+            }
+          ]
+        }
+      },
+      "id": "atom:desk/atoms/atom-kgdb.md"
+    },
+    {
+      "type": "config_file",
+      "status": "unknown",
+      "schema": {
+        "identity": {
+          "node_id": "config_file:desk/atoms/tag-namespaces.yaml",
+          "node_type": "config_file"
+        },
+        "edges": [],
+        "semantics": {
+          "file_kind": "config",
+          "identity": "desk/atoms/tag-namespaces.yaml",
+          "path": "desk/atoms/tag-namespaces.yaml"
+        },
+        "ast": null,
+        "io_ports": [],
+        "compliance": null,
+        "adr": null,
+        "test_map": null,
+        "git": null,
+        "source": {
+          "extractor": "deskops_kgdb_snapshot_v1",
+          "provenance": [
+            {
+              "extractor": "desk_source_file_nodes_v1",
+              "path": "desk/atoms/tag-namespaces.yaml",
+              "source_kind": "path_rule"
+            }
+          ]
+        }
+      },
+      "id": "config_file:desk/atoms/tag-namespaces.yaml"
+    },
+    {
+      "type": "config_file",
+      "status": "unknown",
+      "schema": {
+        "identity": {
+          "node_id": "config_file:pyproject.toml",
+          "node_type": "config_file"
+        },
+        "edges": [],
+        "semantics": {
+          "file_kind": "config",
+          "identity": "pyproject.toml",
+          "path": "pyproject.toml"
+        },
+        "ast": null,
+        "io_ports": [],
+        "compliance": null,
+        "adr": null,
+        "test_map": null,
+        "git": null,
+        "source": {
+          "extractor": "deskops_kgdb_snapshot_v1",
+          "provenance": [
+            {
+              "extractor": "desk_source_file_nodes_v1",
+              "path": "pyproject.toml",
+              "source_kind": "path_rule"
+            }
+          ]
+        }
+      },
+      "id": "config_file:pyproject.toml"
+    },
+    {
+      "type": "drawer_task",
+      "status": "unknown",
+      "schema": {
+        "identity": {
+          "node_id": "drawer_task:desk/drawer/tasks/task-relation-as-first-class-express-gemini-test-flow-view-as-a-lens-over-kgdb.md",
+          "node_type": "drawer_task"
+        },
+        "edges": [],
+        "semantics": {
+          "document_id": "task-relation-as-first-class-express-gemini-test-flow-view-as-a-lens-over-kgdb",
+          "identity": "desk/drawer/tasks/task-relation-as-first-class-express-gemini-test-flow-view-as-a-lens-over-kgdb.md",
+          "label": "Relation-as-first-class + express gemini_test flow view as a lens over kgdb",
+          "path": "desk/drawer/tasks/task-relation-as-first-class-express-gemini-test-flow-view-as-a-lens-over-kgdb.md"
+        },
+        "ast": null,
+        "io_ports": [],
+        "compliance": null,
+        "adr": null,
+        "test_map": null,
+        "git": null,
+        "source": {
+          "extractor": "deskops_kgdb_snapshot_v1",
+          "provenance": [
+            {
+              "extractor": "desk_doc_nodes_v1",
+              "path": "desk/drawer/tasks/task-relation-as-first-class-express-gemini-test-flow-view-as-a-lens-over-kgdb.md",
+              "source_kind": "file_metadata"
+            }
+          ]
+        }
+      },
+      "id": "drawer_task:desk/drawer/tasks/task-relation-as-first-class-express-gemini-test-flow-view-as-a-lens-over-kgdb.md"
+    },
+    {
+      "type": "facet",
+      "status": "unknown",
+      "schema": {
+        "identity": {
+          "node_id": "facet:how",
+          "node_type": "facet"
+        },
+        "edges": [],
+        "semantics": {
+          "description": "W5H1 facet how",
+          "facet": "how",
+          "source_field": "atom.five_wh_one_plus"
+        },
+        "ast": null,
+        "io_ports": [],
+        "compliance": null,
+        "adr": null,
+        "test_map": null,
+        "git": null,
+        "source": {
+          "extractor": "deskops_kgdb_snapshot_v1",
+          "provenance": [
+            {
+              "extractor": "desk_kgdb_coverage_v1",
+              "path": ".",
+              "source_kind": "coverage_facet"
+            }
+          ]
+        }
+      },
+      "id": "facet:how"
+    },
+    {
+      "type": "facet",
+      "status": "unknown",
+      "schema": {
+        "identity": {
+          "node_id": "facet:what",
+          "node_type": "facet"
+        },
+        "edges": [],
+        "semantics": {
+          "description": "W5H1 facet what",
+          "facet": "what",
+          "source_field": "atom.five_wh_one_plus"
+        },
+        "ast": null,
+        "io_ports": [],
+        "compliance": null,
+        "adr": null,
+        "test_map": null,
+        "git": null,
+        "source": {
+          "extractor": "deskops_kgdb_snapshot_v1",
+          "provenance": [
+            {
+              "extractor": "desk_kgdb_coverage_v1",
+              "path": ".",
+              "source_kind": "coverage_facet"
+            }
+          ]
+        }
+      },
+      "id": "facet:what"
+    },
+    {
+      "type": "facet",
+      "status": "unknown",
+      "schema": {
+        "identity": {
+          "node_id": "facet:when",
+          "node_type": "facet"
+        },
+        "edges": [],
+        "semantics": {
+          "description": "W5H1 facet when",
+          "facet": "when",
+          "source_field": "atom.five_wh_one_plus"
+        },
+        "ast": null,
+        "io_ports": [],
+        "compliance": null,
+        "adr": null,
+        "test_map": null,
+        "git": null,
+        "source": {
+          "extractor": "deskops_kgdb_snapshot_v1",
+          "provenance": [
+            {
+              "extractor": "desk_kgdb_coverage_v1",
+              "path": ".",
+              "source_kind": "coverage_facet"
+            }
+          ]
+        }
+      },
+      "id": "facet:when"
+    },
+    {
+      "type": "facet",
+      "status": "unknown",
+      "schema": {
+        "identity": {
+          "node_id": "facet:where",
+          "node_type": "facet"
+        },
+        "edges": [],
+        "semantics": {
+          "description": "W5H1 facet where",
+          "facet": "where",
+          "source_field": "atom.five_wh_one_plus"
+        },
+        "ast": null,
+        "io_ports": [],
+        "compliance": null,
+        "adr": null,
+        "test_map": null,
+        "git": null,
+        "source": {
+          "extractor": "deskops_kgdb_snapshot_v1",
+          "provenance": [
+            {
+              "extractor": "desk_kgdb_coverage_v1",
+              "path": ".",
+              "source_kind": "coverage_facet"
+            }
+          ]
+        }
+      },
+      "id": "facet:where"
+    },
+    {
+      "type": "facet",
+      "status": "unknown",
+      "schema": {
+        "identity": {
+          "node_id": "facet:who",
+          "node_type": "facet"
+        },
+        "edges": [],
+        "semantics": {
+          "description": "W5H1 facet who",
+          "facet": "who",
+          "source_field": "atom.five_wh_one_plus"
+        },
+        "ast": null,
+        "io_ports": [],
+        "compliance": null,
+        "adr": null,
+        "test_map": null,
+        "git": null,
+        "source": {
+          "extractor": "deskops_kgdb_snapshot_v1",
+          "provenance": [
+            {
+              "extractor": "desk_kgdb_coverage_v1",
+              "path": ".",
+              "source_kind": "coverage_facet"
+            }
+          ]
+        }
+      },
+      "id": "facet:who"
+    },
+    {
+      "type": "facet",
+      "status": "unknown",
+      "schema": {
+        "identity": {
+          "node_id": "facet:why",
+          "node_type": "facet"
+        },
+        "edges": [],
+        "semantics": {
+          "description": "W5H1 facet why",
+          "facet": "why",
+          "source_field": "atom.five_wh_one_plus"
+        },
+        "ast": null,
+        "io_ports": [],
+        "compliance": null,
+        "adr": null,
+        "test_map": null,
+        "git": null,
+        "source": {
+          "extractor": "deskops_kgdb_snapshot_v1",
+          "provenance": [
+            {
+              "extractor": "desk_kgdb_coverage_v1",
+              "path": ".",
+              "source_kind": "coverage_facet"
+            }
+          ]
+        }
+      },
+      "id": "facet:why"
+    },
+    {
+      "type": "issue",
+      "status": "unknown",
+      "schema": {
+        "identity": {
+          "node_id": "issue:define-sldb-semantic-ingest-contract",
+          "node_type": "issue"
+        },
+        "edges": [],
+        "semantics": {
+          "identity": "define-sldb-semantic-ingest-contract",
+          "label": "Define SLDB semantic ingest contract",
+          "path": "desk/drawer/issues/issue-define-sldb-semantic-ingest-contract.md"
+        },
+        "ast": null,
+        "io_ports": [],
+        "compliance": null,
+        "adr": null,
+        "test_map": null,
+        "git": null,
+        "source": {
+          "extractor": "deskops_kgdb_snapshot_v1",
+          "provenance": [
+            {
+              "extractor": "desk_doc_nodes_v1",
+              "path": "desk/drawer/issues/issue-define-sldb-semantic-ingest-contract.md",
+              "source_kind": "file_metadata"
+            }
+          ]
+        }
+      },
+      "id": "issue:define-sldb-semantic-ingest-contract"
+    },
+    {
+      "type": "issue",
+      "status": "unknown",
+      "schema": {
+        "identity": {
+          "node_id": "issue:fix-fixture-paths-in-tests",
+          "node_type": "issue"
+        },
+        "edges": [],
+        "semantics": {
+          "identity": "fix-fixture-paths-in-tests",
+          "label": "Fix fixture paths in tests",
+          "path": "desk/drawer/issues/issue-fix-fixture-paths-in-tests.md"
+        },
+        "ast": null,
+        "io_ports": [],
+        "compliance": null,
+        "adr": null,
+        "test_map": null,
+        "git": null,
+        "source": {
+          "extractor": "deskops_kgdb_snapshot_v1",
+          "provenance": [
+            {
+              "extractor": "desk_doc_nodes_v1",
+              "path": "desk/drawer/issues/issue-fix-fixture-paths-in-tests.md",
+              "source_kind": "file_metadata"
+            }
+          ]
+        }
+      },
+      "id": "issue:fix-fixture-paths-in-tests"
+    },
+    {
+      "type": "issue",
+      "status": "unknown",
+      "schema": {
+        "identity": {
+          "node_id": "issue:fix-test-import-path-for-local-pytest",
+          "node_type": "issue"
+        },
+        "edges": [
+          {
+            "target_id": "test_file:tests/test_ingest.py",
+            "relation_type": "references",
+            "metadata": {
+              "confidence": "high",
+              "extractor": "desk_declared_edges_v1",
+              "provenance_locator": "line:21:source-file-reference",
+              "provenance_path": "desk/drawer/issues/issue-fix-test-import-path-for-local-pytest.md",
+              "role": "references",
+              "source_kind": "declared"
+            }
+          },
+          {
+            "target_id": "test_file:tests/test_integration.py",
+            "relation_type": "references",
+            "metadata": {
+              "confidence": "high",
+              "extractor": "desk_declared_edges_v1",
+              "provenance_locator": "line:21:source-file-reference",
+              "provenance_path": "desk/drawer/issues/issue-fix-test-import-path-for-local-pytest.md",
+              "role": "references",
+              "source_kind": "declared"
+            }
+          },
+          {
+            "target_id": "test_file:tests/test_query.py",
+            "relation_type": "references",
+            "metadata": {
+              "confidence": "high",
+              "extractor": "desk_declared_edges_v1",
+              "provenance_locator": "line:21:source-file-reference",
+              "provenance_path": "desk/drawer/issues/issue-fix-test-import-path-for-local-pytest.md",
+              "role": "references",
+              "source_kind": "declared"
+            }
+          }
+        ],
+        "semantics": {
+          "identity": "fix-test-import-path-for-local-pytest",
+          "label": "Fix test import path for local pytest",
+          "path": "desk/drawer/issues/issue-fix-test-import-path-for-local-pytest.md"
+        },
+        "ast": null,
+        "io_ports": [],
+        "compliance": null,
+        "adr": null,
+        "test_map": null,
+        "git": null,
+        "source": {
+          "extractor": "deskops_kgdb_snapshot_v1",
+          "provenance": [
+            {
+              "extractor": "desk_doc_nodes_v1",
+              "path": "desk/drawer/issues/issue-fix-test-import-path-for-local-pytest.md",
+              "source_kind": "file_metadata"
+            }
+          ]
+        }
+      },
+      "id": "issue:fix-test-import-path-for-local-pytest"
+    },
+    {
+      "type": "test_file",
+      "status": "unknown",
+      "schema": {
+        "identity": {
+          "node_id": "test_file:tests/test_ingest.py",
+          "node_type": "test_file"
+        },
+        "edges": [],
+        "semantics": {
+          "file_kind": "test",
+          "identity": "tests/test_ingest.py",
+          "path": "tests/test_ingest.py"
+        },
+        "ast": null,
+        "io_ports": [],
+        "compliance": null,
+        "adr": null,
+        "test_map": null,
+        "git": null,
+        "source": {
+          "extractor": "deskops_kgdb_snapshot_v1",
+          "provenance": [
+            {
+              "extractor": "desk_source_file_nodes_v1",
+              "path": "tests/test_ingest.py",
+              "source_kind": "path_rule"
+            }
+          ]
+        }
+      },
+      "id": "test_file:tests/test_ingest.py"
+    },
+    {
+      "type": "test_file",
+      "status": "unknown",
+      "schema": {
+        "identity": {
+          "node_id": "test_file:tests/test_integration.py",
+          "node_type": "test_file"
+        },
+        "edges": [],
+        "semantics": {
+          "file_kind": "test",
+          "identity": "tests/test_integration.py",
+          "path": "tests/test_integration.py"
+        },
+        "ast": null,
+        "io_ports": [],
+        "compliance": null,
+        "adr": null,
+        "test_map": null,
+        "git": null,
+        "source": {
+          "extractor": "deskops_kgdb_snapshot_v1",
+          "provenance": [
+            {
+              "extractor": "desk_source_file_nodes_v1",
+              "path": "tests/test_integration.py",
+              "source_kind": "path_rule"
+            }
+          ]
+        }
+      },
+      "id": "test_file:tests/test_integration.py"
+    },
+    {
+      "type": "test_file",
+      "status": "unknown",
+      "schema": {
+        "identity": {
+          "node_id": "test_file:tests/test_query.py",
+          "node_type": "test_file"
+        },
+        "edges": [],
+        "semantics": {
+          "file_kind": "test",
+          "identity": "tests/test_query.py",
+          "path": "tests/test_query.py"
+        },
+        "ast": null,
+        "io_ports": [],
+        "compliance": null,
+        "adr": null,
+        "test_map": null,
+        "git": null,
+        "source": {
+          "extractor": "deskops_kgdb_snapshot_v1",
+          "provenance": [
+            {
+              "extractor": "desk_source_file_nodes_v1",
+              "path": "tests/test_query.py",
+              "source_kind": "path_rule"
+            }
+          ]
+        }
+      },
+      "id": "test_file:tests/test_query.py"
+    },
+    {
+      "type": "issue",
+      "status": "unknown",
+      "schema": {
+        "identity": {
+          "node_id": "issue:implement-sldb-document-payload-consumption",
+          "node_type": "issue"
+        },
+        "edges": [],
+        "semantics": {
+          "identity": "implement-sldb-document-payload-consumption",
+          "label": "Implement SLDB document payload consumption",
+          "path": "desk/drawer/issues/issue-implement-sldb-document-payload-consumption.md"
+        },
+        "ast": null,
+        "io_ports": [],
+        "compliance": null,
+        "adr": null,
+        "test_map": null,
+        "git": null,
+        "source": {
+          "extractor": "deskops_kgdb_snapshot_v1",
+          "provenance": [
+            {
+              "extractor": "desk_doc_nodes_v1",
+              "path": "desk/drawer/issues/issue-implement-sldb-document-payload-consumption.md",
+              "source_kind": "file_metadata"
+            }
+          ]
+        }
+      },
+      "id": "issue:implement-sldb-document-payload-consumption"
+    },
+    {
+      "type": "issue",
+      "status": "unknown",
+      "schema": {
+        "identity": {
+          "node_id": "issue:refactor-kgdb-to-parallel-sldb-semantic-layer",
+          "node_type": "issue"
+        },
+        "edges": [],
+        "semantics": {
+          "identity": "refactor-kgdb-to-parallel-sldb-semantic-layer",
+          "label": "Refactor KGDB to parallel SLDB semantic layer",
+          "path": "desk/drawer/issues/issue-refactor-kgdb-to-parallel-sldb-semantic-layer.md"
+        },
+        "ast": null,
+        "io_ports": [],
+        "compliance": null,
+        "adr": null,
+        "test_map": null,
+        "git": null,
+        "source": {
+          "extractor": "deskops_kgdb_snapshot_v1",
+          "provenance": [
+            {
+              "extractor": "desk_doc_nodes_v1",
+              "path": "desk/drawer/issues/issue-refactor-kgdb-to-parallel-sldb-semantic-layer.md",
+              "source_kind": "file_metadata"
+            }
+          ]
+        }
+      },
+      "id": "issue:refactor-kgdb-to-parallel-sldb-semantic-layer"
+    },
+    {
+      "type": "issue",
+      "status": "unknown",
+      "schema": {
+        "identity": {
+          "node_id": "issue:support-deskops-node-and-edge-vocabulary",
+          "node_type": "issue"
+        },
+        "edges": [],
+        "semantics": {
+          "identity": "support-deskops-node-and-edge-vocabulary",
+          "label": "Support deskops node and edge vocabulary",
+          "path": "desk/drawer/issues/issue-support-deskops-node-and-edge-vocabulary.md"
+        },
+        "ast": null,
+        "io_ports": [],
+        "compliance": null,
+        "adr": null,
+        "test_map": null,
+        "git": null,
+        "source": {
+          "extractor": "deskops_kgdb_snapshot_v1",
+          "provenance": [
+            {
+              "extractor": "desk_doc_nodes_v1",
+              "path": "desk/drawer/issues/issue-support-deskops-node-and-edge-vocabulary.md",
+              "source_kind": "file_metadata"
+            }
+          ]
+        }
+      },
+      "id": "issue:support-deskops-node-and-edge-vocabulary"
+    },
+    {
+      "type": "pill",
+      "status": "unknown",
+      "schema": {
+        "identity": {
+          "node_id": "pill:contexts-pills",
+          "node_type": "pill"
+        },
+        "edges": [],
+        "semantics": {
+          "document_id": "contexts-pills",
+          "identity": "contexts-pills",
+          "label": "Pills",
+          "path": "desk/contexts/pills.md"
+        },
+        "ast": null,
+        "io_ports": [],
+        "compliance": null,
+        "adr": null,
+        "test_map": null,
+        "git": null,
+        "source": {
+          "extractor": "deskops_kgdb_snapshot_v1",
+          "provenance": [
+            {
+              "extractor": "desk_doc_nodes_v1",
+              "path": "desk/contexts/pills.md",
+              "source_kind": "file_metadata"
+            }
+          ]
+        }
+      },
+      "id": "pill:contexts-pills"
+    },
+    {
+      "type": "pill",
+      "status": "unknown",
+      "schema": {
+        "identity": {
+          "node_id": "pill:pill-backward-compatible-degradation-findings-not-failures",
+          "node_type": "pill"
+        },
+        "edges": [],
+        "semantics": {
+          "document_id": "pill-backward-compatible-degradation-findings-not-failures",
+          "identity": "pill-backward-compatible-degradation-findings-not-failures",
+          "label": "Backward-compatible degradation: findings, not failures",
+          "path": "desk/contexts/pill-backward-compatible-degradation-findings-not-failures.md"
+        },
+        "ast": null,
+        "io_ports": [],
+        "compliance": null,
+        "adr": null,
+        "test_map": null,
+        "git": null,
+        "source": {
+          "extractor": "deskops_kgdb_snapshot_v1",
+          "provenance": [
+            {
+              "extractor": "desk_doc_nodes_v1",
+              "path": "desk/contexts/pill-backward-compatible-degradation-findings-not-failures.md",
+              "source_kind": "file_metadata"
+            }
+          ]
+        }
+      },
+      "id": "pill:pill-backward-compatible-degradation-findings-not-failures"
+    },
+    {
+      "type": "pill",
+      "status": "unknown",
+      "schema": {
+        "identity": {
+          "node_id": "pill:pill-board-md-frontmatter-is-the-routing-truth",
+          "node_type": "pill"
+        },
+        "edges": [],
+        "semantics": {
+          "document_id": "pill-board-md-frontmatter-is-the-routing-truth",
+          "identity": "pill-board-md-frontmatter-is-the-routing-truth",
+          "label": "Board.md frontmatter is the routing truth",
+          "path": "desk/contexts/pill-board-md-frontmatter-is-the-routing-truth.md"
+        },
+        "ast": null,
+        "io_ports": [],
+        "compliance": null,
+        "adr": null,
+        "test_map": null,
+        "git": null,
+        "source": {
+          "extractor": "deskops_kgdb_snapshot_v1",
+          "provenance": [
+            {
+              "extractor": "desk_doc_nodes_v1",
+              "path": "desk/contexts/pill-board-md-frontmatter-is-the-routing-truth.md",
+              "source_kind": "file_metadata"
+            }
+          ]
+        }
+      },
+      "id": "pill:pill-board-md-frontmatter-is-the-routing-truth"
+    },
+    {
+      "type": "pill",
+      "status": "unknown",
+      "schema": {
+        "identity": {
+          "node_id": "pill:pill-closed-tasks-are-deleted-not-marked",
+          "node_type": "pill"
+        },
+        "edges": [],
+        "semantics": {
+          "document_id": "pill-closed-tasks-are-deleted-not-marked",
+          "identity": "pill-closed-tasks-are-deleted-not-marked",
+          "label": "Closed tasks are deleted, not marked",
+          "path": "desk/contexts/pill-closed-tasks-are-deleted-not-marked.md"
+        },
+        "ast": null,
+        "io_ports": [],
+        "compliance": null,
+        "adr": null,
+        "test_map": null,
+        "git": null,
+        "source": {
+          "extractor": "deskops_kgdb_snapshot_v1",
+          "provenance": [
+            {
+              "extractor": "desk_doc_nodes_v1",
+              "path": "desk/contexts/pill-closed-tasks-are-deleted-not-marked.md",
+              "source_kind": "file_metadata"
+            }
+          ]
+        }
+      },
+      "id": "pill:pill-closed-tasks-are-deleted-not-marked"
+    },
+    {
+      "type": "pill",
+      "status": "unknown",
+      "schema": {
+        "identity": {
+          "node_id": "pill:pill-fixtures-are-consumer-contract-tests",
+          "node_type": "pill"
+        },
+        "edges": [],
+        "semantics": {
+          "document_id": "pill-fixtures-are-consumer-contract-tests",
+          "identity": "pill-fixtures-are-consumer-contract-tests",
+          "label": "Fixtures are consumer-contract tests",
+          "path": "desk/contexts/pill-fixtures-are-consumer-contract-tests.md"
+        },
+        "ast": null,
+        "io_ports": [],
+        "compliance": null,
+        "adr": null,
+        "test_map": null,
+        "git": null,
+        "source": {
+          "extractor": "deskops_kgdb_snapshot_v1",
+          "provenance": [
+            {
+              "extractor": "desk_doc_nodes_v1",
+              "path": "desk/contexts/pill-fixtures-are-consumer-contract-tests.md",
+              "source_kind": "file_metadata"
+            }
+          ]
+        }
+      },
+      "id": "pill:pill-fixtures-are-consumer-contract-tests"
+    },
+    {
+      "type": "pill",
+      "status": "unknown",
+      "schema": {
+        "identity": {
+          "node_id": "pill:pill-kgdb-cli-is-the-stable-public-surface",
+          "node_type": "pill"
+        },
+        "edges": [],
+        "semantics": {
+          "document_id": "pill-kgdb-cli-is-the-stable-public-surface",
+          "identity": "pill-kgdb-cli-is-the-stable-public-surface",
+          "label": "kgdb CLI is the stable public surface",
+          "path": "desk/contexts/pill-kgdb-cli-is-the-stable-public-surface.md"
+        },
+        "ast": null,
+        "io_ports": [],
+        "compliance": null,
+        "adr": null,
+        "test_map": null,
+        "git": null,
+        "source": {
+          "extractor": "deskops_kgdb_snapshot_v1",
+          "provenance": [
+            {
+              "extractor": "desk_doc_nodes_v1",
+              "path": "desk/contexts/pill-kgdb-cli-is-the-stable-public-surface.md",
+              "source_kind": "file_metadata"
+            }
+          ]
+        }
+      },
+      "id": "pill:pill-kgdb-cli-is-the-stable-public-surface"
+    },
+    {
+      "type": "pill",
+      "status": "unknown",
+      "schema": {
+        "identity": {
+          "node_id": "pill:pill-orphans-and-gaps-are-reflection-findings",
+          "node_type": "pill"
+        },
+        "edges": [],
+        "semantics": {
+          "document_id": "pill-orphans-and-gaps-are-reflection-findings",
+          "identity": "pill-orphans-and-gaps-are-reflection-findings",
+          "label": "Orphans and gaps are reflection findings",
+          "path": "desk/contexts/pill-orphans-and-gaps-are-reflection-findings.md"
+        },
+        "ast": null,
+        "io_ports": [],
+        "compliance": null,
+        "adr": null,
+        "test_map": null,
+        "git": null,
+        "source": {
+          "extractor": "deskops_kgdb_snapshot_v1",
+          "provenance": [
+            {
+              "extractor": "desk_doc_nodes_v1",
+              "path": "desk/contexts/pill-orphans-and-gaps-are-reflection-findings.md",
+              "source_kind": "file_metadata"
+            }
+          ]
+        }
+      },
+      "id": "pill:pill-orphans-and-gaps-are-reflection-findings"
+    },
+    {
+      "type": "pill",
+      "status": "unknown",
+      "schema": {
+        "identity": {
+          "node_id": "pill:pill-provenance-edges-are-typed",
+          "node_type": "pill"
+        },
+        "edges": [],
+        "semantics": {
+          "document_id": "pill-provenance-edges-are-typed",
+          "identity": "pill-provenance-edges-are-typed",
+          "label": "Provenance edges are typed",
+          "path": "desk/contexts/pill-provenance-edges-are-typed.md"
+        },
+        "ast": null,
+        "io_ports": [],
+        "compliance": null,
+        "adr": null,
+        "test_map": null,
+        "git": null,
+        "source": {
+          "extractor": "deskops_kgdb_snapshot_v1",
+          "provenance": [
+            {
+              "extractor": "desk_doc_nodes_v1",
+              "path": "desk/contexts/pill-provenance-edges-are-typed.md",
+              "source_kind": "file_metadata"
+            }
+          ]
+        }
+      },
+      "id": "pill:pill-provenance-edges-are-typed"
+    },
+    {
+      "type": "pill",
+      "status": "unknown",
+      "schema": {
+        "identity": {
+          "node_id": "pill:pill-provenance-survives-the-sldb-to-kgdb-handoff",
+          "node_type": "pill"
+        },
+        "edges": [],
+        "semantics": {
+          "document_id": "pill-provenance-survives-the-sldb-to-kgdb-handoff",
+          "identity": "pill-provenance-survives-the-sldb-to-kgdb-handoff",
+          "label": "Provenance survives the SLDB to KGDB handoff",
+          "path": "desk/contexts/pill-provenance-survives-the-sldb-to-kgdb-handoff.md"
+        },
+        "ast": null,
+        "io_ports": [],
+        "compliance": null,
+        "adr": null,
+        "test_map": null,
+        "git": null,
+        "source": {
+          "extractor": "deskops_kgdb_snapshot_v1",
+          "provenance": [
+            {
+              "extractor": "desk_doc_nodes_v1",
+              "path": "desk/contexts/pill-provenance-survives-the-sldb-to-kgdb-handoff.md",
+              "source_kind": "file_metadata"
+            }
+          ]
+        }
+      },
+      "id": "pill:pill-provenance-survives-the-sldb-to-kgdb-handoff"
+    },
+    {
+      "type": "pill",
+      "status": "unknown",
+      "schema": {
+        "identity": {
+          "node_id": "pill:pill-relation-serialization-must-roundtrip",
+          "node_type": "pill"
+        },
+        "edges": [],
+        "semantics": {
+          "document_id": "pill-relation-serialization-must-roundtrip",
+          "identity": "pill-relation-serialization-must-roundtrip",
+          "label": "Relation serialization must roundtrip",
+          "path": "desk/contexts/pill-relation-serialization-must-roundtrip.md"
+        },
+        "ast": null,
+        "io_ports": [],
+        "compliance": null,
+        "adr": null,
+        "test_map": null,
+        "git": null,
+        "source": {
+          "extractor": "deskops_kgdb_snapshot_v1",
+          "provenance": [
+            {
+              "extractor": "desk_doc_nodes_v1",
+              "path": "desk/contexts/pill-relation-serialization-must-roundtrip.md",
+              "source_kind": "file_metadata"
+            }
+          ]
+        }
+      },
+      "id": "pill:pill-relation-serialization-must-roundtrip"
+    },
+    {
+      "type": "pill",
+      "status": "unknown",
+      "schema": {
+        "identity": {
+          "node_id": "pill:pill-sldb-owns-text-kgdb-owns-graph-deskops-owns-workflow",
+          "node_type": "pill"
+        },
+        "edges": [],
+        "semantics": {
+          "document_id": "pill-sldb-owns-text-kgdb-owns-graph-deskops-owns-workflow",
+          "identity": "pill-sldb-owns-text-kgdb-owns-graph-deskops-owns-workflow",
+          "label": "SLDB owns text; KGDB owns graph; deskops owns workflow",
+          "path": "desk/contexts/pill-sldb-owns-text-kgdb-owns-graph-deskops-owns-workflow.md"
+        },
+        "ast": null,
+        "io_ports": [],
+        "compliance": null,
+        "adr": null,
+        "test_map": null,
+        "git": null,
+        "source": {
+          "extractor": "deskops_kgdb_snapshot_v1",
+          "provenance": [
+            {
+              "extractor": "desk_doc_nodes_v1",
+              "path": "desk/contexts/pill-sldb-owns-text-kgdb-owns-graph-deskops-owns-workflow.md",
+              "source_kind": "file_metadata"
+            }
+          ]
+        }
+      },
+      "id": "pill:pill-sldb-owns-text-kgdb-owns-graph-deskops-owns-workflow"
+    },
+    {
+      "type": "pill",
+      "status": "unknown",
+      "schema": {
+        "identity": {
+          "node_id": "pill:pill-snapshot-is-the-public-output-surface",
+          "node_type": "pill"
+        },
+        "edges": [],
+        "semantics": {
+          "document_id": "pill-snapshot-is-the-public-output-surface",
+          "identity": "pill-snapshot-is-the-public-output-surface",
+          "label": "Snapshot is the public output surface",
+          "path": "desk/contexts/pill-snapshot-is-the-public-output-surface.md"
+        },
+        "ast": null,
+        "io_ports": [],
+        "compliance": null,
+        "adr": null,
+        "test_map": null,
+        "git": null,
+        "source": {
+          "extractor": "deskops_kgdb_snapshot_v1",
+          "provenance": [
+            {
+              "extractor": "desk_doc_nodes_v1",
+              "path": "desk/contexts/pill-snapshot-is-the-public-output-surface.md",
+              "source_kind": "file_metadata"
+            }
+          ]
+        }
+      },
+      "id": "pill:pill-snapshot-is-the-public-output-surface"
+    },
+    {
+      "type": "pill",
+      "status": "unknown",
+      "schema": {
+        "identity": {
+          "node_id": "pill:pill-source-nodes-are-first-class",
+          "node_type": "pill"
+        },
+        "edges": [],
+        "semantics": {
+          "document_id": "pill-source-nodes-are-first-class",
+          "identity": "pill-source-nodes-are-first-class",
+          "label": "Source nodes are first-class",
+          "path": "desk/contexts/pill-source-nodes-are-first-class.md"
+        },
+        "ast": null,
+        "io_ports": [],
+        "compliance": null,
+        "adr": null,
+        "test_map": null,
+        "git": null,
+        "source": {
+          "extractor": "deskops_kgdb_snapshot_v1",
+          "provenance": [
+            {
+              "extractor": "desk_doc_nodes_v1",
+              "path": "desk/contexts/pill-source-nodes-are-first-class.md",
+              "source_kind": "file_metadata"
+            }
+          ]
+        }
+      },
+      "id": "pill:pill-source-nodes-are-first-class"
+    },
+    {
+      "type": "pill",
+      "status": "unknown",
+      "schema": {
+        "identity": {
+          "node_id": "pill:pill-substrate-is-dumb",
+          "node_type": "pill"
+        },
+        "edges": [],
+        "semantics": {
+          "document_id": "pill-substrate-is-dumb",
+          "identity": "pill-substrate-is-dumb",
+          "label": "Substrate is dumb",
+          "path": "desk/contexts/pill-substrate-is-dumb.md"
+        },
+        "ast": null,
+        "io_ports": [],
+        "compliance": null,
+        "adr": null,
+        "test_map": null,
+        "git": null,
+        "source": {
+          "extractor": "deskops_kgdb_snapshot_v1",
+          "provenance": [
+            {
+              "extractor": "desk_doc_nodes_v1",
+              "path": "desk/contexts/pill-substrate-is-dumb.md",
+              "source_kind": "file_metadata"
+            }
+          ]
+        }
+      },
+      "id": "pill:pill-substrate-is-dumb"
+    },
+    {
+      "type": "pill",
+      "status": "unknown",
+      "schema": {
+        "identity": {
+          "node_id": "pill:pill-trace-is-the-public-query-surface",
+          "node_type": "pill"
+        },
+        "edges": [],
+        "semantics": {
+          "document_id": "pill-trace-is-the-public-query-surface",
+          "identity": "pill-trace-is-the-public-query-surface",
+          "label": "Trace is the public query surface",
+          "path": "desk/contexts/pill-trace-is-the-public-query-surface.md"
+        },
+        "ast": null,
+        "io_ports": [],
+        "compliance": null,
+        "adr": null,
+        "test_map": null,
+        "git": null,
+        "source": {
+          "extractor": "deskops_kgdb_snapshot_v1",
+          "provenance": [
+            {
+              "extractor": "desk_doc_nodes_v1",
+              "path": "desk/contexts/pill-trace-is-the-public-query-surface.md",
+              "source_kind": "file_metadata"
+            }
+          ]
+        }
+      },
+      "id": "pill:pill-trace-is-the-public-query-surface"
+    },
+    {
+      "type": "pill",
+      "status": "unknown",
+      "schema": {
+        "identity": {
+          "node_id": "pill:pill-validation-findings-are-structured-not-crashes",
+          "node_type": "pill"
+        },
+        "edges": [],
+        "semantics": {
+          "document_id": "pill-validation-findings-are-structured-not-crashes",
+          "identity": "pill-validation-findings-are-structured-not-crashes",
+          "label": "Validation findings are structured, not crashes",
+          "path": "desk/contexts/pill-validation-findings-are-structured-not-crashes.md"
+        },
+        "ast": null,
+        "io_ports": [],
+        "compliance": null,
+        "adr": null,
+        "test_map": null,
+        "git": null,
+        "source": {
+          "extractor": "deskops_kgdb_snapshot_v1",
+          "provenance": [
+            {
+              "extractor": "desk_doc_nodes_v1",
+              "path": "desk/contexts/pill-validation-findings-are-structured-not-crashes.md",
+              "source_kind": "file_metadata"
+            }
+          ]
+        }
+      },
+      "id": "pill:pill-validation-findings-are-structured-not-crashes"
+    },
+    {
+      "type": "stress_test",
+      "status": "unknown",
+      "schema": {
+        "identity": {
+          "node_id": "stress_test:desk/drawer/stress-tests/COVERAGE.md",
+          "node_type": "stress_test"
+        },
+        "edges": [],
+        "semantics": {
+          "identity": "desk/drawer/stress-tests/COVERAGE.md",
+          "label": "COVERAGE.md: kgdb stress-test coverage plan",
+          "path": "desk/drawer/stress-tests/COVERAGE.md"
+        },
+        "ast": null,
+        "io_ports": [],
+        "compliance": null,
+        "adr": null,
+        "test_map": null,
+        "git": null,
+        "source": {
+          "extractor": "deskops_kgdb_snapshot_v1",
+          "provenance": [
+            {
+              "extractor": "desk_doc_nodes_v1",
+              "path": "desk/drawer/stress-tests/COVERAGE.md",
+              "source_kind": "file_metadata"
+            }
+          ]
+        }
+      },
+      "id": "stress_test:desk/drawer/stress-tests/COVERAGE.md"
+    },
+    {
+      "type": "stress_test",
+      "status": "unknown",
+      "schema": {
+        "identity": {
+          "node_id": "stress_test:desk/drawer/stress-tests/METHODOLOGY.md",
+          "node_type": "stress_test"
+        },
+        "edges": [],
+        "semantics": {
+          "identity": "desk/drawer/stress-tests/METHODOLOGY.md",
+          "label": "UX stress-test methodology (kgdb)",
+          "path": "desk/drawer/stress-tests/METHODOLOGY.md"
+        },
+        "ast": null,
+        "io_ports": [],
+        "compliance": null,
+        "adr": null,
+        "test_map": null,
+        "git": null,
+        "source": {
+          "extractor": "deskops_kgdb_snapshot_v1",
+          "provenance": [
+            {
+              "extractor": "desk_doc_nodes_v1",
+              "path": "desk/drawer/stress-tests/METHODOLOGY.md",
+              "source_kind": "file_metadata"
+            }
+          ]
+        }
+      },
+      "id": "stress_test:desk/drawer/stress-tests/METHODOLOGY.md"
+    },
+    {
+      "type": "stress_test",
+      "status": "unknown",
+      "schema": {
+        "identity": {
+          "node_id": "stress_test:desk/drawer/stress-tests/ST-api.md",
+          "node_type": "stress_test"
+        },
+        "edges": [],
+        "semantics": {
+          "identity": "desk/drawer/stress-tests/ST-api.md",
+          "label": "ST-api: Python API \u2014 GraphSnapshot, KnowledgeNode, StructuredQuery",
+          "path": "desk/drawer/stress-tests/ST-api.md"
+        },
+        "ast": null,
+        "io_ports": [],
+        "compliance": null,
+        "adr": null,
+        "test_map": null,
+        "git": null,
+        "source": {
+          "extractor": "deskops_kgdb_snapshot_v1",
+          "provenance": [
+            {
+              "extractor": "desk_doc_nodes_v1",
+              "path": "desk/drawer/stress-tests/ST-api.md",
+              "source_kind": "file_metadata"
+            }
+          ]
+        }
+      },
+      "id": "stress_test:desk/drawer/stress-tests/ST-api.md"
+    },
+    {
+      "type": "stress_test",
+      "status": "unknown",
+      "schema": {
+        "identity": {
+          "node_id": "stress_test:desk/drawer/stress-tests/ST-contracts.md",
+          "node_type": "stress_test"
+        },
+        "edges": [],
+        "semantics": {
+          "identity": "desk/drawer/stress-tests/ST-contracts.md",
+          "label": "ST-contracts: contract validation and fixtures",
+          "path": "desk/drawer/stress-tests/ST-contracts.md"
+        },
+        "ast": null,
+        "io_ports": [],
+        "compliance": null,
+        "adr": null,
+        "test_map": null,
+        "git": null,
+        "source": {
+          "extractor": "deskops_kgdb_snapshot_v1",
+          "provenance": [
+            {
+              "extractor": "desk_doc_nodes_v1",
+              "path": "desk/drawer/stress-tests/ST-contracts.md",
+              "source_kind": "file_metadata"
+            }
+          ]
+        }
+      },
+      "id": "stress_test:desk/drawer/stress-tests/ST-contracts.md"
+    },
+    {
+      "type": "stress_test",
+      "status": "unknown",
+      "schema": {
+        "identity": {
+          "node_id": "stress_test:desk/drawer/stress-tests/ST-edge-cases.md",
+          "node_type": "stress_test"
+        },
+        "edges": [],
+        "semantics": {
+          "identity": "desk/drawer/stress-tests/ST-edge-cases.md",
+          "label": "ST-edge-cases: kgdb edge cases and error handling",
+          "path": "desk/drawer/stress-tests/ST-edge-cases.md"
+        },
+        "ast": null,
+        "io_ports": [],
+        "compliance": null,
+        "adr": null,
+        "test_map": null,
+        "git": null,
+        "source": {
+          "extractor": "deskops_kgdb_snapshot_v1",
+          "provenance": [
+            {
+              "extractor": "desk_doc_nodes_v1",
+              "path": "desk/drawer/stress-tests/ST-edge-cases.md",
+              "source_kind": "file_metadata"
+            }
+          ]
+        }
+      },
+      "id": "stress_test:desk/drawer/stress-tests/ST-edge-cases.md"
+    },
+    {
+      "type": "stress_test",
+      "status": "unknown",
+      "schema": {
+        "identity": {
+          "node_id": "stress_test:desk/drawer/stress-tests/ST-edges.md",
+          "node_type": "stress_test"
+        },
+        "edges": [],
+        "semantics": {
+          "identity": "desk/drawer/stress-tests/ST-edges.md",
+          "label": "ST-edges: kgdb edges \u2014 list outgoing edges",
+          "path": "desk/drawer/stress-tests/ST-edges.md"
+        },
+        "ast": null,
+        "io_ports": [],
+        "compliance": null,
+        "adr": null,
+        "test_map": null,
+        "git": null,
+        "source": {
+          "extractor": "deskops_kgdb_snapshot_v1",
+          "provenance": [
+            {
+              "extractor": "desk_doc_nodes_v1",
+              "path": "desk/drawer/stress-tests/ST-edges.md",
+              "source_kind": "file_metadata"
+            }
+          ]
+        }
+      },
+      "id": "stress_test:desk/drawer/stress-tests/ST-edges.md"
+    },
+    {
+      "type": "stress_test",
+      "status": "unknown",
+      "schema": {
+        "identity": {
+          "node_id": "stress_test:desk/drawer/stress-tests/ST-entry-points.md",
+          "node_type": "stress_test"
+        },
+        "edges": [],
+        "semantics": {
+          "identity": "desk/drawer/stress-tests/ST-entry-points.md",
+          "label": "ST-entry-points: kgdb CLI entry points",
+          "path": "desk/drawer/stress-tests/ST-entry-points.md"
+        },
+        "ast": null,
+        "io_ports": [],
+        "compliance": null,
+        "adr": null,
+        "test_map": null,
+        "git": null,
+        "source": {
+          "extractor": "deskops_kgdb_snapshot_v1",
+          "provenance": [
+            {
+              "extractor": "desk_doc_nodes_v1",
+              "path": "desk/drawer/stress-tests/ST-entry-points.md",
+              "source_kind": "file_metadata"
+            }
+          ]
+        }
+      },
+      "id": "stress_test:desk/drawer/stress-tests/ST-entry-points.md"
+    },
+    {
+      "type": "stress_test",
+      "status": "unknown",
+      "schema": {
+        "identity": {
+          "node_id": "stress_test:desk/drawer/stress-tests/ST-get.md",
+          "node_type": "stress_test"
+        },
+        "edges": [],
+        "semantics": {
+          "identity": "desk/drawer/stress-tests/ST-get.md",
+          "label": "ST-get: kgdb get \u2014 retrieve a single node",
+          "path": "desk/drawer/stress-tests/ST-get.md"
+        },
+        "ast": null,
+        "io_ports": [],
+        "compliance": null,
+        "adr": null,
+        "test_map": null,
+        "git": null,
+        "source": {
+          "extractor": "deskops_kgdb_snapshot_v1",
+          "provenance": [
+            {
+              "extractor": "desk_doc_nodes_v1",
+              "path": "desk/drawer/stress-tests/ST-get.md",
+              "source_kind": "file_metadata"
+            }
+          ]
+        }
+      },
+      "id": "stress_test:desk/drawer/stress-tests/ST-get.md"
+    },
+    {
+      "type": "stress_test",
+      "status": "unknown",
+      "schema": {
+        "identity": {
+          "node_id": "stress_test:desk/drawer/stress-tests/ST-ingest-sldb.md",
+          "node_type": "stress_test"
+        },
+        "edges": [],
+        "semantics": {
+          "identity": "desk/drawer/stress-tests/ST-ingest-sldb.md",
+          "label": "ST-ingest-sldb: kgdb ingest-sldb \u2014 SLDB semantic export ingestion",
+          "path": "desk/drawer/stress-tests/ST-ingest-sldb.md"
+        },
+        "ast": null,
+        "io_ports": [],
+        "compliance": null,
+        "adr": null,
+        "test_map": null,
+        "git": null,
+        "source": {
+          "extractor": "deskops_kgdb_snapshot_v1",
+          "provenance": [
+            {
+              "extractor": "desk_doc_nodes_v1",
+              "path": "desk/drawer/stress-tests/ST-ingest-sldb.md",
+              "source_kind": "file_metadata"
+            }
+          ]
+        }
+      },
+      "id": "stress_test:desk/drawer/stress-tests/ST-ingest-sldb.md"
+    },
+    {
+      "type": "stress_test",
+      "status": "unknown",
+      "schema": {
+        "identity": {
+          "node_id": "stress_test:desk/drawer/stress-tests/ST-ingest.md",
+          "node_type": "stress_test"
+        },
+        "edges": [],
+        "semantics": {
+          "identity": "desk/drawer/stress-tests/ST-ingest.md",
+          "label": "ST-ingest: kgdb ingest \u2014 generic graph ingestion",
+          "path": "desk/drawer/stress-tests/ST-ingest.md"
+        },
+        "ast": null,
+        "io_ports": [],
+        "compliance": null,
+        "adr": null,
+        "test_map": null,
+        "git": null,
+        "source": {
+          "extractor": "deskops_kgdb_snapshot_v1",
+          "provenance": [
+            {
+              "extractor": "desk_doc_nodes_v1",
+              "path": "desk/drawer/stress-tests/ST-ingest.md",
+              "source_kind": "file_metadata"
+            }
+          ]
+        }
+      },
+      "id": "stress_test:desk/drawer/stress-tests/ST-ingest.md"
+    },
+    {
+      "type": "stress_test",
+      "status": "unknown",
+      "schema": {
+        "identity": {
+          "node_id": "stress_test:desk/drawer/stress-tests/ST-integration.md",
+          "node_type": "stress_test"
+        },
+        "edges": [],
+        "semantics": {
+          "identity": "desk/drawer/stress-tests/ST-integration.md",
+          "label": "ST-integration: End-to-end integration tests",
+          "path": "desk/drawer/stress-tests/ST-integration.md"
+        },
+        "ast": null,
+        "io_ports": [],
+        "compliance": null,
+        "adr": null,
+        "test_map": null,
+        "git": null,
+        "source": {
+          "extractor": "deskops_kgdb_snapshot_v1",
+          "provenance": [
+            {
+              "extractor": "desk_doc_nodes_v1",
+              "path": "desk/drawer/stress-tests/ST-integration.md",
+              "source_kind": "file_metadata"
+            }
+          ]
+        }
+      },
+      "id": "stress_test:desk/drawer/stress-tests/ST-integration.md"
+    },
+    {
+      "type": "stress_test",
+      "status": "unknown",
+      "schema": {
+        "identity": {
+          "node_id": "stress_test:desk/drawer/stress-tests/ST-list.md",
+          "node_type": "stress_test"
+        },
+        "edges": [],
+        "semantics": {
+          "identity": "desk/drawer/stress-tests/ST-list.md",
+          "label": "ST-list: kgdb list \u2014 list all node IDs",
+          "path": "desk/drawer/stress-tests/ST-list.md"
+        },
+        "ast": null,
+        "io_ports": [],
+        "compliance": null,
+        "adr": null,
+        "test_map": null,
+        "git": null,
+        "source": {
+          "extractor": "deskops_kgdb_snapshot_v1",
+          "provenance": [
+            {
+              "extractor": "desk_doc_nodes_v1",
+              "path": "desk/drawer/stress-tests/ST-list.md",
+              "source_kind": "file_metadata"
+            }
+          ]
+        }
+      },
+      "id": "stress_test:desk/drawer/stress-tests/ST-list.md"
+    },
+    {
+      "type": "stress_test",
+      "status": "unknown",
+      "schema": {
+        "identity": {
+          "node_id": "stress_test:desk/drawer/stress-tests/ST-persistence.md",
+          "node_type": "stress_test"
+        },
+        "edges": [],
+        "semantics": {
+          "identity": "desk/drawer/stress-tests/ST-persistence.md",
+          "label": "ST-persistence: PersistenceEntry and TransactionManifest",
+          "path": "desk/drawer/stress-tests/ST-persistence.md"
+        },
+        "ast": null,
+        "io_ports": [],
+        "compliance": null,
+        "adr": null,
+        "test_map": null,
+        "git": null,
+        "source": {
+          "extractor": "deskops_kgdb_snapshot_v1",
+          "provenance": [
+            {
+              "extractor": "desk_doc_nodes_v1",
+              "path": "desk/drawer/stress-tests/ST-persistence.md",
+              "source_kind": "file_metadata"
+            }
+          ]
+        }
+      },
+      "id": "stress_test:desk/drawer/stress-tests/ST-persistence.md"
+    },
+    {
+      "type": "stress_test",
+      "status": "unknown",
+      "schema": {
+        "identity": {
+          "node_id": "stress_test:desk/drawer/stress-tests/ST-query-server.md",
+          "node_type": "stress_test"
+        },
+        "edges": [],
+        "semantics": {
+          "identity": "desk/drawer/stress-tests/ST-query-server.md",
+          "label": "ST-query-server: Query server REPL mode",
+          "path": "desk/drawer/stress-tests/ST-query-server.md"
+        },
+        "ast": null,
+        "io_ports": [],
+        "compliance": null,
+        "adr": null,
+        "test_map": null,
+        "git": null,
+        "source": {
+          "extractor": "deskops_kgdb_snapshot_v1",
+          "provenance": [
+            {
+              "extractor": "desk_doc_nodes_v1",
+              "path": "desk/drawer/stress-tests/ST-query-server.md",
+              "source_kind": "file_metadata"
+            }
+          ]
+        }
+      },
+      "id": "stress_test:desk/drawer/stress-tests/ST-query-server.md"
+    },
+    {
+      "type": "stress_test",
+      "status": "unknown",
+      "schema": {
+        "identity": {
+          "node_id": "stress_test:desk/drawer/stress-tests/ST-query.md",
+          "node_type": "stress_test"
+        },
+        "edges": [],
+        "semantics": {
+          "identity": "desk/drawer/stress-tests/ST-query.md",
+          "label": "ST-query: kgdb query \u2014 execute structured queries",
+          "path": "desk/drawer/stress-tests/ST-query.md"
+        },
+        "ast": null,
+        "io_ports": [],
+        "compliance": null,
+        "adr": null,
+        "test_map": null,
+        "git": null,
+        "source": {
+          "extractor": "deskops_kgdb_snapshot_v1",
+          "provenance": [
+            {
+              "extractor": "desk_doc_nodes_v1",
+              "path": "desk/drawer/stress-tests/ST-query.md",
+              "source_kind": "file_metadata"
+            }
+          ]
+        }
+      },
+      "id": "stress_test:desk/drawer/stress-tests/ST-query.md"
+    },
+    {
+      "type": "stress_test",
+      "status": "unknown",
+      "schema": {
+        "identity": {
+          "node_id": "stress_test:desk/drawer/stress-tests/ST-snapshots.md",
+          "node_type": "stress_test"
+        },
+        "edges": [],
+        "semantics": {
+          "identity": "desk/drawer/stress-tests/ST-snapshots.md",
+          "label": "ST-snapshots: kgdb graph snapshot formats and versions",
+          "path": "desk/drawer/stress-tests/ST-snapshots.md"
+        },
+        "ast": null,
+        "io_ports": [],
+        "compliance": null,
+        "adr": null,
+        "test_map": null,
+        "git": null,
+        "source": {
+          "extractor": "deskops_kgdb_snapshot_v1",
+          "provenance": [
+            {
+              "extractor": "desk_doc_nodes_v1",
+              "path": "desk/drawer/stress-tests/ST-snapshots.md",
+              "source_kind": "file_metadata"
+            }
+          ]
+        }
+      },
+      "id": "stress_test:desk/drawer/stress-tests/ST-snapshots.md"
+    },
+    {
+      "type": "stress_test",
+      "status": "unknown",
+      "schema": {
+        "identity": {
+          "node_id": "stress_test:desk/drawer/stress-tests/findings/round-01-initial-execution.md",
+          "node_type": "stress_test"
+        },
+        "edges": [],
+        "semantics": {
+          "identity": "desk/drawer/stress-tests/findings/round-01-initial-execution.md",
+          "label": "Round 01: Initial execution of kgdb stress tests",
+          "path": "desk/drawer/stress-tests/findings/round-01-initial-execution.md"
+        },
+        "ast": null,
+        "io_ports": [],
+        "compliance": null,
+        "adr": null,
+        "test_map": null,
+        "git": null,
+        "source": {
+          "extractor": "deskops_kgdb_snapshot_v1",
+          "provenance": [
+            {
+              "extractor": "desk_doc_nodes_v1",
+              "path": "desk/drawer/stress-tests/findings/round-01-initial-execution.md",
+              "source_kind": "file_metadata"
+            }
+          ]
+        }
+      },
+      "id": "stress_test:desk/drawer/stress-tests/findings/round-01-initial-execution.md"
+    },
+    {
+      "type": "task",
+      "status": "unknown",
+      "schema": {
+        "identity": {
+          "node_id": "task:task-create-substrate-fixture",
+          "node_type": "task"
+        },
+        "edges": [],
+        "semantics": {
+          "document_id": "task-create-substrate-fixture",
+          "identity": "task-create-substrate-fixture",
+          "label": "Create substrate fixture",
+          "path": "desk/tasks/task-create-substrate-fixture.md"
+        },
+        "ast": null,
+        "io_ports": [],
+        "compliance": null,
+        "adr": null,
+        "test_map": null,
+        "git": null,
+        "source": {
+          "extractor": "deskops_kgdb_snapshot_v1",
+          "provenance": [
+            {
+              "extractor": "desk_doc_nodes_v1",
+              "path": "desk/tasks/task-create-substrate-fixture.md",
+              "source_kind": "file_metadata"
+            }
+          ]
+        }
+      },
+      "id": "task:task-create-substrate-fixture"
+    },
+    {
+      "type": "task",
+      "status": "unknown",
+      "schema": {
+        "identity": {
+          "node_id": "task:task-cross-repo-sldb-export-to-kgdb-ingest-roundtrip-test",
+          "node_type": "task"
+        },
+        "edges": [],
+        "semantics": {
+          "document_id": "task-cross-repo-sldb-export-to-kgdb-ingest-roundtrip-test",
+          "identity": "task-cross-repo-sldb-export-to-kgdb-ingest-roundtrip-test",
+          "label": "Cross-repo SLDB export to KGDB ingest roundtrip test",
+          "path": "desk/tasks/task-cross-repo-sldb-export-to-kgdb-ingest-roundtrip-test.md"
+        },
+        "ast": null,
+        "io_ports": [],
+        "compliance": null,
+        "adr": null,
+        "test_map": null,
+        "git": null,
+        "source": {
+          "extractor": "deskops_kgdb_snapshot_v1",
+          "provenance": [
+            {
+              "extractor": "desk_doc_nodes_v1",
+              "path": "desk/tasks/task-cross-repo-sldb-export-to-kgdb-ingest-roundtrip-test.md",
+              "source_kind": "file_metadata"
+            }
+          ]
+        }
+      },
+      "id": "task:task-cross-repo-sldb-export-to-kgdb-ingest-roundtrip-test"
+    },
+    {
+      "type": "task",
+      "status": "unknown",
+      "schema": {
+        "identity": {
+          "node_id": "task:task-define-persistence-model",
+          "node_type": "task"
+        },
+        "edges": [],
+        "semantics": {
+          "document_id": "task-define-persistence-model",
+          "identity": "task-define-persistence-model",
+          "label": "Define persistence model",
+          "path": "desk/tasks/task-define-persistence-model.md"
+        },
+        "ast": null,
+        "io_ports": [],
+        "compliance": null,
+        "adr": null,
+        "test_map": null,
+        "git": null,
+        "source": {
+          "extractor": "deskops_kgdb_snapshot_v1",
+          "provenance": [
+            {
+              "extractor": "desk_doc_nodes_v1",
+              "path": "desk/tasks/task-define-persistence-model.md",
+              "source_kind": "file_metadata"
+            }
+          ]
+        }
+      },
+      "id": "task:task-define-persistence-model"
+    },
+    {
+      "type": "task",
+      "status": "unknown",
+      "schema": {
+        "identity": {
+          "node_id": "task:task-document-kgdb-boundary-with-sldb-and-deskops",
+          "node_type": "task"
+        },
+        "edges": [],
+        "semantics": {
+          "document_id": "task-document-kgdb-boundary-with-sldb-and-deskops",
+          "identity": "task-document-kgdb-boundary-with-sldb-and-deskops",
+          "label": "Document KGDB boundary with SLDB and deskops",
+          "path": "desk/tasks/task-document-kgdb-boundary-with-sldb-and-deskops.md"
+        },
+        "ast": null,
+        "io_ports": [],
+        "compliance": null,
+        "adr": null,
+        "test_map": null,
+        "git": null,
+        "source": {
+          "extractor": "deskops_kgdb_snapshot_v1",
+          "provenance": [
+            {
+              "extractor": "desk_doc_nodes_v1",
+              "path": "desk/tasks/task-document-kgdb-boundary-with-sldb-and-deskops.md",
+              "source_kind": "file_metadata"
+            }
+          ]
+        }
+      },
+      "id": "task:task-document-kgdb-boundary-with-sldb-and-deskops"
+    },
+    {
+      "type": "task",
+      "status": "unknown",
+      "schema": {
+        "identity": {
+          "node_id": "task:task-graph-trace-query-surface-api",
+          "node_type": "task"
+        },
+        "edges": [],
+        "semantics": {
+          "document_id": "task-graph-trace-query-surface-api",
+          "identity": "task-graph-trace-query-surface-api",
+          "label": "Graph trace query surface API",
+          "path": "desk/tasks/task-graph-trace-query-surface-api.md"
+        },
+        "ast": null,
+        "io_ports": [],
+        "compliance": null,
+        "adr": null,
+        "test_map": null,
+        "git": null,
+        "source": {
+          "extractor": "deskops_kgdb_snapshot_v1",
+          "provenance": [
+            {
+              "extractor": "desk_doc_nodes_v1",
+              "path": "desk/tasks/task-graph-trace-query-surface-api.md",
+              "source_kind": "file_metadata"
+            }
+          ]
+        }
+      },
+      "id": "task:task-graph-trace-query-surface-api"
+    },
+    {
+      "type": "task",
+      "status": "unknown",
+      "schema": {
+        "identity": {
+          "node_id": "task:task-graph-trace-query-surface-cli",
+          "node_type": "task"
+        },
+        "edges": [],
+        "semantics": {
+          "document_id": "task-graph-trace-query-surface-cli",
+          "identity": "task-graph-trace-query-surface-cli",
+          "label": "Graph trace query surface CLI",
+          "path": "desk/tasks/task-graph-trace-query-surface-cli.md"
+        },
+        "ast": null,
+        "io_ports": [],
+        "compliance": null,
+        "adr": null,
+        "test_map": null,
+        "git": null,
+        "source": {
+          "extractor": "deskops_kgdb_snapshot_v1",
+          "provenance": [
+            {
+              "extractor": "desk_doc_nodes_v1",
+              "path": "desk/tasks/task-graph-trace-query-surface-cli.md",
+              "source_kind": "file_metadata"
+            }
+          ]
+        }
+      },
+      "id": "task:task-graph-trace-query-surface-cli"
+    },
+    {
+      "type": "task",
+      "status": "unknown",
+      "schema": {
+        "identity": {
+          "node_id": "task:task-implement-minimal-ingest-api",
+          "node_type": "task"
+        },
+        "edges": [],
+        "semantics": {
+          "document_id": "task-implement-minimal-ingest-api",
+          "identity": "task-implement-minimal-ingest-api",
+          "label": "Implement minimal ingest API",
+          "path": "desk/tasks/task-implement-minimal-ingest-api.md"
+        },
+        "ast": null,
+        "io_ports": [],
+        "compliance": null,
+        "adr": null,
+        "test_map": null,
+        "git": null,
+        "source": {
+          "extractor": "deskops_kgdb_snapshot_v1",
+          "provenance": [
+            {
+              "extractor": "desk_doc_nodes_v1",
+              "path": "desk/tasks/task-implement-minimal-ingest-api.md",
+              "source_kind": "file_metadata"
+            }
+          ]
+        }
+      },
+      "id": "task:task-implement-minimal-ingest-api"
+    },
+    {
+      "type": "task",
+      "status": "unknown",
+      "schema": {
+        "identity": {
+          "node_id": "task:task-implement-minimal-ingest-cli",
+          "node_type": "task"
+        },
+        "edges": [],
+        "semantics": {
+          "document_id": "task-implement-minimal-ingest-cli",
+          "identity": "task-implement-minimal-ingest-cli",
+          "label": "Implement minimal ingest CLI",
+          "path": "desk/tasks/task-implement-minimal-ingest-cli.md"
+        },
+        "ast": null,
+        "io_ports": [],
+        "compliance": null,
+        "adr": null,
+        "test_map": null,
+        "git": null,
+        "source": {
+          "extractor": "deskops_kgdb_snapshot_v1",
+          "provenance": [
+            {
+              "extractor": "desk_doc_nodes_v1",
+              "path": "desk/tasks/task-implement-minimal-ingest-cli.md",
+              "source_kind": "file_metadata"
+            }
+          ]
+        }
+      },
+      "id": "task:task-implement-minimal-ingest-cli"
+    },
+    {
+      "type": "task",
+      "status": "unknown",
+      "schema": {
+        "identity": {
+          "node_id": "task:task-implement-minimal-query-api",
+          "node_type": "task"
+        },
+        "edges": [],
+        "semantics": {
+          "document_id": "task-implement-minimal-query-api",
+          "identity": "task-implement-minimal-query-api",
+          "label": "Implement minimal query API",
+          "path": "desk/tasks/task-implement-minimal-query-api.md"
+        },
+        "ast": null,
+        "io_ports": [],
+        "compliance": null,
+        "adr": null,
+        "test_map": null,
+        "git": null,
+        "source": {
+          "extractor": "deskops_kgdb_snapshot_v1",
+          "provenance": [
+            {
+              "extractor": "desk_doc_nodes_v1",
+              "path": "desk/tasks/task-implement-minimal-query-api.md",
+              "source_kind": "file_metadata"
+            }
+          ]
+        }
+      },
+      "id": "task:task-implement-minimal-query-api"
+    },
+    {
+      "type": "task",
+      "status": "unknown",
+      "schema": {
+        "identity": {
+          "node_id": "task:task-implement-minimal-query-cli",
+          "node_type": "task"
+        },
+        "edges": [],
+        "semantics": {
+          "document_id": "task-implement-minimal-query-cli",
+          "identity": "task-implement-minimal-query-cli",
+          "label": "Implement minimal query CLI",
+          "path": "desk/tasks/task-implement-minimal-query-cli.md"
+        },
+        "ast": null,
+        "io_ports": [],
+        "compliance": null,
+        "adr": null,
+        "test_map": null,
+        "git": null,
+        "source": {
+          "extractor": "deskops_kgdb_snapshot_v1",
+          "provenance": [
+            {
+              "extractor": "desk_doc_nodes_v1",
+              "path": "desk/tasks/task-implement-minimal-query-cli.md",
+              "source_kind": "file_metadata"
+            }
+          ]
+        }
+      },
+      "id": "task:task-implement-minimal-query-cli"
+    },
+    {
+      "type": "task",
+      "status": "unknown",
+      "schema": {
+        "identity": {
+          "node_id": "task:task-ingest-sldb-documents-and-sections",
+          "node_type": "task"
+        },
+        "edges": [],
+        "semantics": {
+          "document_id": "task-ingest-sldb-documents-and-sections",
+          "identity": "task-ingest-sldb-documents-and-sections",
+          "label": "Ingest SLDB semantic-export: Documents and Sections",
+          "path": "desk/tasks/task-ingest-sldb-documents-and-sections.md"
+        },
+        "ast": null,
+        "io_ports": [],
+        "compliance": null,
+        "adr": null,
+        "test_map": null,
+        "git": null,
+        "source": {
+          "extractor": "deskops_kgdb_snapshot_v1",
+          "provenance": [
+            {
+              "extractor": "desk_doc_nodes_v1",
+              "path": "desk/tasks/task-ingest-sldb-documents-and-sections.md",
+              "source_kind": "file_metadata"
+            }
+          ]
+        }
+      },
+      "id": "task:task-ingest-sldb-documents-and-sections"
+    },
+    {
+      "type": "task",
+      "status": "unknown",
+      "schema": {
+        "identity": {
+          "node_id": "task:task-ingest-sldb-equivalences-and-hashes",
+          "node_type": "task"
+        },
+        "edges": [],
+        "semantics": {
+          "document_id": "task-ingest-sldb-equivalences-and-hashes",
+          "identity": "task-ingest-sldb-equivalences-and-hashes",
+          "label": "Ingest SLDB semantic-export: Equivalences and Hashes",
+          "path": "desk/tasks/task-ingest-sldb-equivalences-and-hashes.md"
+        },
+        "ast": null,
+        "io_ports": [],
+        "compliance": null,
+        "adr": null,
+        "test_map": null,
+        "git": null,
+        "source": {
+          "extractor": "deskops_kgdb_snapshot_v1",
+          "provenance": [
+            {
+              "extractor": "desk_doc_nodes_v1",
+              "path": "desk/tasks/task-ingest-sldb-equivalences-and-hashes.md",
+              "source_kind": "file_metadata"
+            }
+          ]
+        }
+      },
+      "id": "task:task-ingest-sldb-equivalences-and-hashes"
+    },
+    {
+      "type": "task",
+      "status": "unknown",
+      "schema": {
+        "identity": {
+          "node_id": "task:task-ingest-sldb-tags-and-models",
+          "node_type": "task"
+        },
+        "edges": [],
+        "semantics": {
+          "document_id": "task-ingest-sldb-tags-and-models",
+          "identity": "task-ingest-sldb-tags-and-models",
+          "label": "Ingest SLDB semantic-export: Tags and Models",
+          "path": "desk/tasks/task-ingest-sldb-tags-and-models.md"
+        },
+        "ast": null,
+        "io_ports": [],
+        "compliance": null,
+        "adr": null,
+        "test_map": null,
+        "git": null,
+        "source": {
+          "extractor": "deskops_kgdb_snapshot_v1",
+          "provenance": [
+            {
+              "extractor": "desk_doc_nodes_v1",
+              "path": "desk/tasks/task-ingest-sldb-tags-and-models.md",
+              "source_kind": "file_metadata"
+            }
+          ]
+        }
+      },
+      "id": "task:task-ingest-sldb-tags-and-models"
+    },
+    {
+      "type": "task",
+      "status": "unknown",
+      "schema": {
+        "identity": {
+          "node_id": "task:task-preserve-sldb-structural-provenance-through-kgdb-handoff",
+          "node_type": "task"
+        },
+        "edges": [],
+        "semantics": {
+          "document_id": "task-preserve-sldb-structural-provenance-through-kgdb-handoff",
+          "identity": "task-preserve-sldb-structural-provenance-through-kgdb-handoff",
+          "label": "Preserve SLDB structural provenance through KGDB handoff",
+          "path": "desk/tasks/task-preserve-sldb-structural-provenance-through-kgdb-handoff.md"
+        },
+        "ast": null,
+        "io_ports": [],
+        "compliance": null,
+        "adr": null,
+        "test_map": null,
+        "git": null,
+        "source": {
+          "extractor": "deskops_kgdb_snapshot_v1",
+          "provenance": [
+            {
+              "extractor": "desk_doc_nodes_v1",
+              "path": "desk/tasks/task-preserve-sldb-structural-provenance-through-kgdb-handoff.md",
+              "source_kind": "file_metadata"
+            }
+          ]
+        }
+      },
+      "id": "task:task-preserve-sldb-structural-provenance-through-kgdb-handoff"
+    },
+    {
+      "type": "task",
+      "status": "unknown",
+      "schema": {
+        "identity": {
+          "node_id": "task:task-prove-downstream-consumer-contract",
+          "node_type": "task"
+        },
+        "edges": [
+          {
+            "target_id": "test_file:tests/test_integration.py",
+            "relation_type": "references",
+            "metadata": {
+              "confidence": "high",
+              "extractor": "desk_declared_edges_v1",
+              "provenance_locator": "line:50:source-file-reference",
+              "provenance_path": "desk/tasks/task-prove-downstream-consumer-contract.md",
+              "role": "references",
+              "source_kind": "declared"
+            }
+          },
+          {
+            "target_id": "test_file:tests/test_integration.py",
+            "relation_type": "references",
+            "metadata": {
+              "confidence": "high",
+              "extractor": "desk_declared_edges_v1",
+              "provenance_locator": "line:62:source-file-reference",
+              "provenance_path": "desk/tasks/task-prove-downstream-consumer-contract.md",
+              "role": "references",
+              "source_kind": "declared"
+            }
+          }
+        ],
+        "semantics": {
+          "document_id": "task-prove-downstream-consumer-contract",
+          "identity": "task-prove-downstream-consumer-contract",
+          "label": "Prove downstream consumer contract",
+          "path": "desk/tasks/task-prove-downstream-consumer-contract.md"
+        },
+        "ast": null,
+        "io_ports": [],
+        "compliance": null,
+        "adr": null,
+        "test_map": null,
+        "git": null,
+        "source": {
+          "extractor": "deskops_kgdb_snapshot_v1",
+          "provenance": [
+            {
+              "extractor": "desk_doc_nodes_v1",
+              "path": "desk/tasks/task-prove-downstream-consumer-contract.md",
+              "source_kind": "file_metadata"
+            }
+          ]
+        }
+      },
+      "id": "task:task-prove-downstream-consumer-contract"
+    },
+    {
+      "type": "task",
+      "status": "unknown",
+      "schema": {
+        "identity": {
+          "node_id": "task:task-provenance-fr-1-ingest-canonical-source-catalog",
+          "node_type": "task"
+        },
+        "edges": [],
+        "semantics": {
+          "document_id": "task-provenance-fr-1-ingest-canonical-source-catalog",
+          "identity": "task-provenance-fr-1-ingest-canonical-source-catalog",
+          "label": "Provenance FR-1: ingest canonical source catalog",
+          "path": "desk/tasks/task-provenance-fr-1-ingest-canonical-source-catalog.md"
+        },
+        "ast": null,
+        "io_ports": [],
+        "compliance": null,
+        "adr": null,
+        "test_map": null,
+        "git": null,
+        "source": {
+          "extractor": "deskops_kgdb_snapshot_v1",
+          "provenance": [
+            {
+              "extractor": "desk_doc_nodes_v1",
+              "path": "desk/tasks/task-provenance-fr-1-ingest-canonical-source-catalog.md",
+              "source_kind": "file_metadata"
+            }
+          ]
+        }
+      },
+      "id": "task:task-provenance-fr-1-ingest-canonical-source-catalog"
+    },
+    {
+      "type": "task",
+      "status": "unknown",
+      "schema": {
+        "identity": {
+          "node_id": "task:task-provenance-fr-10-backward-compatible-degradation",
+          "node_type": "task"
+        },
+        "edges": [],
+        "semantics": {
+          "document_id": "task-provenance-fr-10-backward-compatible-degradation",
+          "identity": "task-provenance-fr-10-backward-compatible-degradation",
+          "label": "Provenance FR-10: backward-compatible degradation",
+          "path": "desk/tasks/task-provenance-fr-10-backward-compatible-degradation.md"
+        },
+        "ast": null,
+        "io_ports": [],
+        "compliance": null,
+        "adr": null,
+        "test_map": null,
+        "git": null,
+        "source": {
+          "extractor": "deskops_kgdb_snapshot_v1",
+          "provenance": [
+            {
+              "extractor": "desk_doc_nodes_v1",
+              "path": "desk/tasks/task-provenance-fr-10-backward-compatible-degradation.md",
+              "source_kind": "file_metadata"
+            }
+          ]
+        }
+      },
+      "id": "task:task-provenance-fr-10-backward-compatible-degradation"
+    },
+    {
+      "type": "task",
+      "status": "unknown",
+      "schema": {
+        "identity": {
+          "node_id": "task:task-provenance-fr-2-emit-first-class-source-nodes",
+          "node_type": "task"
+        },
+        "edges": [],
+        "semantics": {
+          "document_id": "task-provenance-fr-2-emit-first-class-source-nodes",
+          "identity": "task-provenance-fr-2-emit-first-class-source-nodes",
+          "label": "Provenance FR-2: emit first-class source nodes",
+          "path": "desk/tasks/task-provenance-fr-2-emit-first-class-source-nodes.md"
+        },
+        "ast": null,
+        "io_ports": [],
+        "compliance": null,
+        "adr": null,
+        "test_map": null,
+        "git": null,
+        "source": {
+          "extractor": "deskops_kgdb_snapshot_v1",
+          "provenance": [
+            {
+              "extractor": "desk_doc_nodes_v1",
+              "path": "desk/tasks/task-provenance-fr-2-emit-first-class-source-nodes.md",
+              "source_kind": "file_metadata"
+            }
+          ]
+        }
+      },
+      "id": "task:task-provenance-fr-2-emit-first-class-source-nodes"
+    },
+    {
+      "type": "task",
+      "status": "unknown",
+      "schema": {
+        "identity": {
+          "node_id": "task:task-provenance-fr-3-parse-atom-provenance-declarations",
+          "node_type": "task"
+        },
+        "edges": [],
+        "semantics": {
+          "document_id": "task-provenance-fr-3-parse-atom-provenance-declarations",
+          "identity": "task-provenance-fr-3-parse-atom-provenance-declarations",
+          "label": "Provenance FR-3: parse atom provenance declarations",
+          "path": "desk/tasks/task-provenance-fr-3-parse-atom-provenance-declarations.md"
+        },
+        "ast": null,
+        "io_ports": [],
+        "compliance": null,
+        "adr": null,
+        "test_map": null,
+        "git": null,
+        "source": {
+          "extractor": "deskops_kgdb_snapshot_v1",
+          "provenance": [
+            {
+              "extractor": "desk_doc_nodes_v1",
+              "path": "desk/tasks/task-provenance-fr-3-parse-atom-provenance-declarations.md",
+              "source_kind": "file_metadata"
+            }
+          ]
+        }
+      },
+      "id": "task:task-provenance-fr-3-parse-atom-provenance-declarations"
+    },
+    {
+      "type": "task",
+      "status": "unknown",
+      "schema": {
+        "identity": {
+          "node_id": "task:task-provenance-fr-4-emit-typed-provenance-edges",
+          "node_type": "task"
+        },
+        "edges": [],
+        "semantics": {
+          "document_id": "task-provenance-fr-4-emit-typed-provenance-edges",
+          "identity": "task-provenance-fr-4-emit-typed-provenance-edges",
+          "label": "Provenance FR-4: emit typed provenance edges",
+          "path": "desk/tasks/task-provenance-fr-4-emit-typed-provenance-edges.md"
+        },
+        "ast": null,
+        "io_ports": [],
+        "compliance": null,
+        "adr": null,
+        "test_map": null,
+        "git": null,
+        "source": {
+          "extractor": "deskops_kgdb_snapshot_v1",
+          "provenance": [
+            {
+              "extractor": "desk_doc_nodes_v1",
+              "path": "desk/tasks/task-provenance-fr-4-emit-typed-provenance-edges.md",
+              "source_kind": "file_metadata"
+            }
+          ]
+        }
+      },
+      "id": "task:task-provenance-fr-4-emit-typed-provenance-edges"
+    },
+    {
+      "type": "task",
+      "status": "unknown",
+      "schema": {
+        "identity": {
+          "node_id": "task:task-provenance-fr-5-detect-unknown-source-ids",
+          "node_type": "task"
+        },
+        "edges": [],
+        "semantics": {
+          "document_id": "task-provenance-fr-5-detect-unknown-source-ids",
+          "identity": "task-provenance-fr-5-detect-unknown-source-ids",
+          "label": "Provenance FR-5: detect unknown source IDs",
+          "path": "desk/tasks/task-provenance-fr-5-detect-unknown-source-ids.md"
+        },
+        "ast": null,
+        "io_ports": [],
+        "compliance": null,
+        "adr": null,
+        "test_map": null,
+        "git": null,
+        "source": {
+          "extractor": "deskops_kgdb_snapshot_v1",
+          "provenance": [
+            {
+              "extractor": "desk_doc_nodes_v1",
+              "path": "desk/tasks/task-provenance-fr-5-detect-unknown-source-ids.md",
+              "source_kind": "file_metadata"
+            }
+          ]
+        }
+      },
+      "id": "task:task-provenance-fr-5-detect-unknown-source-ids"
+    },
+    {
+      "type": "task",
+      "status": "unknown",
+      "schema": {
+        "identity": {
+          "node_id": "task:task-provenance-fr-6-detect-orphan-atoms",
+          "node_type": "task"
+        },
+        "edges": [],
+        "semantics": {
+          "document_id": "task-provenance-fr-6-detect-orphan-atoms",
+          "identity": "task-provenance-fr-6-detect-orphan-atoms",
+          "label": "Provenance FR-6: detect orphan atoms",
+          "path": "desk/tasks/task-provenance-fr-6-detect-orphan-atoms.md"
+        },
+        "ast": null,
+        "io_ports": [],
+        "compliance": null,
+        "adr": null,
+        "test_map": null,
+        "git": null,
+        "source": {
+          "extractor": "deskops_kgdb_snapshot_v1",
+          "provenance": [
+            {
+              "extractor": "desk_doc_nodes_v1",
+              "path": "desk/tasks/task-provenance-fr-6-detect-orphan-atoms.md",
+              "source_kind": "file_metadata"
+            }
+          ]
+        }
+      },
+      "id": "task:task-provenance-fr-6-detect-orphan-atoms"
+    },
+    {
+      "type": "task",
+      "status": "unknown",
+      "schema": {
+        "identity": {
+          "node_id": "task:task-provenance-fr-7-source-coverage-reflection",
+          "node_type": "task"
+        },
+        "edges": [],
+        "semantics": {
+          "document_id": "task-provenance-fr-7-source-coverage-reflection",
+          "identity": "task-provenance-fr-7-source-coverage-reflection",
+          "label": "Provenance FR-7: source coverage reflection",
+          "path": "desk/tasks/task-provenance-fr-7-source-coverage-reflection.md"
+        },
+        "ast": null,
+        "io_ports": [],
+        "compliance": null,
+        "adr": null,
+        "test_map": null,
+        "git": null,
+        "source": {
+          "extractor": "deskops_kgdb_snapshot_v1",
+          "provenance": [
+            {
+              "extractor": "desk_doc_nodes_v1",
+              "path": "desk/tasks/task-provenance-fr-7-source-coverage-reflection.md",
+              "source_kind": "file_metadata"
+            }
+          ]
+        }
+      },
+      "id": "task:task-provenance-fr-7-source-coverage-reflection"
+    },
+    {
+      "type": "task",
+      "status": "unknown",
+      "schema": {
+        "identity": {
+          "node_id": "task:task-provenance-fr-8-include-sources-and-edges-in-snapshot-contract",
+          "node_type": "task"
+        },
+        "edges": [],
+        "semantics": {
+          "document_id": "task-provenance-fr-8-include-sources-and-edges-in-snapshot-contract",
+          "identity": "task-provenance-fr-8-include-sources-and-edges-in-snapshot-contract",
+          "label": "Provenance FR-8: include sources and edges in snapshot contract",
+          "path": "desk/tasks/task-provenance-fr-8-include-sources-and-edges-in-snapshot-contract.md"
+        },
+        "ast": null,
+        "io_ports": [],
+        "compliance": null,
+        "adr": null,
+        "test_map": null,
+        "git": null,
+        "source": {
+          "extractor": "deskops_kgdb_snapshot_v1",
+          "provenance": [
+            {
+              "extractor": "desk_doc_nodes_v1",
+              "path": "desk/tasks/task-provenance-fr-8-include-sources-and-edges-in-snapshot-contract.md",
+              "source_kind": "file_metadata"
+            }
+          ]
+        }
+      },
+      "id": "task:task-provenance-fr-8-include-sources-and-edges-in-snapshot-contract"
+    },
+    {
+      "type": "task",
+      "status": "unknown",
+      "schema": {
+        "identity": {
+          "node_id": "task:task-provenance-fr-9-reflection-output-contract-for-findings",
+          "node_type": "task"
+        },
+        "edges": [],
+        "semantics": {
+          "document_id": "task-provenance-fr-9-reflection-output-contract-for-findings",
+          "identity": "task-provenance-fr-9-reflection-output-contract-for-findings",
+          "label": "Provenance FR-9: reflection output contract for findings",
+          "path": "desk/tasks/task-provenance-fr-9-reflection-output-contract-for-findings.md"
+        },
+        "ast": null,
+        "io_ports": [],
+        "compliance": null,
+        "adr": null,
+        "test_map": null,
+        "git": null,
+        "source": {
+          "extractor": "deskops_kgdb_snapshot_v1",
+          "provenance": [
+            {
+              "extractor": "desk_doc_nodes_v1",
+              "path": "desk/tasks/task-provenance-fr-9-reflection-output-contract-for-findings.md",
+              "source_kind": "file_metadata"
+            }
+          ]
+        }
+      },
+      "id": "task:task-provenance-fr-9-reflection-output-contract-for-findings"
+    },
+    {
+      "type": "task",
+      "status": "unknown",
+      "schema": {
+        "identity": {
+          "node_id": "task:task-relation-serialization-roundtrip-and-malformed-input-handling",
+          "node_type": "task"
+        },
+        "edges": [],
+        "semantics": {
+          "document_id": "task-relation-serialization-roundtrip-and-malformed-input-handling",
+          "identity": "task-relation-serialization-roundtrip-and-malformed-input-handling",
+          "label": "Relation serialization roundtrip and malformed-input handling",
+          "path": "desk/tasks/task-relation-serialization-roundtrip-and-malformed-input-handling.md"
+        },
+        "ast": null,
+        "io_ports": [],
+        "compliance": null,
+        "adr": null,
+        "test_map": null,
+        "git": null,
+        "source": {
+          "extractor": "deskops_kgdb_snapshot_v1",
+          "provenance": [
+            {
+              "extractor": "desk_doc_nodes_v1",
+              "path": "desk/tasks/task-relation-serialization-roundtrip-and-malformed-input-handling.md",
+              "source_kind": "file_metadata"
+            }
+          ]
+        }
+      },
+      "id": "task:task-relation-serialization-roundtrip-and-malformed-input-handling"
+    },
+    {
+      "type": "task",
+      "status": "unknown",
+      "schema": {
+        "identity": {
+          "node_id": "task:task-snapshot-validation-cli-and-python-api",
+          "node_type": "task"
+        },
+        "edges": [],
+        "semantics": {
+          "document_id": "task-snapshot-validation-cli-and-python-api",
+          "identity": "task-snapshot-validation-cli-and-python-api",
+          "label": "Snapshot validation: CLI and Python API",
+          "path": "desk/tasks/task-snapshot-validation-cli-and-python-api.md"
+        },
+        "ast": null,
+        "io_ports": [],
+        "compliance": null,
+        "adr": null,
+        "test_map": null,
+        "git": null,
+        "source": {
+          "extractor": "deskops_kgdb_snapshot_v1",
+          "provenance": [
+            {
+              "extractor": "desk_doc_nodes_v1",
+              "path": "desk/tasks/task-snapshot-validation-cli-and-python-api.md",
+              "source_kind": "file_metadata"
+            }
+          ]
+        }
+      },
+      "id": "task:task-snapshot-validation-cli-and-python-api"
+    },
+    {
+      "type": "test_file",
+      "status": "unknown",
+      "schema": {
+        "identity": {
+          "node_id": "test_file:tests/test_io.py",
+          "node_type": "test_file"
+        },
+        "edges": [],
+        "semantics": {
+          "file_kind": "test",
+          "identity": "tests/test_io.py",
+          "path": "tests/test_io.py"
+        },
+        "ast": null,
+        "io_ports": [],
+        "compliance": null,
+        "adr": null,
+        "test_map": null,
+        "git": null,
+        "source": {
+          "extractor": "deskops_kgdb_snapshot_v1",
+          "provenance": [
+            {
+              "extractor": "desk_source_file_nodes_v1",
+              "path": "tests/test_io.py",
+              "source_kind": "path_rule"
+            }
+          ]
+        }
+      },
+      "id": "test_file:tests/test_io.py"
+    },
+    {
+      "type": "test_file",
+      "status": "unknown",
+      "schema": {
+        "identity": {
+          "node_id": "test_file:tests/test_sldb_semantic_contract.py",
+          "node_type": "test_file"
+        },
+        "edges": [],
+        "semantics": {
+          "file_kind": "test",
+          "identity": "tests/test_sldb_semantic_contract.py",
+          "path": "tests/test_sldb_semantic_contract.py"
+        },
+        "ast": null,
+        "io_ports": [],
+        "compliance": null,
+        "adr": null,
+        "test_map": null,
+        "git": null,
+        "source": {
+          "extractor": "deskops_kgdb_snapshot_v1",
+          "provenance": [
+            {
+              "extractor": "desk_source_file_nodes_v1",
+              "path": "tests/test_sldb_semantic_contract.py",
+              "source_kind": "path_rule"
+            }
+          ]
+        }
+      },
+      "id": "test_file:tests/test_sldb_semantic_contract.py"
+    },
+    {
+      "type": "test_file",
+      "status": "unknown",
+      "schema": {
+        "identity": {
+          "node_id": "test_file:tests/test_sldb_semantic_ingest.py",
+          "node_type": "test_file"
+        },
+        "edges": [],
+        "semantics": {
+          "file_kind": "test",
+          "identity": "tests/test_sldb_semantic_ingest.py",
+          "path": "tests/test_sldb_semantic_ingest.py"
+        },
+        "ast": null,
+        "io_ports": [],
+        "compliance": null,
+        "adr": null,
+        "test_map": null,
+        "git": null,
+        "source": {
+          "extractor": "deskops_kgdb_snapshot_v1",
+          "provenance": [
+            {
+              "extractor": "desk_source_file_nodes_v1",
+              "path": "tests/test_sldb_semantic_ingest.py",
+              "source_kind": "path_rule"
+            }
+          ]
+        }
+      },
+      "id": "test_file:tests/test_sldb_semantic_ingest.py"
+    },
+    {
+      "type": "test_file",
+      "status": "unknown",
+      "schema": {
+        "identity": {
+          "node_id": "test_file:tests/test_sldb_semantic_query_examples.py",
+          "node_type": "test_file"
+        },
+        "edges": [],
+        "semantics": {
+          "file_kind": "test",
+          "identity": "tests/test_sldb_semantic_query_examples.py",
+          "path": "tests/test_sldb_semantic_query_examples.py"
+        },
+        "ast": null,
+        "io_ports": [],
+        "compliance": null,
+        "adr": null,
+        "test_map": null,
+        "git": null,
+        "source": {
+          "extractor": "deskops_kgdb_snapshot_v1",
+          "provenance": [
+            {
+              "extractor": "desk_source_file_nodes_v1",
+              "path": "tests/test_sldb_semantic_query_examples.py",
+              "source_kind": "path_rule"
+            }
+          ]
+        }
+      },
+      "id": "test_file:tests/test_sldb_semantic_query_examples.py"
+    },
+    {
+      "type": "test_file",
+      "status": "unknown",
+      "schema": {
+        "identity": {
+          "node_id": "test_file:tests/test_vocabulary.py",
+          "node_type": "test_file"
+        },
+        "edges": [],
+        "semantics": {
+          "file_kind": "test",
+          "identity": "tests/test_vocabulary.py",
+          "path": "tests/test_vocabulary.py"
+        },
+        "ast": null,
+        "io_ports": [],
+        "compliance": null,
+        "adr": null,
+        "test_map": null,
+        "git": null,
+        "source": {
+          "extractor": "deskops_kgdb_snapshot_v1",
+          "provenance": [
+            {
+              "extractor": "desk_source_file_nodes_v1",
+              "path": "tests/test_vocabulary.py",
+              "source_kind": "path_rule"
+            }
+          ]
+        }
+      },
+      "id": "test_file:tests/test_vocabulary.py"
+    },
+    {
+      "type": "use_case",
+      "status": "unknown",
+      "schema": {
+        "identity": {
+          "node_id": "use_case:desk/drawer/use-cases/UC-01-explore-graph.md",
+          "node_type": "use_case"
+        },
+        "edges": [],
+        "semantics": {
+          "identity": "desk/drawer/use-cases/UC-01-explore-graph.md",
+          "label": "UC-01: Exploring a knowledge graph",
+          "path": "desk/drawer/use-cases/UC-01-explore-graph.md"
+        },
+        "ast": null,
+        "io_ports": [],
+        "compliance": null,
+        "adr": null,
+        "test_map": null,
+        "git": null,
+        "source": {
+          "extractor": "deskops_kgdb_snapshot_v1",
+          "provenance": [
+            {
+              "extractor": "desk_doc_nodes_v1",
+              "path": "desk/drawer/use-cases/UC-01-explore-graph.md",
+              "source_kind": "file_metadata"
+            }
+          ]
+        }
+      },
+      "id": "use_case:desk/drawer/use-cases/UC-01-explore-graph.md"
+    },
+    {
+      "type": "use_case",
+      "status": "unknown",
+      "schema": {
+        "identity": {
+          "node_id": "use_case:desk/drawer/use-cases/UC-02-ingest-data.md",
+          "node_type": "use_case"
+        },
+        "edges": [],
+        "semantics": {
+          "identity": "desk/drawer/use-cases/UC-02-ingest-data.md",
+          "label": "UC-02: Ingesting data into kgdb",
+          "path": "desk/drawer/use-cases/UC-02-ingest-data.md"
+        },
+        "ast": null,
+        "io_ports": [],
+        "compliance": null,
+        "adr": null,
+        "test_map": null,
+        "git": null,
+        "source": {
+          "extractor": "deskops_kgdb_snapshot_v1",
+          "provenance": [
+            {
+              "extractor": "desk_doc_nodes_v1",
+              "path": "desk/drawer/use-cases/UC-02-ingest-data.md",
+              "source_kind": "file_metadata"
+            }
+          ]
+        }
+      },
+      "id": "use_case:desk/drawer/use-cases/UC-02-ingest-data.md"
+    },
+    {
+      "type": "use_case",
+      "status": "unknown",
+      "schema": {
+        "identity": {
+          "node_id": "use_case:desk/drawer/use-cases/UC-03-query-graph.md",
+          "node_type": "use_case"
+        },
+        "edges": [],
+        "semantics": {
+          "identity": "desk/drawer/use-cases/UC-03-query-graph.md",
+          "label": "UC-03: Querying a knowledge graph",
+          "path": "desk/drawer/use-cases/UC-03-query-graph.md"
+        },
+        "ast": null,
+        "io_ports": [],
+        "compliance": null,
+        "adr": null,
+        "test_map": null,
+        "git": null,
+        "source": {
+          "extractor": "deskops_kgdb_snapshot_v1",
+          "provenance": [
+            {
+              "extractor": "desk_doc_nodes_v1",
+              "path": "desk/drawer/use-cases/UC-03-query-graph.md",
+              "source_kind": "file_metadata"
+            }
+          ]
+        }
+      },
+      "id": "use_case:desk/drawer/use-cases/UC-03-query-graph.md"
+    },
+    {
+      "type": "use_case",
+      "status": "unknown",
+      "schema": {
+        "identity": {
+          "node_id": "use_case:desk/drawer/use-cases/UC-04-contract-validation.md",
+          "node_type": "use_case"
+        },
+        "edges": [],
+        "semantics": {
+          "identity": "desk/drawer/use-cases/UC-04-contract-validation.md",
+          "label": "UC-04: Contract validation and integration",
+          "path": "desk/drawer/use-cases/UC-04-contract-validation.md"
+        },
+        "ast": null,
+        "io_ports": [],
+        "compliance": null,
+        "adr": null,
+        "test_map": null,
+        "git": null,
+        "source": {
+          "extractor": "deskops_kgdb_snapshot_v1",
+          "provenance": [
+            {
+              "extractor": "desk_doc_nodes_v1",
+              "path": "desk/drawer/use-cases/UC-04-contract-validation.md",
+              "source_kind": "file_metadata"
+            }
+          ]
+        }
+      },
+      "id": "use_case:desk/drawer/use-cases/UC-04-contract-validation.md"
+    },
+    {
+      "type": "use_case",
+      "status": "unknown",
+      "schema": {
+        "identity": {
+          "node_id": "use_case:desk/drawer/use-cases/UC-05-python-api.md",
+          "node_type": "use_case"
+        },
+        "edges": [],
+        "semantics": {
+          "identity": "desk/drawer/use-cases/UC-05-python-api.md",
+          "label": "UC-05: Python API usage",
+          "path": "desk/drawer/use-cases/UC-05-python-api.md"
+        },
+        "ast": null,
+        "io_ports": [],
+        "compliance": null,
+        "adr": null,
+        "test_map": null,
+        "git": null,
+        "source": {
+          "extractor": "deskops_kgdb_snapshot_v1",
+          "provenance": [
+            {
+              "extractor": "desk_doc_nodes_v1",
+              "path": "desk/drawer/use-cases/UC-05-python-api.md",
+              "source_kind": "file_metadata"
+            }
+          ]
+        }
+      },
+      "id": "use_case:desk/drawer/use-cases/UC-05-python-api.md"
+    },
+    {
+      "type": "use_case",
+      "status": "unknown",
+      "schema": {
+        "identity": {
+          "node_id": "use_case:desk/drawer/use-cases/UC-06-edge-traversal.md",
+          "node_type": "use_case"
+        },
+        "edges": [],
+        "semantics": {
+          "identity": "desk/drawer/use-cases/UC-06-edge-traversal.md",
+          "label": "UC-06: Graph edge traversal",
+          "path": "desk/drawer/use-cases/UC-06-edge-traversal.md"
+        },
+        "ast": null,
+        "io_ports": [],
+        "compliance": null,
+        "adr": null,
+        "test_map": null,
+        "git": null,
+        "source": {
+          "extractor": "deskops_kgdb_snapshot_v1",
+          "provenance": [
+            {
+              "extractor": "desk_doc_nodes_v1",
+              "path": "desk/drawer/use-cases/UC-06-edge-traversal.md",
+              "source_kind": "file_metadata"
+            }
+          ]
+        }
+      },
+      "id": "use_case:desk/drawer/use-cases/UC-06-edge-traversal.md"
+    }
+  ],
+  "links": [
+    {
+      "relation": "references",
+      "metadata": {
+        "confidence": "high",
+        "extractor": "desk_declared_edges_v1",
+        "provenance_locator": "line:21:source-file-reference",
+        "provenance_path": "desk/drawer/issues/issue-fix-test-import-path-for-local-pytest.md",
+        "role": "references",
+        "source_kind": "declared"
+      },
+      "source": "issue:fix-test-import-path-for-local-pytest",
+      "target": "test_file:tests/test_ingest.py"
+    },
+    {
+      "relation": "references",
+      "metadata": {
+        "confidence": "high",
+        "extractor": "desk_declared_edges_v1",
+        "provenance_locator": "line:21:source-file-reference",
+        "provenance_path": "desk/drawer/issues/issue-fix-test-import-path-for-local-pytest.md",
+        "role": "references",
+        "source_kind": "declared"
+      },
+      "source": "issue:fix-test-import-path-for-local-pytest",
+      "target": "test_file:tests/test_integration.py"
+    },
+    {
+      "relation": "references",
+      "metadata": {
+        "confidence": "high",
+        "extractor": "desk_declared_edges_v1",
+        "provenance_locator": "line:21:source-file-reference",
+        "provenance_path": "desk/drawer/issues/issue-fix-test-import-path-for-local-pytest.md",
+        "role": "references",
+        "source_kind": "declared"
+      },
+      "source": "issue:fix-test-import-path-for-local-pytest",
+      "target": "test_file:tests/test_query.py"
+    },
+    {
+      "relation": "references",
+      "metadata": {
+        "confidence": "high",
+        "extractor": "desk_declared_edges_v1",
+        "provenance_locator": "line:62:source-file-reference",
+        "provenance_path": "desk/tasks/task-prove-downstream-consumer-contract.md",
+        "role": "references",
+        "source_kind": "declared"
+      },
+      "source": "task:task-prove-downstream-consumer-contract",
+      "target": "test_file:tests/test_integration.py"
+    }
+  ]
+}

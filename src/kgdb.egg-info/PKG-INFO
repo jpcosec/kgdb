@@ -11,6 +11,50 @@ Requires-Dist: networkx>=3.0
 
 `kgdb` is the graph persistence, traversal, and query substrate for the HUM ecosystem.
 
+## Installation
+
+Requires Python 3.10 or later.
+
+```bash
+# Clone the repo (or use the hum-ecosystem checkout)
+pip install -e .
+```
+
+Or install the package directly from its directory:
+
+```bash
+cd /path/to/hum-ecosystem/tools/kgdb
+pip install -e .
+```
+
+The CLI entry point `kgdb` becomes available after installation.
+
+### Dependencies
+
+- `pydantic>=2.0.0`
+- `networkx>=3.0`
+
+### Development install
+
+```bash
+pip install -e ".[dev]"
+pip install pytest pytest-asyncio
+pytest
+```
+
+## CLI Usage
+
+After install, the `kgdb` console script is on your PATH:
+
+```bash
+kgdb --help
+kgdb ingest-sldb --input kgdb.semantic.json --output kgdb.graph.json
+kgdb list --graph kgdb.graph.json
+kgdb get --graph kgdb.graph.json --node sldb://document/TaskDoc:001-define-kgdb-semantic-export-payload
+kgdb edges --graph kgdb.graph.json --node sldb://document/TaskDoc:001-define-kgdb-semantic-export-payload
+kgdb query --graph kgdb.graph.json --query-file query.json
+```
+
 It runs in parallel with `sldb`:
 
 - `sldb` owns semantic document truth: tracked Markdown documents, document models, semantic tags, section indexes, semantic DAG relationships, equivalences, and document/model/store hashes.
