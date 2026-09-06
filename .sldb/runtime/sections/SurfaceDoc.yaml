@@ -1,0 +1,112 @@
+documents:
+- doc_name: surface-kgdb-root
+  sections:
+  - path: kgdb
+    title: kgdb
+    breadcrumbs:
+    - kgdb
+    about:
+    - kgdb
+    - domain:graph_architecture
+    - entity:cli_surface
+    - impl:external
+    - kind:software
+    - system:kgdb
+    - type.knowledge.surface
+    - workspace.knowledge.surfaces
+    semantic_tags:
+    - domain:graph_architecture
+    - entity:cli_surface
+    - impl:external
+    - kind:software
+    - system:kgdb
+    - type.knowledge.surface
+    - workspace.knowledge.surfaces
+    slug: kgdb
+    level: 1
+    line_start: 14
+    line_end: 15
+  - path: kgdb/purpose
+    title: Purpose
+    breadcrumbs:
+    - kgdb
+    - Purpose
+    about:
+    - kgdb
+    - Purpose
+    - purpose
+    - domain:graph_architecture
+    - entity:cli_surface
+    - impl:external
+    - kind:software
+    - system:kgdb
+    - type.knowledge.surface
+    - workspace.knowledge.surfaces
+    semantic_tags:
+    - domain:graph_architecture
+    - entity:cli_surface
+    - impl:external
+    - kind:software
+    - system:kgdb
+    - type.knowledge.surface
+    - workspace.knowledge.surfaces
+    slug: purpose
+    level: 2
+    line_start: 16
+    line_end: 17
+  - path: kgdb/how-it-works
+    title: How It Works
+    breadcrumbs:
+    - kgdb
+    - How It Works
+    about:
+    - kgdb
+    - How It Works
+    - how it works
+    - domain:graph_architecture
+    - entity:cli_surface
+    - impl:external
+    - kind:software
+    - system:kgdb
+    - type.knowledge.surface
+    - workspace.knowledge.surfaces
+    semantic_tags:
+    - domain:graph_architecture
+    - entity:cli_surface
+    - impl:external
+    - kind:software
+    - system:kgdb
+    - type.knowledge.surface
+    - workspace.knowledge.surfaces
+    slug: how-it-works
+    level: 2
+    line_start: 20
+    line_end: 21
+  - path: kgdb/commands
+    title: Commands
+    breadcrumbs:
+    - kgdb
+    - Commands
+    about:
+    - kgdb
+    - Commands
+    - commands
+    - domain:graph_architecture
+    - entity:cli_surface
+    - impl:external
+    - kind:software
+    - system:kgdb
+    - type.knowledge.surface
+    - workspace.knowledge.surfaces
+    semantic_tags:
+    - domain:graph_architecture
+    - entity:cli_surface
+    - impl:external
+    - kind:software
+    - system:kgdb
+    - type.knowledge.surface
+    - workspace.knowledge.surfaces
+    slug: commands
+    level: 2
+    line_start: 24
+    line_end: 25

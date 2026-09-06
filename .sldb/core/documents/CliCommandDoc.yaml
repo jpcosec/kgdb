@@ -1,0 +1,73 @@
+documents:
+- name: cmd-kgdb-get
+  path: knowledge/commands/cmd-kgdb-get.md
+  hash_c: bcfee4230cf8f74efc705e90b0fdf8b9b2c7d81d53339405f283522ad2d06b96
+  hash_d: 21476d34d4539c4001dfa51b6143d9edec4a7b1238abc8d59c60c0f8fd5258d2
+  semantic_tags:
+  - domain:retrieval
+  - entity:cli_command
+  - impl:external
+  - kind:software
+  - system:kgdb
+  - type.knowledge.cli_command
+  - workspace.knowledge.commands
+- name: cmd-kgdb-list
+  path: knowledge/commands/cmd-kgdb-list.md
+  hash_c: afedbab7abe029de73d2a8718ab0f08e3b4dd5c8685a2be033c96eecdec6a94c
+  hash_d: 3afcd890caa25fbc23ab56b18b31f13158ba795ce5fc8ff5f9c02378e99b9486
+  semantic_tags:
+  - domain:retrieval
+  - entity:cli_command
+  - impl:external
+  - kind:software
+  - system:kgdb
+  - type.knowledge.cli_command
+  - workspace.knowledge.commands
+- name: cmd-kgdb-query
+  path: knowledge/commands/cmd-kgdb-query.md
+  hash_c: c28fab6c1086f908e802e6ab65bbcad9e646de2053b13c2e93d805cd0f7af90b
+  hash_d: 2a7054f9108d8b0dadcdbfcb365402367aa1a513927b407604cf0aac12df4844
+  semantic_tags:
+  - domain:retrieval
+  - entity:cli_command
+  - impl:external
+  - kind:software
+  - system:kgdb
+  - type.knowledge.cli_command
+  - workspace.knowledge.commands
+- name: cmd-kgdb-edges
+  path: knowledge/commands/cmd-kgdb-edges.md
+  hash_c: bb23095912574fdc2ccc310f4b385e9738ec2af6438a642aee002b77d81f3a4e
+  hash_d: 4c3c8d9e0a2e05739bd70009d5d620febba552393d1413a2655490f04082cbf9
+  semantic_tags:
+  - domain:retrieval
+  - entity:cli_command
+  - impl:external
+  - kind:software
+  - system:kgdb
+  - type.knowledge.cli_command
+  - workspace.knowledge.commands
+- name: cmd-kgdb-ingest
+  path: knowledge/commands/cmd-kgdb-ingest.md
+  hash_c: 729c5ffd480ba13321c8a05e2bdc036bc33625cce1caf40edae819abbcdaa6b1
+  hash_d: f0b03001a7a66da754a098ff2b669fc5121a0d8e8d6053d265a1cdb47ef032e2
+  semantic_tags:
+  - domain:retrieval
+  - entity:cli_command
+  - impl:external
+  - kind:software
+  - system:kgdb
+  - type.knowledge.cli_command
+  - workspace.knowledge.commands
+- name: cmd-kgdb-ingest-sldb
+  path: knowledge/commands/cmd-kgdb-ingest-sldb.md
+  hash_c: bfe63fad29e53d8faf1279e88487e754205c9074808d5a53603498afb7bd110e
+  hash_d: f2d01262856e47d8641f146f3f8523480f85b2302436495fd5bf80ddde8971cc
+  semantic_tags:
+  - domain:retrieval
+  - entity:cli_command
+  - impl:external
+  - kind:software
+  - system:kgdb
+  - type.knowledge.cli_command
+  - workspace.knowledge.commands

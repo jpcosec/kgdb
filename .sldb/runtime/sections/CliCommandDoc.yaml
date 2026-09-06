@@ -1,0 +1,1009 @@
+documents:
+- doc_name: cmd-kgdb-get
+  sections:
+  - path: get
+    title: get
+    breadcrumbs:
+    - get
+    about:
+    - get
+    - domain:retrieval
+    - entity:cli_command
+    - impl:external
+    - kind:software
+    - system:kgdb
+    - type.knowledge.cli_command
+    - workspace.knowledge.commands
+    semantic_tags:
+    - domain:retrieval
+    - entity:cli_command
+    - impl:external
+    - kind:software
+    - system:kgdb
+    - type.knowledge.cli_command
+    - workspace.knowledge.commands
+    slug: get
+    level: 1
+    line_start: 15
+    line_end: 16
+  - path: get/synopsis
+    title: Synopsis
+    breadcrumbs:
+    - get
+    - Synopsis
+    about:
+    - get
+    - Synopsis
+    - synopsis
+    - domain:retrieval
+    - entity:cli_command
+    - impl:external
+    - kind:software
+    - system:kgdb
+    - type.knowledge.cli_command
+    - workspace.knowledge.commands
+    semantic_tags:
+    - domain:retrieval
+    - entity:cli_command
+    - impl:external
+    - kind:software
+    - system:kgdb
+    - type.knowledge.cli_command
+    - workspace.knowledge.commands
+    slug: synopsis
+    level: 2
+    line_start: 17
+    line_end: 18
+  - path: get/purpose
+    title: Purpose
+    breadcrumbs:
+    - get
+    - Purpose
+    about:
+    - get
+    - Purpose
+    - purpose
+    - domain:retrieval
+    - entity:cli_command
+    - impl:external
+    - kind:software
+    - system:kgdb
+    - type.knowledge.cli_command
+    - workspace.knowledge.commands
+    semantic_tags:
+    - domain:retrieval
+    - entity:cli_command
+    - impl:external
+    - kind:software
+    - system:kgdb
+    - type.knowledge.cli_command
+    - workspace.knowledge.commands
+    slug: purpose
+    level: 2
+    line_start: 21
+    line_end: 22
+  - path: get/how-it-works
+    title: How It Works
+    breadcrumbs:
+    - get
+    - How It Works
+    about:
+    - get
+    - How It Works
+    - how it works
+    - domain:retrieval
+    - entity:cli_command
+    - impl:external
+    - kind:software
+    - system:kgdb
+    - type.knowledge.cli_command
+    - workspace.knowledge.commands
+    semantic_tags:
+    - domain:retrieval
+    - entity:cli_command
+    - impl:external
+    - kind:software
+    - system:kgdb
+    - type.knowledge.cli_command
+    - workspace.knowledge.commands
+    slug: how-it-works
+    level: 2
+    line_start: 25
+    line_end: 26
+  - path: get/arguments
+    title: Arguments
+    breadcrumbs:
+    - get
+    - Arguments
+    about:
+    - get
+    - Arguments
+    - arguments
+    - domain:retrieval
+    - entity:cli_command
+    - impl:external
+    - kind:software
+    - system:kgdb
+    - type.knowledge.cli_command
+    - workspace.knowledge.commands
+    semantic_tags:
+    - domain:retrieval
+    - entity:cli_command
+    - impl:external
+    - kind:software
+    - system:kgdb
+    - type.knowledge.cli_command
+    - workspace.knowledge.commands
+    slug: arguments
+    level: 2
+    line_start: 29
+    line_end: 30
+  - path: get/usage
+    title: Usage
+    breadcrumbs:
+    - get
+    - Usage
+    about:
+    - get
+    - Usage
+    - usage
+    - domain:retrieval
+    - entity:cli_command
+    - impl:external
+    - kind:software
+    - system:kgdb
+    - type.knowledge.cli_command
+    - workspace.knowledge.commands
+    semantic_tags:
+    - domain:retrieval
+    - entity:cli_command
+    - impl:external
+    - kind:software
+    - system:kgdb
+    - type.knowledge.cli_command
+    - workspace.knowledge.commands
+    slug: usage
+    level: 2
+    line_start: 34
+    line_end: 35
+- doc_name: cmd-kgdb-list
+  sections:
+  - path: list
+    title: list
+    breadcrumbs:
+    - list
+    about:
+    - list
+    - domain:retrieval
+    - entity:cli_command
+    - impl:external
+    - kind:software
+    - system:kgdb
+    - type.knowledge.cli_command
+    - workspace.knowledge.commands
+    semantic_tags:
+    - domain:retrieval
+    - entity:cli_command
+    - impl:external
+    - kind:software
+    - system:kgdb
+    - type.knowledge.cli_command
+    - workspace.knowledge.commands
+    slug: list
+    level: 1
+    line_start: 15
+    line_end: 16
+  - path: list/synopsis
+    title: Synopsis
+    breadcrumbs:
+    - list
+    - Synopsis
+    about:
+    - list
+    - Synopsis
+    - synopsis
+    - domain:retrieval
+    - entity:cli_command
+    - impl:external
+    - kind:software
+    - system:kgdb
+    - type.knowledge.cli_command
+    - workspace.knowledge.commands
+    semantic_tags:
+    - domain:retrieval
+    - entity:cli_command
+    - impl:external
+    - kind:software
+    - system:kgdb
+    - type.knowledge.cli_command
+    - workspace.knowledge.commands
+    slug: synopsis
+    level: 2
+    line_start: 17
+    line_end: 18
+  - path: list/purpose
+    title: Purpose
+    breadcrumbs:
+    - list
+    - Purpose
+    about:
+    - list
+    - Purpose
+    - purpose
+    - domain:retrieval
+    - entity:cli_command
+    - impl:external
+    - kind:software
+    - system:kgdb
+    - type.knowledge.cli_command
+    - workspace.knowledge.commands
+    semantic_tags:
+    - domain:retrieval
+    - entity:cli_command
+    - impl:external
+    - kind:software
+    - system:kgdb
+    - type.knowledge.cli_command
+    - workspace.knowledge.commands
+    slug: purpose
+    level: 2
+    line_start: 21
+    line_end: 22
+  - path: list/how-it-works
+    title: How It Works
+    breadcrumbs:
+    - list
+    - How It Works
+    about:
+    - list
+    - How It Works
+    - how it works
+    - domain:retrieval
+    - entity:cli_command
+    - impl:external
+    - kind:software
+    - system:kgdb
+    - type.knowledge.cli_command
+    - workspace.knowledge.commands
+    semantic_tags:
+    - domain:retrieval
+    - entity:cli_command
+    - impl:external
+    - kind:software
+    - system:kgdb
+    - type.knowledge.cli_command
+    - workspace.knowledge.commands
+    slug: how-it-works
+    level: 2
+    line_start: 25
+    line_end: 26
+  - path: list/arguments
+    title: Arguments
+    breadcrumbs:
+    - list
+    - Arguments
+    about:
+    - list
+    - Arguments
+    - arguments
+    - domain:retrieval
+    - entity:cli_command
+    - impl:external
+    - kind:software
+    - system:kgdb
+    - type.knowledge.cli_command
+    - workspace.knowledge.commands
+    semantic_tags:
+    - domain:retrieval
+    - entity:cli_command
+    - impl:external
+    - kind:software
+    - system:kgdb
+    - type.knowledge.cli_command
+    - workspace.knowledge.commands
+    slug: arguments
+    level: 2
+    line_start: 29
+    line_end: 30
+  - path: list/usage
+    title: Usage
+    breadcrumbs:
+    - list
+    - Usage
+    about:
+    - list
+    - Usage
+    - usage
+    - domain:retrieval
+    - entity:cli_command
+    - impl:external
+    - kind:software
+    - system:kgdb
+    - type.knowledge.cli_command
+    - workspace.knowledge.commands
+    semantic_tags:
+    - domain:retrieval
+    - entity:cli_command
+    - impl:external
+    - kind:software
+    - system:kgdb
+    - type.knowledge.cli_command
+    - workspace.knowledge.commands
+    slug: usage
+    level: 2
+    line_start: 33
+    line_end: 34
+- doc_name: cmd-kgdb-query
+  sections:
+  - path: query
+    title: query
+    breadcrumbs:
+    - query
+    about:
+    - query
+    - domain:retrieval
+    - entity:cli_command
+    - impl:external
+    - kind:software
+    - system:kgdb
+    - type.knowledge.cli_command
+    - workspace.knowledge.commands
+    semantic_tags:
+    - domain:retrieval
+    - entity:cli_command
+    - impl:external
+    - kind:software
+    - system:kgdb
+    - type.knowledge.cli_command
+    - workspace.knowledge.commands
+    slug: query
+    level: 1
+    line_start: 15
+    line_end: 16
+  - path: query/synopsis
+    title: Synopsis
+    breadcrumbs:
+    - query
+    - Synopsis
+    about:
+    - query
+    - Synopsis
+    - synopsis
+    - domain:retrieval
+    - entity:cli_command
+    - impl:external
+    - kind:software
+    - system:kgdb
+    - type.knowledge.cli_command
+    - workspace.knowledge.commands
+    semantic_tags:
+    - domain:retrieval
+    - entity:cli_command
+    - impl:external
+    - kind:software
+    - system:kgdb
+    - type.knowledge.cli_command
+    - workspace.knowledge.commands
+    slug: synopsis
+    level: 2
+    line_start: 17
+    line_end: 18
+  - path: query/purpose
+    title: Purpose
+    breadcrumbs:
+    - query
+    - Purpose
+    about:
+    - query
+    - Purpose
+    - purpose
+    - domain:retrieval
+    - entity:cli_command
+    - impl:external
+    - kind:software
+    - system:kgdb
+    - type.knowledge.cli_command
+    - workspace.knowledge.commands
+    semantic_tags:
+    - domain:retrieval
+    - entity:cli_command
+    - impl:external
+    - kind:software
+    - system:kgdb
+    - type.knowledge.cli_command
+    - workspace.knowledge.commands
+    slug: purpose
+    level: 2
+    line_start: 21
+    line_end: 22
+  - path: query/how-it-works
+    title: How It Works
+    breadcrumbs:
+    - query
+    - How It Works
+    about:
+    - query
+    - How It Works
+    - how it works
+    - domain:retrieval
+    - entity:cli_command
+    - impl:external
+    - kind:software
+    - system:kgdb
+    - type.knowledge.cli_command
+    - workspace.knowledge.commands
+    semantic_tags:
+    - domain:retrieval
+    - entity:cli_command
+    - impl:external
+    - kind:software
+    - system:kgdb
+    - type.knowledge.cli_command
+    - workspace.knowledge.commands
+    slug: how-it-works
+    level: 2
+    line_start: 25
+    line_end: 26
+  - path: query/arguments
+    title: Arguments
+    breadcrumbs:
+    - query
+    - Arguments
+    about:
+    - query
+    - Arguments
+    - arguments
+    - domain:retrieval
+    - entity:cli_command
+    - impl:external
+    - kind:software
+    - system:kgdb
+    - type.knowledge.cli_command
+    - workspace.knowledge.commands
+    semantic_tags:
+    - domain:retrieval
+    - entity:cli_command
+    - impl:external
+    - kind:software
+    - system:kgdb
+    - type.knowledge.cli_command
+    - workspace.knowledge.commands
+    slug: arguments
+    level: 2
+    line_start: 29
+    line_end: 30
+  - path: query/usage
+    title: Usage
+    breadcrumbs:
+    - query
+    - Usage
+    about:
+    - query
+    - Usage
+    - usage
+    - domain:retrieval
+    - entity:cli_command
+    - impl:external
+    - kind:software
+    - system:kgdb
+    - type.knowledge.cli_command
+    - workspace.knowledge.commands
+    semantic_tags:
+    - domain:retrieval
+    - entity:cli_command
+    - impl:external
+    - kind:software
+    - system:kgdb
+    - type.knowledge.cli_command
+    - workspace.knowledge.commands
+    slug: usage
+    level: 2
+    line_start: 34
+    line_end: 35
+- doc_name: cmd-kgdb-edges
+  sections:
+  - path: edges
+    title: edges
+    breadcrumbs:
+    - edges
+    about:
+    - edges
+    - domain:retrieval
+    - entity:cli_command
+    - impl:external
+    - kind:software
+    - system:kgdb
+    - type.knowledge.cli_command
+    - workspace.knowledge.commands
+    semantic_tags:
+    - domain:retrieval
+    - entity:cli_command
+    - impl:external
+    - kind:software
+    - system:kgdb
+    - type.knowledge.cli_command
+    - workspace.knowledge.commands
+    slug: edges
+    level: 1
+    line_start: 15
+    line_end: 16
+  - path: edges/synopsis
+    title: Synopsis
+    breadcrumbs:
+    - edges
+    - Synopsis
+    about:
+    - edges
+    - Synopsis
+    - synopsis
+    - domain:retrieval
+    - entity:cli_command
+    - impl:external
+    - kind:software
+    - system:kgdb
+    - type.knowledge.cli_command
+    - workspace.knowledge.commands
+    semantic_tags:
+    - domain:retrieval
+    - entity:cli_command
+    - impl:external
+    - kind:software
+    - system:kgdb
+    - type.knowledge.cli_command
+    - workspace.knowledge.commands
+    slug: synopsis
+    level: 2
+    line_start: 17
+    line_end: 18
+  - path: edges/purpose
+    title: Purpose
+    breadcrumbs:
+    - edges
+    - Purpose
+    about:
+    - edges
+    - Purpose
+    - purpose
+    - domain:retrieval
+    - entity:cli_command
+    - impl:external
+    - kind:software
+    - system:kgdb
+    - type.knowledge.cli_command
+    - workspace.knowledge.commands
+    semantic_tags:
+    - domain:retrieval
+    - entity:cli_command
+    - impl:external
+    - kind:software
+    - system:kgdb
+    - type.knowledge.cli_command
+    - workspace.knowledge.commands
+    slug: purpose
+    level: 2
+    line_start: 21
+    line_end: 22
+  - path: edges/how-it-works
+    title: How It Works
+    breadcrumbs:
+    - edges
+    - How It Works
+    about:
+    - edges
+    - How It Works
+    - how it works
+    - domain:retrieval
+    - entity:cli_command
+    - impl:external
+    - kind:software
+    - system:kgdb
+    - type.knowledge.cli_command
+    - workspace.knowledge.commands
+    semantic_tags:
+    - domain:retrieval
+    - entity:cli_command
+    - impl:external
+    - kind:software
+    - system:kgdb
+    - type.knowledge.cli_command
+    - workspace.knowledge.commands
+    slug: how-it-works
+    level: 2
+    line_start: 25
+    line_end: 26
+  - path: edges/arguments
+    title: Arguments
+    breadcrumbs:
+    - edges
+    - Arguments
+    about:
+    - edges
+    - Arguments
+    - arguments
+    - domain:retrieval
+    - entity:cli_command
+    - impl:external
+    - kind:software
+    - system:kgdb
+    - type.knowledge.cli_command
+    - workspace.knowledge.commands
+    semantic_tags:
+    - domain:retrieval
+    - entity:cli_command
+    - impl:external
+    - kind:software
+    - system:kgdb
+    - type.knowledge.cli_command
+    - workspace.knowledge.commands
+    slug: arguments
+    level: 2
+    line_start: 29
+    line_end: 30
+  - path: edges/usage
+    title: Usage
+    breadcrumbs:
+    - edges
+    - Usage
+    about:
+    - edges
+    - Usage
+    - usage
+    - domain:retrieval
+    - entity:cli_command
+    - impl:external
+    - kind:software
+    - system:kgdb
+    - type.knowledge.cli_command
+    - workspace.knowledge.commands
+    semantic_tags:
+    - domain:retrieval
+    - entity:cli_command
+    - impl:external
+    - kind:software
+    - system:kgdb
+    - type.knowledge.cli_command
+    - workspace.knowledge.commands
+    slug: usage
+    level: 2
+    line_start: 34
+    line_end: 35
+- doc_name: cmd-kgdb-ingest
+  sections:
+  - path: ingest
+    title: ingest
+    breadcrumbs:
+    - ingest
+    about:
+    - ingest
+    - domain:retrieval
+    - entity:cli_command
+    - impl:external
+    - kind:software
+    - system:kgdb
+    - type.knowledge.cli_command
+    - workspace.knowledge.commands
+    semantic_tags:
+    - domain:retrieval
+    - entity:cli_command
+    - impl:external
+    - kind:software
+    - system:kgdb
+    - type.knowledge.cli_command
+    - workspace.knowledge.commands
+    slug: ingest
+    level: 1
+    line_start: 15
+    line_end: 16
+  - path: ingest/synopsis
+    title: Synopsis
+    breadcrumbs:
+    - ingest
+    - Synopsis
+    about:
+    - ingest
+    - Synopsis
+    - synopsis
+    - domain:retrieval
+    - entity:cli_command
+    - impl:external
+    - kind:software
+    - system:kgdb
+    - type.knowledge.cli_command
+    - workspace.knowledge.commands
+    semantic_tags:
+    - domain:retrieval
+    - entity:cli_command
+    - impl:external
+    - kind:software
+    - system:kgdb
+    - type.knowledge.cli_command
+    - workspace.knowledge.commands
+    slug: synopsis
+    level: 2
+    line_start: 17
+    line_end: 18
+  - path: ingest/purpose
+    title: Purpose
+    breadcrumbs:
+    - ingest
+    - Purpose
+    about:
+    - ingest
+    - Purpose
+    - purpose
+    - domain:retrieval
+    - entity:cli_command
+    - impl:external
+    - kind:software
+    - system:kgdb
+    - type.knowledge.cli_command
+    - workspace.knowledge.commands
+    semantic_tags:
+    - domain:retrieval
+    - entity:cli_command
+    - impl:external
+    - kind:software
+    - system:kgdb
+    - type.knowledge.cli_command
+    - workspace.knowledge.commands
+    slug: purpose
+    level: 2
+    line_start: 21
+    line_end: 22
+  - path: ingest/how-it-works
+    title: How It Works
+    breadcrumbs:
+    - ingest
+    - How It Works
+    about:
+    - ingest
+    - How It Works
+    - how it works
+    - domain:retrieval
+    - entity:cli_command
+    - impl:external
+    - kind:software
+    - system:kgdb
+    - type.knowledge.cli_command
+    - workspace.knowledge.commands
+    semantic_tags:
+    - domain:retrieval
+    - entity:cli_command
+    - impl:external
+    - kind:software
+    - system:kgdb
+    - type.knowledge.cli_command
+    - workspace.knowledge.commands
+    slug: how-it-works
+    level: 2
+    line_start: 25
+    line_end: 26
+  - path: ingest/arguments
+    title: Arguments
+    breadcrumbs:
+    - ingest
+    - Arguments
+    about:
+    - ingest
+    - Arguments
+    - arguments
+    - domain:retrieval
+    - entity:cli_command
+    - impl:external
+    - kind:software
+    - system:kgdb
+    - type.knowledge.cli_command
+    - workspace.knowledge.commands
+    semantic_tags:
+    - domain:retrieval
+    - entity:cli_command
+    - impl:external
+    - kind:software
+    - system:kgdb
+    - type.knowledge.cli_command
+    - workspace.knowledge.commands
+    slug: arguments
+    level: 2
+    line_start: 29
+    line_end: 30
+  - path: ingest/usage
+    title: Usage
+    breadcrumbs:
+    - ingest
+    - Usage
+    about:
+    - ingest
+    - Usage
+    - usage
+    - domain:retrieval
+    - entity:cli_command
+    - impl:external
+    - kind:software
+    - system:kgdb
+    - type.knowledge.cli_command
+    - workspace.knowledge.commands
+    semantic_tags:
+    - domain:retrieval
+    - entity:cli_command
+    - impl:external
+    - kind:software
+    - system:kgdb
+    - type.knowledge.cli_command
+    - workspace.knowledge.commands
+    slug: usage
+    level: 2
+    line_start: 34
+    line_end: 35
+- doc_name: cmd-kgdb-ingest-sldb
+  sections:
+  - path: ingest-sldb
+    title: ingest-sldb
+    breadcrumbs:
+    - ingest-sldb
+    about:
+    - ingest-sldb
+    - ingest sldb
+    - domain:retrieval
+    - entity:cli_command
+    - impl:external
+    - kind:software
+    - system:kgdb
+    - type.knowledge.cli_command
+    - workspace.knowledge.commands
+    semantic_tags:
+    - domain:retrieval
+    - entity:cli_command
+    - impl:external
+    - kind:software
+    - system:kgdb
+    - type.knowledge.cli_command
+    - workspace.knowledge.commands
+    slug: ingest-sldb
+    level: 1
+    line_start: 15
+    line_end: 16
+  - path: ingest-sldb/synopsis
+    title: Synopsis
+    breadcrumbs:
+    - ingest-sldb
+    - Synopsis
+    about:
+    - ingest-sldb
+    - ingest sldb
+    - Synopsis
+    - synopsis
+    - domain:retrieval
+    - entity:cli_command
+    - impl:external
+    - kind:software
+    - system:kgdb
+    - type.knowledge.cli_command
+    - workspace.knowledge.commands
+    semantic_tags:
+    - domain:retrieval
+    - entity:cli_command
+    - impl:external
+    - kind:software
+    - system:kgdb
+    - type.knowledge.cli_command
+    - workspace.knowledge.commands
+    slug: synopsis
+    level: 2
+    line_start: 17
+    line_end: 18
+  - path: ingest-sldb/purpose
+    title: Purpose
+    breadcrumbs:
+    - ingest-sldb
+    - Purpose
+    about:
+    - ingest-sldb
+    - ingest sldb
+    - Purpose
+    - purpose
+    - domain:retrieval
+    - entity:cli_command
+    - impl:external
+    - kind:software
+    - system:kgdb
+    - type.knowledge.cli_command
+    - workspace.knowledge.commands
+    semantic_tags:
+    - domain:retrieval
+    - entity:cli_command
+    - impl:external
+    - kind:software
+    - system:kgdb
+    - type.knowledge.cli_command
+    - workspace.knowledge.commands
+    slug: purpose
+    level: 2
+    line_start: 21
+    line_end: 22
+  - path: ingest-sldb/how-it-works
+    title: How It Works
+    breadcrumbs:
+    - ingest-sldb
+    - How It Works
+    about:
+    - ingest-sldb
+    - ingest sldb
+    - How It Works
+    - how it works
+    - domain:retrieval
+    - entity:cli_command
+    - impl:external
+    - kind:software
+    - system:kgdb
+    - type.knowledge.cli_command
+    - workspace.knowledge.commands
+    semantic_tags:
+    - domain:retrieval
+    - entity:cli_command
+    - impl:external
+    - kind:software
+    - system:kgdb
+    - type.knowledge.cli_command
+    - workspace.knowledge.commands
+    slug: how-it-works
+    level: 2
+    line_start: 25
+    line_end: 26
+  - path: ingest-sldb/arguments
+    title: Arguments
+    breadcrumbs:
+    - ingest-sldb
+    - Arguments
+    about:
+    - ingest-sldb
+    - ingest sldb
+    - Arguments
+    - arguments
+    - domain:retrieval
+    - entity:cli_command
+    - impl:external
+    - kind:software
+    - system:kgdb
+    - type.knowledge.cli_command
+    - workspace.knowledge.commands
+    semantic_tags:
+    - domain:retrieval
+    - entity:cli_command
+    - impl:external
+    - kind:software
+    - system:kgdb
+    - type.knowledge.cli_command
+    - workspace.knowledge.commands
+    slug: arguments
+    level: 2
+    line_start: 29
+    line_end: 30
+  - path: ingest-sldb/usage
+    title: Usage
+    breadcrumbs:
+    - ingest-sldb
+    - Usage
+    about:
+    - ingest-sldb
+    - ingest sldb
+    - Usage
+    - usage
+    - domain:retrieval
+    - entity:cli_command
+    - impl:external
+    - kind:software
+    - system:kgdb
+    - type.knowledge.cli_command
+    - workspace.knowledge.commands
+    semantic_tags:
+    - domain:retrieval
+    - entity:cli_command
+    - impl:external
+    - kind:software
+    - system:kgdb
+    - type.knowledge.cli_command
+    - workspace.knowledge.commands
+    slug: usage
+    level: 2
+    line_start: 34
+    line_end: 35

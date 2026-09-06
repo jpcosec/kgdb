@@ -1,0 +1,13 @@
+documents:
+- name: surface-kgdb-root
+  path: knowledge/surfaces/surface-kgdb-root.md
+  hash_c: bdc4df96cc249626da3367a0a3db89466cf6f2a656449ced0a5a30dc70c22818
+  hash_d: 146808592c39176c891c7bac76d47055fbcaef6d7a45773c2e118d358debac9f
+  semantic_tags:
+  - domain:graph_architecture
+  - entity:cli_surface
+  - impl:external
+  - kind:software
+  - system:kgdb
+  - type.knowledge.surface
+  - workspace.knowledge.surfaces

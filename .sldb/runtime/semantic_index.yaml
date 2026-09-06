@@ -1,2 +1,139 @@
-tags: {}
-documents: {}
+tags:
+  domain:graph_architecture:
+  - surface-kgdb-root
+  domain:retrieval:
+  - cmd-kgdb-edges
+  - cmd-kgdb-get
+  - cmd-kgdb-ingest
+  - cmd-kgdb-ingest-sldb
+  - cmd-kgdb-list
+  - cmd-kgdb-query
+  entity:cli_command:
+  - cmd-kgdb-edges
+  - cmd-kgdb-get
+  - cmd-kgdb-ingest
+  - cmd-kgdb-ingest-sldb
+  - cmd-kgdb-list
+  - cmd-kgdb-query
+  entity:cli_surface:
+  - surface-kgdb-root
+  impl:external:
+  - cmd-kgdb-edges
+  - cmd-kgdb-get
+  - cmd-kgdb-ingest
+  - cmd-kgdb-ingest-sldb
+  - cmd-kgdb-list
+  - cmd-kgdb-query
+  - surface-kgdb-root
+  kind:software:
+  - cmd-kgdb-edges
+  - cmd-kgdb-get
+  - cmd-kgdb-ingest
+  - cmd-kgdb-ingest-sldb
+  - cmd-kgdb-list
+  - cmd-kgdb-query
+  - surface-kgdb-root
+  system:kgdb:
+  - cmd-kgdb-edges
+  - cmd-kgdb-get
+  - cmd-kgdb-ingest
+  - cmd-kgdb-ingest-sldb
+  - cmd-kgdb-list
+  - cmd-kgdb-query
+  - surface-kgdb-root
+  type.knowledge.cli_command:
+  - cmd-kgdb-edges
+  - cmd-kgdb-get
+  - cmd-kgdb-ingest
+  - cmd-kgdb-ingest-sldb
+  - cmd-kgdb-list
+  - cmd-kgdb-query
+  type.knowledge.surface:
+  - surface-kgdb-root
+  workspace.knowledge.commands:
+  - cmd-kgdb-edges
+  - cmd-kgdb-get
+  - cmd-kgdb-ingest
+  - cmd-kgdb-ingest-sldb
+  - cmd-kgdb-list
+  - cmd-kgdb-query
+  workspace.knowledge.surfaces:
+  - surface-kgdb-root
+documents:
+  surface-kgdb-root:
+    model: SurfaceDoc
+    path: knowledge/surfaces/surface-kgdb-root.md
+    tags:
+    - domain:graph_architecture
+    - entity:cli_surface
+    - impl:external
+    - kind:software
+    - system:kgdb
+    - type.knowledge.surface
+    - workspace.knowledge.surfaces
+  cmd-kgdb-get:
+    model: CliCommandDoc
+    path: knowledge/commands/cmd-kgdb-get.md
+    tags:
+    - domain:retrieval
+    - entity:cli_command
+    - impl:external
+    - kind:software
+    - system:kgdb
+    - type.knowledge.cli_command
+    - workspace.knowledge.commands
+  cmd-kgdb-list:
+    model: CliCommandDoc
+    path: knowledge/commands/cmd-kgdb-list.md
+    tags:
+    - domain:retrieval
+    - entity:cli_command
+    - impl:external
+    - kind:software
+    - system:kgdb
+    - type.knowledge.cli_command
+    - workspace.knowledge.commands
+  cmd-kgdb-query:
+    model: CliCommandDoc
+    path: knowledge/commands/cmd-kgdb-query.md
+    tags:
+    - domain:retrieval
+    - entity:cli_command
+    - impl:external
+    - kind:software
+    - system:kgdb
+    - type.knowledge.cli_command
+    - workspace.knowledge.commands
+  cmd-kgdb-edges:
+    model: CliCommandDoc
+    path: knowledge/commands/cmd-kgdb-edges.md
+    tags:
+    - domain:retrieval
+    - entity:cli_command
+    - impl:external
+    - kind:software
+    - system:kgdb
+    - type.knowledge.cli_command
+    - workspace.knowledge.commands
+  cmd-kgdb-ingest:
+    model: CliCommandDoc
+    path: knowledge/commands/cmd-kgdb-ingest.md
+    tags:
+    - domain:retrieval
+    - entity:cli_command
+    - impl:external
+    - kind:software
+    - system:kgdb
+    - type.knowledge.cli_command
+    - workspace.knowledge.commands
+  cmd-kgdb-ingest-sldb:
+    model: CliCommandDoc
+    path: knowledge/commands/cmd-kgdb-ingest-sldb.md
+    tags:
+    - domain:retrieval
+    - entity:cli_command
+    - impl:external
+    - kind:software
+    - system:kgdb
+    - type.knowledge.cli_command
+    - workspace.knowledge.commands
