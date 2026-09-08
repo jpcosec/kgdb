@@ -1,4 +1,9 @@
 nodes:
+- id: layer
+  parents: []
+- id: layer.topology
+  parents:
+  - layer
 - id: type
   parents: []
 - id: type.knowledge
@@ -10,6 +15,12 @@ nodes:
 - id: type.knowledge.surface
   parents:
   - type.knowledge
+- id: type.relation
+  parents:
+  - type
+- id: type.relation.type
+  parents:
+  - type.relation
 - id: workspace
   parents: []
 - id: workspace.knowledge

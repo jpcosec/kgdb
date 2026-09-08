@@ -1,5 +1,6 @@
 tags:
   domain:graph_architecture:
+  - cmd-kgdb-init
   - surface-kgdb-root
   domain:retrieval:
   - cmd-kgdb-edges
@@ -13,6 +14,7 @@ tags:
   - cmd-kgdb-get
   - cmd-kgdb-ingest
   - cmd-kgdb-ingest-sldb
+  - cmd-kgdb-init
   - cmd-kgdb-list
   - cmd-kgdb-query
   entity:cli_surface:
@@ -25,19 +27,35 @@ tags:
   - cmd-kgdb-list
   - cmd-kgdb-query
   - surface-kgdb-root
+  impl:here:
+  - cmd-kgdb-init
   kind:software:
   - cmd-kgdb-edges
   - cmd-kgdb-get
   - cmd-kgdb-ingest
   - cmd-kgdb-ingest-sldb
+  - cmd-kgdb-init
   - cmd-kgdb-list
   - cmd-kgdb-query
   - surface-kgdb-root
+  layer.topology:
+  - reltype-applies_to_source
+  - reltype-applies_to_target
+  - reltype-extends
+  - reltype-has_document
+  - reltype-has_field
+  - reltype-has_model
+  - reltype-has_section
+  - reltype-names
+  - reltype-semantic_equivalent
+  - reltype-semantic_parent
+  - reltype-tagged_as
   system:kgdb:
   - cmd-kgdb-edges
   - cmd-kgdb-get
   - cmd-kgdb-ingest
   - cmd-kgdb-ingest-sldb
+  - cmd-kgdb-init
   - cmd-kgdb-list
   - cmd-kgdb-query
   - surface-kgdb-root
@@ -46,15 +64,29 @@ tags:
   - cmd-kgdb-get
   - cmd-kgdb-ingest
   - cmd-kgdb-ingest-sldb
+  - cmd-kgdb-init
   - cmd-kgdb-list
   - cmd-kgdb-query
   type.knowledge.surface:
   - surface-kgdb-root
+  type.relation.type:
+  - reltype-applies_to_source
+  - reltype-applies_to_target
+  - reltype-extends
+  - reltype-has_document
+  - reltype-has_field
+  - reltype-has_model
+  - reltype-has_section
+  - reltype-names
+  - reltype-semantic_equivalent
+  - reltype-semantic_parent
+  - reltype-tagged_as
   workspace.knowledge.commands:
   - cmd-kgdb-edges
   - cmd-kgdb-get
   - cmd-kgdb-ingest
   - cmd-kgdb-ingest-sldb
+  - cmd-kgdb-init
   - cmd-kgdb-list
   - cmd-kgdb-query
   workspace.knowledge.surfaces:
@@ -137,3 +169,80 @@ documents:
     - system:kgdb
     - type.knowledge.cli_command
     - workspace.knowledge.commands
+  cmd-kgdb-init:
+    model: CliCommandDoc
+    path: knowledge/commands/cmd-kgdb-init.md
+    tags:
+    - domain:graph_architecture
+    - entity:cli_command
+    - impl:here
+    - kind:software
+    - system:kgdb
+    - type.knowledge.cli_command
+    - workspace.knowledge.commands
+  reltype-has_model:
+    model: RelationTypeDoc
+    path: kgdb/relation_types/has_model.md
+    tags:
+    - layer.topology
+    - type.relation.type
+  reltype-has_document:
+    model: RelationTypeDoc
+    path: kgdb/relation_types/has_document.md
+    tags:
+    - layer.topology
+    - type.relation.type
+  reltype-has_section:
+    model: RelationTypeDoc
+    path: kgdb/relation_types/has_section.md
+    tags:
+    - layer.topology
+    - type.relation.type
+  reltype-tagged_as:
+    model: RelationTypeDoc
+    path: kgdb/relation_types/tagged_as.md
+    tags:
+    - layer.topology
+    - type.relation.type
+  reltype-semantic_parent:
+    model: RelationTypeDoc
+    path: kgdb/relation_types/semantic_parent.md
+    tags:
+    - layer.topology
+    - type.relation.type
+  reltype-semantic_equivalent:
+    model: RelationTypeDoc
+    path: kgdb/relation_types/semantic_equivalent.md
+    tags:
+    - layer.topology
+    - type.relation.type
+  reltype-has_field:
+    model: RelationTypeDoc
+    path: kgdb/relation_types/has_field.md
+    tags:
+    - layer.topology
+    - type.relation.type
+  reltype-extends:
+    model: RelationTypeDoc
+    path: kgdb/relation_types/extends.md
+    tags:
+    - layer.topology
+    - type.relation.type
+  reltype-applies_to_source:
+    model: RelationTypeDoc
+    path: kgdb/relation_types/applies_to_source.md
+    tags:
+    - layer.topology
+    - type.relation.type
+  reltype-applies_to_target:
+    model: RelationTypeDoc
+    path: kgdb/relation_types/applies_to_target.md
+    tags:
+    - layer.topology
+    - type.relation.type
+  reltype-names:
+    model: RelationTypeDoc
+    path: kgdb/relation_types/names.md
+    tags:
+    - layer.topology
+    - type.relation.type

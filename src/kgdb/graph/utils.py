@@ -23,24 +23,25 @@ def add_knowledge_node(graph: nx.DiGraph, node: KnowledgeNode) -> None:
         schema=node.model_dump(),
     )
     for edge in node.edges:
-        graph.add_edge(
-            node.identity.node_id,
-            edge.target_id,
-            relation=edge.relation_type,
-            metadata=edge.metadata,
-        )
+        attrs = {"relation": edge.relation_type, "metadata": edge.metadata}
+        if graph.is_multigraph():
+            # one edge per (source, target, relation_type): a typed graph has parallel edges
+            graph.add_edge(node.identity.node_id, edge.target_id, key=edge.relation_type, **attrs)
+        else:
+            graph.add_edge(node.identity.node_id, edge.target_id, **attrs)
 
 
 def load_graph(graph_path: Path) -> nx.DiGraph:
     """
-    Loads a Knowledge Graph from a JSON file into a NetworkX DiGraph instance.
-    Supports both NetworkX node-link format and native GraphSnapshot format.
+    Loads a Knowledge Graph from a JSON file. Node-link JSON comes back as the graph
+    class it was saved from (MultiDiGraph for typed graphs, DiGraph for legacy ones);
+    a native GraphSnapshot is loaded as a MultiDiGraph so parallel typed edges survive.
     """
     data = json.loads(graph_path.read_text(encoding="utf-8"))
     
     # Check if this is a GraphSnapshot format (has 'nodes' but no top-level 'links'/'edges')
     if "nodes" in data and "links" not in data and "edges" not in data:
-        graph = nx.DiGraph()
+        graph = nx.MultiDiGraph()
         for node_data in data["nodes"]:
             # Handle possible KnowledgeNode dict parsing
             node_id = node_data.get("identity", {}).get("node_id")
@@ -68,6 +69,7 @@ def load_graph(graph_path: Path) -> nx.DiGraph:
                     graph.add_edge(
                         node_id,
                         target_id,
+                        key=edge.get("relation_type"),
                         relation=edge.get("relation_type"),
                         metadata=edge.get("metadata", {}),
                     )

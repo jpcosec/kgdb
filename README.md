@@ -39,7 +39,9 @@ After install, the `kgdb` console script is on your PATH:
 
 ```bash
 kgdb --help
-kgdb ingest-sldb --input kgdb.semantic.json --output kgdb.graph.json
+kgdb init --store .sldb --pythonpath .                                   # typed relations: models, builtin types, predicates
+kgdb ingest --store .sldb --pythonpath . --output kgdb.graph.json        # the typed graph of a store
+kgdb ingest-sldb --input kgdb.semantic.json --output kgdb.graph.json     # legacy: structural graph from an export file
 kgdb list --graph kgdb.graph.json
 kgdb get --graph kgdb.graph.json --node sldb://document/TaskDoc:001-define-kgdb-semantic-export-payload
 kgdb edges --graph kgdb.graph.json --node sldb://document/TaskDoc:001-define-kgdb-semantic-export-payload
@@ -51,7 +53,44 @@ It runs in parallel with `sldb`:
 - `sldb` owns semantic document truth: tracked Markdown documents, document models, semantic tags, section indexes, semantic DAG relationships, equivalences, and document/model/store hashes.
 - `kgdb` owns graph persistence and traversal: validating graph-ready payloads, converting them into graph records, storing graph nodes and edges, and answering deterministic graph queries for downstream tools.
 
-KGDB must not scrape `.sldb/runtime` or reinterpret Markdown semantics. It only ingests SLDB semantics through the versioned export contract that SLDB publishes.
+KGDB must not scrape `.sldb/runtime` or reinterpret Markdown semantics. It reads SLDB through its library and its versioned export contract, never its runtime files.
+
+## Typed Relations
+
+Since 2026-09-09 kgdb types its relations, and the types are sldb documents kgdb owns:
+
+- `kgdb.models.RelationTypeDoc` declares a relation type: `name`, `direction`, `cardinality`, `axis`
+  (the predicate axis it answers), `source_types` / `target_types` (model names, with inheritance
+  through `base_models`, or kgdb node types), and a default `condition` every edge inherits.
+- `kgdb.models.RelationDoc` is one authored edge: `source_id`, `target_id` (sldb export ids,
+  `Model:name`), `relation_type`, an optional `condition` override, notes. It is a document of the
+  world's store and it is **not** a node of the graph.
+- The structural relations kgdb itself produces (`has_model`, `has_document`, `has_section`,
+  `tagged_as`, `semantic_parent`, `semantic_equivalent`, `has_field`, `extends`,
+  `applies_to_source`, `applies_to_target`, `names`) ship as RelationTypeDocs in
+  `kgdb.models.builtin`, so a graph is described entirely by documents.
+
+`kgdb init` registers the two models, writes the builtin relation types under `kgdb/relation_types/`
+and tracks them, and registers each relation name as an sldb predicate with its axis. It is idempotent.
+
+`kgdb ingest --store` runs sldb's semantic export by library, then adds: document nodes typed by
+their model name; an `sldb_field` node per model field (type, description) with `has_field` edges and
+`extends` edges from `base_models`; a `relation_type` node per RelationTypeDoc with `applies_to_*`
+edges to the models it names (so "what verbs apply to this class" is `edges_to` on the model node);
+an `anchor` node per alias document with `names` edges to what its `ref` names; and one typed edge
+per RelationDoc, hung on its source, with `origin`, `condition` and `axis` in its metadata.
+Documents tagged `type.pron.move` (a ledger) are left out; `--exclude-tag` changes that.
+
+Every edge is then validated: its type is a tracked RelationTypeDoc, both endpoints exist, their
+classes are allowed, cardinality holds, undirected types get their reverse edge. Any violation is an
+error and nothing is written. The world prevents at authoring time; kgdb detects at assembly time.
+
+The persisted graph is a `networkx.MultiDiGraph` keyed by `(source, target, relation_type)`, so two
+relations between the same pair of nodes both survive (the legacy `DiGraph` collapsed them).
+`kgdb edges`, `kgdb query` and the Python API work on both.
+
+Not yet in the typed graph: predicate links written in prose (`[implements:: [[x]]]`); sldb recovers
+them but does not export them.
 
 ## Purpose
 

@@ -49,8 +49,8 @@ documents:
   - workspace.knowledge.commands
 - name: cmd-kgdb-ingest
   path: knowledge/commands/cmd-kgdb-ingest.md
-  hash_c: 729c5ffd480ba13321c8a05e2bdc036bc33625cce1caf40edae819abbcdaa6b1
-  hash_d: f0b03001a7a66da754a098ff2b669fc5121a0d8e8d6053d265a1cdb47ef032e2
+  hash_c: b1832ed998f6567e36b30bd7712d11de5a80b37a6da46e763ae9415b64438404
+  hash_d: d8e82eea8f991b31e1f440d8a01640e2ac2b52b5f53c47760390de090b4561a1
   semantic_tags:
   - domain:retrieval
   - entity:cli_command
@@ -67,6 +67,18 @@ documents:
   - domain:retrieval
   - entity:cli_command
   - impl:external
+  - kind:software
+  - system:kgdb
+  - type.knowledge.cli_command
+  - workspace.knowledge.commands
+- name: cmd-kgdb-init
+  path: knowledge/commands/cmd-kgdb-init.md
+  hash_c: 18bd8a95c3089e52b2c6fed371786438992a73bae84c19a07db90859d6fdfca1
+  hash_d: 81ab8a16ff1caf77cea932abc59781f97ba46c68e7496dca09ee1d5ec808d2e3
+  semantic_tags:
+  - domain:graph_architecture
+  - entity:cli_command
+  - impl:here
   - kind:software
   - system:kgdb
   - type.knowledge.cli_command

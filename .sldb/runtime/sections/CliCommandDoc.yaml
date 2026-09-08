@@ -692,8 +692,8 @@ documents:
     - workspace.knowledge.commands
     slug: ingest
     level: 1
-    line_start: 15
-    line_end: 16
+    line_start: 16
+    line_end: 17
   - path: ingest/synopsis
     title: Synopsis
     breadcrumbs:
@@ -720,8 +720,8 @@ documents:
     - workspace.knowledge.commands
     slug: synopsis
     level: 2
-    line_start: 17
-    line_end: 18
+    line_start: 18
+    line_end: 19
   - path: ingest/purpose
     title: Purpose
     breadcrumbs:
@@ -748,8 +748,8 @@ documents:
     - workspace.knowledge.commands
     slug: purpose
     level: 2
-    line_start: 21
-    line_end: 22
+    line_start: 22
+    line_end: 23
   - path: ingest/how-it-works
     title: How It Works
     breadcrumbs:
@@ -776,8 +776,8 @@ documents:
     - workspace.knowledge.commands
     slug: how-it-works
     level: 2
-    line_start: 25
-    line_end: 26
+    line_start: 26
+    line_end: 27
   - path: ingest/arguments
     title: Arguments
     breadcrumbs:
@@ -804,8 +804,8 @@ documents:
     - workspace.knowledge.commands
     slug: arguments
     level: 2
-    line_start: 29
-    line_end: 30
+    line_start: 30
+    line_end: 31
   - path: ingest/usage
     title: Usage
     breadcrumbs:
@@ -832,8 +832,8 @@ documents:
     - workspace.knowledge.commands
     slug: usage
     level: 2
-    line_start: 34
-    line_end: 35
+    line_start: 38
+    line_end: 39
 - doc_name: cmd-kgdb-ingest-sldb
   sections:
   - path: ingest-sldb
@@ -1007,3 +1007,170 @@ documents:
     level: 2
     line_start: 34
     line_end: 35
+- doc_name: cmd-kgdb-init
+  sections:
+  - path: init
+    title: init
+    breadcrumbs:
+    - init
+    about:
+    - init
+    - domain:graph_architecture
+    - entity:cli_command
+    - impl:here
+    - kind:software
+    - system:kgdb
+    - type.knowledge.cli_command
+    - workspace.knowledge.commands
+    semantic_tags:
+    - domain:graph_architecture
+    - entity:cli_command
+    - impl:here
+    - kind:software
+    - system:kgdb
+    - type.knowledge.cli_command
+    - workspace.knowledge.commands
+    slug: init
+    level: 1
+    line_start: 16
+    line_end: 17
+  - path: init/synopsis
+    title: Synopsis
+    breadcrumbs:
+    - init
+    - Synopsis
+    about:
+    - init
+    - Synopsis
+    - synopsis
+    - domain:graph_architecture
+    - entity:cli_command
+    - impl:here
+    - kind:software
+    - system:kgdb
+    - type.knowledge.cli_command
+    - workspace.knowledge.commands
+    semantic_tags:
+    - domain:graph_architecture
+    - entity:cli_command
+    - impl:here
+    - kind:software
+    - system:kgdb
+    - type.knowledge.cli_command
+    - workspace.knowledge.commands
+    slug: synopsis
+    level: 2
+    line_start: 18
+    line_end: 19
+  - path: init/purpose
+    title: Purpose
+    breadcrumbs:
+    - init
+    - Purpose
+    about:
+    - init
+    - Purpose
+    - purpose
+    - domain:graph_architecture
+    - entity:cli_command
+    - impl:here
+    - kind:software
+    - system:kgdb
+    - type.knowledge.cli_command
+    - workspace.knowledge.commands
+    semantic_tags:
+    - domain:graph_architecture
+    - entity:cli_command
+    - impl:here
+    - kind:software
+    - system:kgdb
+    - type.knowledge.cli_command
+    - workspace.knowledge.commands
+    slug: purpose
+    level: 2
+    line_start: 22
+    line_end: 23
+  - path: init/how-it-works
+    title: How It Works
+    breadcrumbs:
+    - init
+    - How It Works
+    about:
+    - init
+    - How It Works
+    - how it works
+    - domain:graph_architecture
+    - entity:cli_command
+    - impl:here
+    - kind:software
+    - system:kgdb
+    - type.knowledge.cli_command
+    - workspace.knowledge.commands
+    semantic_tags:
+    - domain:graph_architecture
+    - entity:cli_command
+    - impl:here
+    - kind:software
+    - system:kgdb
+    - type.knowledge.cli_command
+    - workspace.knowledge.commands
+    slug: how-it-works
+    level: 2
+    line_start: 26
+    line_end: 27
+  - path: init/arguments
+    title: Arguments
+    breadcrumbs:
+    - init
+    - Arguments
+    about:
+    - init
+    - Arguments
+    - arguments
+    - domain:graph_architecture
+    - entity:cli_command
+    - impl:here
+    - kind:software
+    - system:kgdb
+    - type.knowledge.cli_command
+    - workspace.knowledge.commands
+    semantic_tags:
+    - domain:graph_architecture
+    - entity:cli_command
+    - impl:here
+    - kind:software
+    - system:kgdb
+    - type.knowledge.cli_command
+    - workspace.knowledge.commands
+    slug: arguments
+    level: 2
+    line_start: 30
+    line_end: 31
+  - path: init/usage
+    title: Usage
+    breadcrumbs:
+    - init
+    - Usage
+    about:
+    - init
+    - Usage
+    - usage
+    - domain:graph_architecture
+    - entity:cli_command
+    - impl:here
+    - kind:software
+    - system:kgdb
+    - type.knowledge.cli_command
+    - workspace.knowledge.commands
+    semantic_tags:
+    - domain:graph_architecture
+    - entity:cli_command
+    - impl:here
+    - kind:software
+    - system:kgdb
+    - type.knowledge.cli_command
+    - workspace.knowledge.commands
+    slug: usage
+    level: 2
+    line_start: 35
+    line_end: 36

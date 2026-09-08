@@ -71,9 +71,16 @@ def _build_parser() -> argparse.ArgumentParser:
     edges_parser.add_argument("--graph", required=True, action=_NoDuplicateAction, help="Path to the JSON graph file")
     edges_parser.add_argument("--node", required=True, action=_NoDuplicateAction, help="ID of the source node")
 
-    ingest_parser = subparsers.add_parser("ingest", help="Ingest a GraphSnapshot format payload into a persistent networkx graph")
-    ingest_parser.add_argument("--input", required=True, action=_NoDuplicateAction, help="Path to the input JSON file (must be GraphSnapshot format)")
+    ingest_parser = subparsers.add_parser("ingest", help="Build the typed graph of an sldb store (--store), or ingest a GraphSnapshot payload (--input)")
+    ingest_parser.add_argument("--store", action=_NoDuplicateAction, help="Path to the .sldb store to assemble; every edge is validated against its RelationTypeDoc")
+    ingest_parser.add_argument("--pythonpath", action=_NoDuplicateAction, help="Project path where the store's models import from")
+    ingest_parser.add_argument("--exclude-tag", action="append", default=None, help="Leave out documents carrying this semantic tag (default: type.pron.move); repeatable")
+    ingest_parser.add_argument("--input", action=_NoDuplicateAction, help="Path to a GraphSnapshot JSON file to ingest as-is (legacy path, no typing)")
     ingest_parser.add_argument("--output", required=True, action=_NoDuplicateAction, help="Path where the output networkx JSON graph will be saved")
+
+    init_parser = subparsers.add_parser("init", help="Prepare an sldb store for typed relations: register kgdb's models, track the builtin relation types, register predicates")
+    init_parser.add_argument("--store", required=True, action=_NoDuplicateAction, help="Path to the .sldb store")
+    init_parser.add_argument("--pythonpath", action=_NoDuplicateAction, help="Project path (passed to sldb when resolving models)")
 
     ingest_sldb_parser = subparsers.add_parser("ingest-sldb", help="Ingest an SLDB semantic export payload into a persistent networkx graph")
     ingest_sldb_parser.add_argument("--input", required=True, action=_NoDuplicateAction, help="Path to the input JSON file (must be sldb_kgdb_semantic_export format)")
@@ -96,7 +103,39 @@ def main() -> None:
     parser = _build_parser()
     args = parser.parse_args()
 
+    if args.command == "init":
+        from kgdb.world import init_world
+
+        try:
+            report = init_world(args.store, args.pythonpath)
+            print(f"Initialized {args.store}: {report.summary()}")
+        except Exception as e:
+            _handle_error(e)
+        return
+
+    if args.command == "ingest" and args.store:
+        from kgdb.graph.utils import add_knowledge_node, save_graph
+        from kgdb.ingest.typed import TypedIngestError, build_typed_snapshot
+        import networkx as nx
+
+        try:
+            snapshot, report = build_typed_snapshot(args.store, args.pythonpath, args.exclude_tag or ("type.pron.move",))
+            graph = nx.MultiDiGraph()
+            for node in snapshot.nodes:
+                add_knowledge_node(graph, node)
+            save_graph(graph, Path(args.output))
+            print(f"Ingested {report['nodes']} nodes and {report['edges']} typed edges ({len(report['relation_types'])} relation types) to {args.output}")
+        except TypedIngestError as e:
+            print(str(e), file=sys.stderr)
+            sys.exit(1)
+        except Exception as e:
+            _handle_error(e)
+        return
+
     if args.command == "ingest":
+        if not args.input:
+            print("Error: ingest needs --store (typed graph of a store) or --input (GraphSnapshot file)", file=sys.stderr)
+            sys.exit(2)
         from kgdb.contracts.io import GraphSnapshot
         from kgdb.graph.utils import add_knowledge_node, save_graph
         import networkx as nx

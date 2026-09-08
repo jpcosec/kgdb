@@ -171,8 +171,13 @@ def filter_graph_by_relation(
     """Returns a subgraph containing only the edges that match the specified relation type."""
     if not relation_filter:
         return graph
-    filtered = nx.DiGraph()
+    filtered = graph.__class__()
     filtered.add_nodes_from(graph.nodes(data=True))
+    if graph.is_multigraph():
+        for source, target, key, data in graph.edges(keys=True, data=True):
+            if data.get("relation") == relation_filter:
+                filtered.add_edge(source, target, key=key, **data)
+        return filtered
     for source, target, data in graph.edges(data=True):
         if data.get("relation") == relation_filter:
             filtered.add_edge(source, target, **data)
