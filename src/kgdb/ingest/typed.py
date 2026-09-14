@@ -196,6 +196,8 @@ class _Builder:
 
     def _anchor_targets(self, p: dict) -> list[str]:
         ref = str(p.get("ref", ""))
+        if ref.lstrip().startswith("("):
+            return _form_targets(_read_form(ref))
         targets: list[str] = []
         head, _, rest = ref.partition(":")
         if head == "model":
@@ -307,3 +309,61 @@ class _Builder:
             "nodes": len(self.nodes),
             "edges": sum(len(n.edges) for n in self.nodes.values()),
         }
+
+
+_FORM_TOKEN = re.compile(r'\s*(?:(\()|(\))|"((?:[^"\\]|\\.)*)"|([^\s()"]+))')
+_KERNEL_WRITES = ("change", "add", "remove", "clean", "forget")
+
+
+class _Sym(str):
+    """A bare symbol of a form."""
+
+
+def _read_form(text: str):
+    """The one s-expression of a pron ref (pron spec 13): lists, symbols and strings."""
+    stack: list[list] = [[]]
+    pos, text = 0, text.strip()
+    while pos < len(text):
+        m = _FORM_TOKEN.match(text, pos)
+        if m is None or m.end() == pos:
+            break
+        pos = m.end()
+        if m.group(1):
+            stack.append([])
+        elif m.group(2):
+            done = stack.pop()
+            stack[-1].append(done)
+        elif m.group(3) is not None:
+            stack[-1].append(re.sub(r"\\(.)", r"\1", m.group(3)))
+        elif m.group(4) is not None:
+            stack[-1].append(_Sym(m.group(4)))
+    return stack[0][0] if stack[0] else []
+
+
+def _form_targets(form) -> list[str]:
+    """What a ref written as a form names: models, fields, relation types, documents."""
+    if not isinstance(form, list) or not form or not isinstance(form[0], _Sym):
+        return []
+    head, args = str(form[0]), form[1:]
+    if head == "model" and args:
+        return [model_node_id(str(args[0]))]
+    if head == "field" and len(args) >= 2:
+        return [field_node_id(str(args[0]), str(args[1]))]
+    if head in ("where", "value") and args:
+        return [model_node_id(str(args[0]))]
+    if head == "relation" and args:
+        return [relation_type_node_id(str(args[0]))]
+    if head == "doc" and args:
+        return [doc_node_id(str(args[0]))]
+    if head in _KERNEL_WRITES and len(args) >= 2:
+        noun = args[0]
+        if isinstance(noun, list) and len(noun) >= 3 and str(noun[0]) in ("it", "them"):
+            return [field_node_id(str(noun[2]), str(args[1]))]
+        return []
+    if head == "move":
+        return [t for step in args for t in _form_targets(step)]
+    if head == "create" and args:
+        return [model_node_id(str(args[0]))]
+    if head == "assert" and args:
+        return [relation_type_node_id(str(args[0]))]
+    return []

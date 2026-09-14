@@ -215,6 +215,25 @@ def test_anchor_names_what_its_ref_points_to(world: World):
     assert meta["anchors"] == 2
 
 
+def test_anchor_written_as_a_form_names_the_same(world: World):
+    world.create("Alias", "alias-large", {"symbol": "large", "ref": '(where Table "capacity >= 6")'})
+    world.create("Alias", "alias-seats", {"symbol": "seats", "ref": "(field Table capacity)"})
+    world.create("Alias", "alias-assign", {"symbol": "assign", "ref": "(relation assigned_to)"})
+    world.create(
+        "Alias",
+        "alias-book",
+        {"symbol": "book", "ref": '(move (create Reservation) (assert assigned_to (created) (a Table)))'},
+    )
+    snapshot, meta = world.build()
+    assert ("sldb://model/Table", "names", {"origin": "alias"}) in _edges(snapshot, "sldb://anchor/large")
+    assert ("sldb://field/Table.capacity", "names", {"origin": "alias"}) in _edges(snapshot, "sldb://anchor/seats")
+    assert ("sldb://relation_type/assigned_to", "names", {"origin": "alias"}) in _edges(snapshot, "sldb://anchor/assign")
+    book = _edges(snapshot, "sldb://anchor/book")
+    assert ("sldb://model/Reservation", "names", {"origin": "alias"}) in book
+    assert ("sldb://relation_type/assigned_to", "names", {"origin": "alias"}) in book
+    assert meta["anchors"] == 4
+
+
 def test_cli_ingest_store_writes_multigraph(world: World, tmp_path: Path, monkeypatch, capsys):
     world.relation("e1", "Reservation:res-1", "Table:table-12", "assigned_to")
     out = tmp_path / "graph.json"
