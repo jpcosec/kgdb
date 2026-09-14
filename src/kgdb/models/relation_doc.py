@@ -21,6 +21,9 @@ class RelationDoc(StructuredNLDoc):
         "type": ["relation", "instance"],
         "layer": ["topology"],
     }
+    # Metadatos de grafo para las UIs (misma convención que los modelos de
+    # deskops): estos campos guardan ids de otros documentos.
+    __references__ = ["source_id", "target_id"]
     __template__ = """---
 source_id: ⸢rev•source_id⸥
 target_id: ⸢rev•target_id⸥
