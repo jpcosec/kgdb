@@ -35,8 +35,19 @@ from sldb.cli.store_context import get_store_context
 from sldb.store.export import export_kgdb_semantic_payload
 from sldb.store.query import load_runtime_documents
 
+from sldb.store.io import load_models_index, load_store_index
+
 from kgdb.contracts import Edge, GraphSnapshot, KnowledgeNode, SystemIdentity
-from kgdb.ingest.sldb import sldb_semantic_export_to_snapshot
+from kgdb.ingest.sldb import (
+    _base_provenance,
+    _collect_semantic_tags,
+    _document_node,
+    _model_node,
+    _section_node,
+    _semantic_tag_node,
+    _store_node,
+    sldb_semantic_export_to_snapshot,
+)
 
 DEFAULT_EXCLUDED_TAGS = ("type.pron.move",)
 RELATION_TYPE_MODEL = "RelationTypeDoc"
@@ -72,21 +83,63 @@ def anchor_node_id(symbol: str) -> str:
     return f"sldb://anchor/{symbol}"
 
 
+def _drop_document_from(nodes: dict[str, KnowledgeNode], export_id: str) -> None:
+    """Remove a document's node and its sections, and any edge pointing at either, from `nodes`."""
+    gone = {doc_node_id(export_id)}
+    gone |= {nid for nid in nodes if nid.startswith(f"sldb://section/{export_id}#")}
+    for nid in gone:
+        nodes.pop(nid, None)
+    for node in nodes.values():
+        node.edges = [e for e in node.edges if e.target_id not in gone]
+
+
+def _model_names(nodes: dict[str, KnowledgeNode]) -> set[str]:
+    return {n[len("sldb://model/"):] for n in nodes if n.startswith("sldb://model/")}
+
+
+def _doc_ids(nodes: dict[str, KnowledgeNode]) -> set[str]:
+    return {n[len("sldb://document/"):] for n in nodes if n.startswith("sldb://document/")}
+
+
+def _detached(node: KnowledgeNode) -> KnowledgeNode:
+    """A node carried over from `previous`, safe for this build to append edges onto: its own
+    edges list, not `previous`'s, and (for a document) without the RelationDoc edges every
+    build re-adds in full — reusing them here would duplicate on every incremental build."""
+    edges = [e for e in node.edges if e.metadata.get("origin") != "relation_doc"]
+    return node.model_copy(update={"edges": edges})
+
+
 def build_typed_snapshot(
     store: str | Path,
     pythonpath: str | None = None,
     exclude_tags: Iterable[str] = DEFAULT_EXCLUDED_TAGS,
+    previous: GraphSnapshot | None = None,
 ) -> tuple[GraphSnapshot, dict[str, Any]]:
-    """Assemble and validate the typed graph of the store. Raises TypedIngestError."""
-    builder = _Builder(store, pythonpath, set(exclude_tags))
+    """Assemble and validate the typed graph of the store. Raises TypedIngestError.
+
+    With `previous` (a snapshot this same store produced before, metadata included): if the
+    store's `hash_a` did not move, `previous` comes back unchanged, no sldb call made at all.
+    Otherwise only the documents whose `hash_c` is new or different are re-extracted into
+    nodes, and only the models whose `hash_b` moved get their field/extends nodes redone;
+    everything else is carried over from `previous` node for node. Relation types, anchors
+    and RelationDoc edges stay few enough in practice that they are redone in full every
+    time — simpler, and not the cost this plan is chasing (spec: PLAN-15 M3)."""
+    builder = _Builder(store, pythonpath, set(exclude_tags), previous)
     return builder.build()
 
 
 class _Builder:
-    def __init__(self, store: str | Path, pythonpath: str | None, exclude_tags: set[str]):
+    def __init__(
+        self,
+        store: str | Path,
+        pythonpath: str | None,
+        exclude_tags: set[str],
+        previous: GraphSnapshot | None = None,
+    ):
         self.sp, self.root = get_store_context(str(store))
         self.pythonpath = pythonpath
         self.exclude_tags = exclude_tags
+        self.previous = previous
         self.errors: list[str] = []
         self.nodes: dict[str, KnowledgeNode] = {}
         self.models: dict[str, dict] = {}
@@ -97,9 +150,14 @@ class _Builder:
     # -- assembly -----------------------------------------------------------
 
     def build(self) -> tuple[GraphSnapshot, dict[str, Any]]:
+        if self.previous is not None:
+            reused = self._reuse_if_unchanged()
+            if reused is not None:
+                return reused
         payload = export_kgdb_semantic_payload(self.sp, self.root, resolve_model_ref, self.pythonpath, rebuild=True)
-        base = sldb_semantic_export_to_snapshot(payload)
-        self.nodes = {n.identity.node_id: n for n in base.nodes}
+        prev_meta = self.previous.metadata if self.previous is not None else {}
+        changed_models, changed_docs = self._diff(payload, prev_meta)
+        self.nodes = self._build_base(payload, changed_models, changed_docs)
         self.models = {m["name"]: m for m in payload["models"]}
         self._resolve_model_types()
         docs = load_runtime_documents(self.sp, resolve_model_ref, self.pythonpath)
@@ -108,7 +166,7 @@ class _Builder:
             self._drop_document(export_id)
         self._mark_structural_edges()
         self._retype_documents()
-        self._add_fields_and_extends()
+        self._add_fields_and_extends(changed_models)
         self._add_relation_types(by_kind["relation_types"])
         self._add_anchors(by_kind["anchors"])
         self._add_relation_docs(by_kind["relations"])
@@ -118,6 +176,103 @@ class _Builder:
         self._finish_report(payload, by_kind)
         snapshot = GraphSnapshot(version="1.0", nodes=list(self.nodes.values()), metadata=self.report)
         return snapshot, self.report
+
+    def _reuse_if_unchanged(self) -> tuple[GraphSnapshot, dict[str, Any]] | None:
+        """M1/M3: hash_a is the store's own Merkle root over every model's hash_b; unmoved, no
+        document anywhere moved. hash_b does not cover a model's own version though (promoting
+        a draft can bump it — new fields — without touching a single document's hash_c/hash_d),
+        so a cheap per-model version check guards against handing back a `previous` that is
+        stale on schema alone. Both checks together cost O(models), never O(documents)."""
+        assert self.previous is not None
+        meta = self.previous.metadata
+        prev_hash_a = (meta.get("store") or {}).get("hash_a")
+        if prev_hash_a is None:
+            return None
+        idx = load_store_index(self.sp)
+        if idx.hash_a != prev_hash_a:
+            return None
+        prev_versions: dict[str, int] = meta.get("model_versions") or {}
+        for m in idx.models:
+            m_idx = load_models_index(self.root / m.models_index)
+            if prev_versions.get(m.name) != m_idx.version:
+                return None
+        return self.previous, self.previous.metadata
+
+    def _diff(self, payload: dict[str, Any], prev_meta: dict[str, Any]) -> tuple[set[str], set[str]]:
+        """Model names and document export ids whose hash moved or are new, against `previous`'s
+        metadata (empty sets when there is no previous: everything is 'changed', i.e. built).
+        A model counts as changed on `hash_b` (its documents moved) or `version` (a promoted
+        draft: fields can change with no document touched) — `model_versions` is kept
+        alongside the public `models` (hash_b only) metadata so pron's own freshness check
+        (`Graph.built_from`/`is_fresh`) keeps reading exactly what it always has."""
+        prev_models: dict[str, str] = prev_meta.get("models") or {}
+        prev_versions: dict[str, int] = prev_meta.get("model_versions") or {}
+        prev_docs: dict[str, str] = prev_meta.get("documents") or {}
+        changed_models = {
+            m["name"]
+            for m in payload["models"]
+            if prev_models.get(m["name"]) != m["hash_b"]
+            or prev_versions.get(m["name"]) != m["version"]
+        }
+        changed_docs = {
+            d["id"] for d in payload["documents"] if prev_docs.get(d["id"]) != d["hash_c"]
+        }
+        return changed_models, changed_docs
+
+    def _build_base(
+        self, payload: dict[str, Any], changed_models: set[str], changed_docs: set[str]
+    ) -> dict[str, KnowledgeNode]:
+        """The structural snapshot (store, semantic tags, model/document/section nodes): with no
+        `previous`, exactly `sldb_semantic_export_to_snapshot` built it (same node objects, same
+        order); with one, unchanged models and documents are carried over node for node and only
+        the changed/new ones are rebuilt, removed ones dropped."""
+        if self.previous is None:
+            base = sldb_semantic_export_to_snapshot(payload)
+            return {n.identity.node_id: n for n in base.nodes}
+
+        prev_nodes = {n.identity.node_id: n for n in self.previous.nodes}
+        nodes = {nid: _detached(n) for nid, n in prev_nodes.items()}
+        provenance = _base_provenance(payload)
+
+        store_node_id = "sldb://store"
+        nodes[store_node_id] = _store_node(payload, store_node_id, provenance)
+
+        for nid in [n for n in nodes if n.startswith("sldb://semantic_tag/")]:
+            del nodes[nid]
+        for tag in sorted(_collect_semantic_tags(payload)):
+            node = _semantic_tag_node(tag, payload, provenance)
+            nodes[node.identity.node_id] = node
+
+        docs_by_model: dict[str, list] = {}
+        for d in payload["documents"]:
+            docs_by_model.setdefault(d["model"], []).append(d)
+        secs_by_doc: dict[str, list] = {}
+        for s in payload["sections"]:
+            secs_by_doc.setdefault(s["document_id"], []).append(s)
+
+        cur_model_names = {m["name"] for m in payload["models"]}
+        for model in payload["models"]:
+            name = model["name"]
+            mid = model_node_id(name)
+            if name in changed_models or mid not in prev_nodes:
+                nodes[mid] = _model_node(model, docs_by_model.get(name, []), store_node_id, provenance)
+        for old_name in {m for m in _model_names(prev_nodes) if m not in cur_model_names}:
+            nodes.pop(model_node_id(old_name), None)
+            for fid in [n for n in nodes if n.startswith(f"sldb://field/{old_name}.")]:
+                nodes.pop(fid, None)
+
+        cur_doc_ids = {d["id"] for d in payload["documents"]}
+        for d in payload["documents"]:
+            did = doc_node_id(d["id"])
+            if d["id"] in changed_docs or did not in prev_nodes:
+                secs = secs_by_doc.get(d["id"], [])
+                nodes[did] = _document_node(d, secs, provenance)
+                for s in secs:
+                    sid = f"sldb://section/{s['id']}"
+                    nodes[sid] = _section_node(s, provenance)
+        for old_id in {i for i in _doc_ids(prev_nodes) if i not in cur_doc_ids}:
+            self._drop_document_from(nodes, old_id)
+        return nodes
 
     def _resolve_model_types(self) -> None:
         for name, m in self.models.items():
@@ -141,12 +296,10 @@ class _Builder:
         return out
 
     def _drop_document(self, export_id: str) -> None:
-        gone = {doc_node_id(export_id)}
-        gone |= {nid for nid in self.nodes if nid.startswith(f"sldb://section/{export_id}#")}
-        for nid in gone:
-            self.nodes.pop(nid, None)
-        for node in self.nodes.values():
-            node.edges = [e for e in node.edges if e.target_id not in gone]
+        _drop_document_from(self.nodes, export_id)
+
+    def _drop_document_from(self, nodes: dict[str, KnowledgeNode], export_id: str) -> None:
+        _drop_document_from(nodes, export_id)
 
     def _mark_structural_edges(self) -> None:
         for node in self.nodes.values():
@@ -158,8 +311,11 @@ class _Builder:
             if node.identity.node_type == "sldb_document":
                 node.identity.node_type = node.semantics.model
 
-    def _add_fields_and_extends(self) -> None:
-        for name, model_type in self.model_types.items():
+    def _add_fields_and_extends(self, changed_models: set[str]) -> None:
+        for name in self.model_types:
+            if name not in changed_models:
+                continue  # unchanged hash_b: its field/extends nodes came over from `previous`
+            model_type = self.model_types[name]
             mid = model_node_id(name)
             if mid not in self.nodes:
                 continue
@@ -301,6 +457,8 @@ class _Builder:
             "generated_from": "kgdb.ingest.typed",
             "store": {"root": str(self.root), "store_path": str(self.sp), "hash_a": payload["store"]["hash_a"]},
             "models": {m["name"]: m["hash_b"] for m in payload["models"]},
+            "model_versions": {m["name"]: m["version"] for m in payload["models"]},
+            "documents": {d["id"]: d["hash_c"] for d in payload["documents"]},
             "relation_types": sorted(self.relation_types),
             "relation_docs": len(by_kind["relations"]),
             "anchors": len(by_kind["anchors"]),
