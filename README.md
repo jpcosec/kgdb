@@ -57,7 +57,11 @@ KGDB must not scrape `.sldb/runtime` or reinterpret Markdown semantics. It reads
 
 ## Typed Relations
 
-Since 2026-09-09 kgdb types its relations, and the types are sldb documents kgdb owns:
+Since 2026-09-09 kgdb types its relations, and the types are sldb documents. Since the fusion
+of kgdb into sldb (branch `fusion-kgdb`) the two models and the builtin types live in sldb
+(`sldb.models.relation_type_doc`, `sldb.models.relation_doc`, `sldb.models.builtin_relation_types`);
+`kgdb.models` re-exports them, and sldb's own edge index (`sldb.api.load_edge_index`) holds the
+same nodes and edges `build_typed_snapshot` builds — `tests/test_edge_index_parity.py` is the gate.
 
 - `kgdb.models.RelationTypeDoc` declares a relation type: `name`, `direction`, `cardinality`, `axis`
   (the predicate axis it answers), `source_types` / `target_types` (model names, with inheritance
@@ -70,8 +74,9 @@ Since 2026-09-09 kgdb types its relations, and the types are sldb documents kgdb
   `applies_to_source`, `applies_to_target`, `names`) ship as RelationTypeDocs in
   `kgdb.models.builtin`, so a graph is described entirely by documents.
 
-`kgdb init` registers the two models, writes the builtin relation types under `kgdb/relation_types/`
-and tracks them, and registers each relation name as an sldb predicate with its axis. It is idempotent.
+`kgdb init` (now `sldb.api.init_relations`, which it calls) registers the two models, writes the
+builtin relation types under `sldb/relation_types/` and tracks them, and registers each relation
+name as an sldb predicate with its axis. It is idempotent.
 
 `kgdb ingest --store` runs sldb's semantic export by library, then adds: document nodes typed by
 their model name; an `sldb_field` node per model field (type, description) with `has_field` edges and

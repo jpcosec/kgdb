@@ -113,7 +113,7 @@ def test_init_is_idempotent_and_tracks_builtin_types(world: World):
     assert report.models_added == [] and report.types_written == [] and report.predicates_added == []
     snapshot, meta = world.build()
     assert "has_document" in meta["relation_types"] and "applies_to_source" in meta["relation_types"]
-    assert (world.root / "kgdb" / "relation_types" / "tagged_as.md").exists()
+    assert (world.root / "sldb" / "relation_types" / "tagged_as.md").exists()
 
 
 def test_documents_are_typed_by_model_and_fields_become_nodes(world: World):
