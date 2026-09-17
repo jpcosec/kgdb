@@ -29,9 +29,7 @@ from collections import Counter
 from pathlib import Path
 from typing import Any, Iterable
 
-from sldb.cli.model_utils import resolve_model_ref
-from sldb.cli.serve.schema import field_descriptor
-from sldb.cli.store_context import get_store_context
+from sldb.api import describe_field, open_store, resolve_model_ref
 from sldb.store.export import export_kgdb_semantic_payload
 from sldb.store.query import load_runtime_documents
 
@@ -136,7 +134,8 @@ class _Builder:
         exclude_tags: set[str],
         previous: GraphSnapshot | None = None,
     ):
-        self.sp, self.root = get_store_context(str(store))
+        location = open_store(store)
+        self.sp, self.root = location.store_path, location.project_root
         self.pythonpath = pythonpath
         self.exclude_tags = exclude_tags
         self.previous = previous
@@ -321,7 +320,7 @@ class _Builder:
                 continue
             for fname, finfo in model_type.model_fields.items():
                 fid = field_node_id(name, fname)
-                desc = field_descriptor(fname, finfo)
+                desc = describe_field(fname, finfo).model_dump(exclude={"annotation", "description"}, exclude_none=True)
                 desc.update({"model": name, "description": finfo.description or ""})
                 self.nodes[fid] = KnowledgeNode(identity=SystemIdentity(node_id=fid, node_type="sldb_field"), semantics=desc)
                 self._edge(mid, fid, "has_field", {"origin": "schema"})

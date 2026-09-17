@@ -9,11 +9,8 @@ from __future__ import annotations
 
 from dataclasses import dataclass, field
 from pathlib import Path
-from types import SimpleNamespace
 
-from sldb.cli.commands.model import ModelCLI
-from sldb.cli.model_utils import registered_model, resolve_model_ref
-from sldb.cli.store_context import get_store_context
+from sldb.api import add_model, load_registered_model, open_store, resolve_model_ref
 from sldb.core.exceptions import SLDBModelError
 from sldb.runtime.validation import render_model_markdown
 from sldb.store.io import load_documents_index, load_models_index, load_store_index, save_store_index
@@ -41,7 +38,8 @@ class InitReport:
 
 def init_world(store: str | Path, pythonpath: str | None = None) -> InitReport:
     """Prepare the store at ``store`` for typed relations."""
-    sp, root = get_store_context(str(store))
+    location = open_store(store)
+    sp, root = location.store_path, location.project_root
     report = InitReport()
     for ref in MODEL_REFS:
         if _add_model(sp, ref, pythonpath):
@@ -52,16 +50,17 @@ def init_world(store: str | Path, pythonpath: str | None = None) -> InitReport:
 
 
 def _add_model(sp: Path, ref: str, pythonpath: str | None) -> bool:
-    args = SimpleNamespace(model=ref, store=str(sp), pythonpath=pythonpath, canonical=False)
     try:
-        ModelCLI().add(args)
+        registration = add_model(sp, ref, pythonpath)
     except SLDBModelError:
         return False
+    print(f"Registered '{registration.name}'")
     return True
 
 
 def _write_builtin_types(sp: Path, root: Path, pythonpath: str | None, report: InitReport) -> None:
-    model_type, entry, idx = registered_model(sp, "RelationTypeDoc", pythonpath)
+    registered = load_registered_model(sp, "RelationTypeDoc", pythonpath)
+    model_type, entry, idx = registered.model_type, registered.entry, registered.store_index
     tracked = _tracked_names(root, entry)
     for spec in BUILTIN_RELATION_TYPES:
         name = builtin_doc_name(spec)
