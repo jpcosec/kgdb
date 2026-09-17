@@ -15,7 +15,7 @@ from pathlib import Path
 
 import pytest
 
-from sldb.cli import main as sldb_main
+from sldb import api as sldb_api
 
 from kgdb.ingest import TypedIngestError, build_typed_snapshot
 from kgdb.world import init_world
@@ -39,10 +39,6 @@ class Reservation(StructuredNLDoc):
 '''
 
 
-def _run(argv: list[str]) -> None:
-    assert sldb_main(argv) == 0
-
-
 class World:
     def __init__(self, tmp_path: Path):
         sys.modules.pop("merkle_models", None)
@@ -51,20 +47,19 @@ class World:
         self.root.mkdir()
         self.store = self.root / ".sldb"
         self.py = str(tmp_path)
-        self.common = ["--store", str(self.store), "--pythonpath", self.py]
-        _run(["stores", "init", "--path", str(self.root)])
+        sldb_api.init_store(self.root)
         for m in ("Table", "Reservation"):
-            _run(["models", "add", f"merkle_models:{m}", *self.common])
+            sldb_api.add_model(self.store, f"merkle_models:{m}", self.py)
         init_world(self.store, self.py)
 
     def create(self, model: str, name: str, payload: dict) -> None:
-        _run(["docs", "create", "--model", model, "-o", str(self.root / f"{name}.md"), "--name", name, json.dumps(payload), *self.common])
+        sldb_api.create_document(self.store, model, self.root / f"{name}.md", payload, name, self.py)
 
-    def change(self, name: str, payload: dict) -> None:
-        _run(["docs", "update", name, json.dumps(payload), *self.common])
+    def change(self, model: str, name: str, payload: dict) -> None:
+        sldb_api.save_document_payload(self.store, model, name, payload, self.py)
 
     def delete(self, name: str) -> None:
-        _run(["docs", "untrack", name, *self.common])
+        sldb_api.untrack_document(self.store, name, self.py)
 
     def relation_type(self, name: str, source: list[str], target: list[str], cardinality="many_to_many") -> None:
         self.create("RelationTypeDoc", f"rt-{name}", {
@@ -76,8 +71,8 @@ class World:
         self.create("RelationDoc", name, {"title": name, "source_id": src, "target_id": tgt, "relation_type": rtype, "condition": "", "notes": ""})
 
     def promote_field(self, model: str, field: str, field_type: str, default) -> None:
-        _run(["models", "fields", "add", model, field, "--type", field_type, "--description", "x", "--default", json.dumps(default), *self.common])
-        _run(["models", "validate", model, "--promote", *self.common])
+        sldb_api.add_model_field(self.store, model, field, field_type, "x", json.dumps(default), self.py)
+        sldb_api.promote_model_draft(self.store, model, self.py)
         sys.modules.pop("merkle_models", None)  # promote rewrites the module file; drop the cached import
 
     def build(self, previous=None):
@@ -113,7 +108,7 @@ def test_incremental_equals_full_after_adding_a_document(world: World):
 
 def test_incremental_equals_full_after_changing_a_document(world: World):
     base, _ = world.build()
-    world.change("table-14", {"title": "Table 14", "capacity": 10})
+    world.change("Table", "table-14", {"title": "Table 14", "capacity": 10})
     incremental, _ = world.build(previous=base)
     full, _ = world.build()
     _assert_equivalent(incremental, full)
@@ -160,7 +155,7 @@ def test_incremental_equals_full_over_several_writes_in_a_row(world: World):
     snap, _ = world.build(previous=snap)
     world.create("Table", "table-20", {"title": "Table 20", "capacity": 2})
     snap, _ = world.build(previous=snap)
-    world.change("res-1", {"title": "Ana", "party_size": 4})
+    world.change("Reservation", "res-1", {"title": "Ana", "party_size": 4})
     snap, _ = world.build(previous=snap)
     world.delete("table-14")
     snap, _ = world.build(previous=snap)

@@ -18,7 +18,7 @@ from pathlib import Path
 import networkx as nx
 import pytest
 
-from sldb.cli import main as sldb_main
+from sldb import api as sldb_api
 
 from kgdb.graph.utils import add_knowledge_node, load_graph, save_graph
 from kgdb.ingest import TypedIngestError, build_typed_snapshot
@@ -63,10 +63,6 @@ class Alias(StructuredNLDoc):
 '''
 
 
-def _run(argv: list[str]) -> None:
-    assert sldb_main(argv) == 0
-
-
 class World:
     def __init__(self, tmp_path: Path):
         sys.modules.pop("typed_models", None)
@@ -75,14 +71,13 @@ class World:
         self.root.mkdir()
         self.store = self.root / ".sldb"
         self.py = str(tmp_path)
-        self.common = ["--store", str(self.store), "--pythonpath", self.py]
-        _run(["stores", "init", "--path", str(self.root)])
+        sldb_api.init_store(self.root)
         for m in ("Reservation", "Table", "Note", "Alias"):
-            _run(["models", "add", f"typed_models:{m}", *self.common])
+            sldb_api.add_model(self.store, f"typed_models:{m}", self.py)
         init_world(self.store, self.py)
 
     def create(self, model: str, name: str, payload: dict) -> None:
-        _run(["docs", "create", "--model", model, "-o", str(self.root / f"{name}.md"), "--name", name, json.dumps(payload), *self.common])
+        sldb_api.create_document(self.store, model, self.root / f"{name}.md", payload, name, self.py)
 
     def relation_type(self, name: str, source: list[str], target: list[str], cardinality="many_to_many", condition="", direction="directed"):
         self.create("RelationTypeDoc", f"rt-{name}", {
