@@ -36,15 +36,16 @@ from sldb.store.query import load_runtime_documents
 from sldb.store.io import load_models_index, load_store_index
 
 from kgdb.contracts import Edge, GraphSnapshot, KnowledgeNode, SystemIdentity
-from kgdb.ingest.sldb import (
-    _base_provenance,
-    _collect_semantic_tags,
+# The node builders live in sldb since the fusion; this frozen assembler reuses them so the
+# legacy typed snapshot and the store's own edge index are built from the same pieces.
+from sldb.store.graph import sldb_semantic_export_to_snapshot
+from sldb.store.graph.ingest_sldb import _base_provenance, _collect_semantic_tags
+from sldb.store.graph.ingest_sldb_nodes import (
     _document_node,
     _model_node,
     _section_node,
     _semantic_tag_node,
     _store_node,
-    sldb_semantic_export_to_snapshot,
 )
 
 DEFAULT_EXCLUDED_TAGS = ("type.pron.move",)

@@ -1,37 +1,10 @@
-"""Base graph contracts for kgdb."""
+"""The base graph contracts moved to sldb (fusion of kgdb into sldb): `sldb.store.graph`.
 
-from typing import Annotated, Any
+Re-exported here so callers of `kgdb.contracts.base` keep working — and, more to the point,
+so there is a single `Edge`/`SystemIdentity` class in the ecosystem instead of two that merely
+look alike. A node built by sldb and a node built through kgdb are now the same type.
+"""
 
-from pydantic import BaseModel, Field
+from sldb.store.graph import Edge, SystemIdentity, VocabularyTerm
 
-
-VocabularyTerm = Annotated[
-    str,
-    Field(
-        min_length=1,
-        pattern=r"^[A-Za-z][A-Za-z0-9_.:-]*$",
-        description="A downstream-defined graph vocabulary token.",
-    ),
-]
-
-
-class Edge(BaseModel):
-    """Universal connection between nodes."""
-
-    target_id: str = Field(description="The ID of the target node this edge points to.")
-    relation_type: VocabularyTerm = Field(
-        description="The downstream-defined relationship token this edge represents."
-    )
-    metadata: dict[str, Any] = Field(
-        default_factory=dict,
-        description="Additional context for the edge.",
-    )
-
-
-class SystemIdentity(BaseModel):
-    """The immutable base identity of any node in your universe."""
-
-    node_id: str = Field(description="A unique absolute identifier for the node.")
-    node_type: VocabularyTerm = Field(
-        description="The downstream-defined entity type token this node represents."
-    )
+__all__ = ["Edge", "SystemIdentity", "VocabularyTerm"]

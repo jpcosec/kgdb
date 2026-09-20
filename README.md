@@ -4,6 +4,13 @@
 > graph; see [the ADR](../sldb/docs/architecture/sldb-absorbs-kgdb.md). This repo is frozen: it
 > keeps working for the consumers that still import it, and no new capability lands here.
 >
+> Since 2026-09-20 it is also **hollow**: the contracts, the query language and the sldb ingest are
+> re-exports of sldb's, so `kgdb.contracts.KnowledgeNode is sldb.store.graph.KnowledgeNode` — one
+> class in the ecosystem, not two that look alike. What is still implemented here is the networkx
+> layer sldb deliberately does not have: `kgdb.graph.utils` (a `MultiDiGraph` view of a snapshot),
+> the executor and neighborhood walk that run **over a networkx graph**, the JSON-lines query
+> server, and `kgdb.ingest.typed`, the frozen assembler the parity test compares against.
+>
 > | what you used here | where it lives now |
 > |---|---|
 > | `kgdb.models.*` (`RelationTypeDoc`, `RelationDoc`, builtins) | `sldb.models.*` — this package re-exports them |
