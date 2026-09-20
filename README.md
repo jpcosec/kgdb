@@ -28,6 +28,37 @@
 > JSON-lines query server. `kgdb.ingest.typed` stays here as the oracle the parity test compares
 > against.
 
+## Who still imports kgdb
+
+Verified 2026-09-20 against the re-export commit. Nothing here needed a source change: the
+contracts became the same classes sldb owns, and the networkx layer these consumers rely on is
+still implemented in this repo.
+
+| consumer | what it imports | status |
+|---|---|---|
+| `AWS_Infra/chatbot/ontologizador` | `graph.load_graph`, `graph.add_knowledge_node`, `query.neighborhood.collect_neighborhood`, `ingest.sldb` | ok — **runtime**, imports clean |
+| `TraderBot/trader/kb/kgdb_reader` | `graph.{add_knowledge_node,load_graph,save_graph}`, `collect_neighborhood`, `ingest.sldb` | ok — 3 passed |
+| `hum-core` (wiki compiler) | `contracts.node`, `graph.*`, `query.{executor,server,language}` | ok — 7 passed |
+| `legos-agentes-nodo/bridges/kgdb_bridge` | `contracts`, `graph.{add_knowledge_node,load_knowledge_node}` | ok — imports clean |
+| `graph_ui/adapters/kgdb_adapter` | `contracts.*`, `query.{executor,language}` | kgdb side ok; **the repo is broken for another reason**, see below |
+| `legos` | `models.RelationDoc` | kgdb side ok; **same**, see below |
+
+### Not a kgdb problem: the pron imports
+
+`graph_ui`, `legos` and `legos-agentes-nodo` are broken against **pron**, and have been since
+pron's 2026-09-17 refactor moved `pron.store`, `pron.client`, `pron.lexicon`, `pron.verbs`,
+`pron.world.World` and `pron.world.init_world`. They fail identically with and without the
+fusion. The old→new map is in [pron's docs](../../../pron/docs/API-movida.md); the decision on
+what to do about it has not been taken.
+
+### If you are writing new code
+
+Import from sldb, not from here. The only reason to import `kgdb` is that you need a networkx
+`MultiDiGraph` — sldb has no networkx dependency and traverses its own adjacency maps. Note the
+name collision: `kgdb.graph.load_graph` returns a `MultiDiGraph`, `sldb.store.graph.load_graph`
+returns a `GraphSnapshot`. Same name, different type; that is why this one could not become a
+re-export.
+
 `kgdb` was the graph persistence, traversal, and query substrate for the HUM ecosystem.
 
 ## Installation
