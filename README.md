@@ -1,6 +1,27 @@
 # kgdb
 
-`kgdb` is the graph persistence, traversal, and query substrate for the HUM ecosystem.
+> **Absorbed by sldb (2026-09-20).** sldb is now one product with two internal layers, text and
+> graph; see [the ADR](../sldb/docs/architecture/sldb-absorbs-kgdb.md). This repo is frozen: it
+> keeps working for the consumers that still import it, and no new capability lands here.
+>
+> | what you used here | where it lives now |
+> |---|---|
+> | `kgdb.models.*` (`RelationTypeDoc`, `RelationDoc`, builtins) | `sldb.models.*` — this package re-exports them |
+> | `kgdb.world.init_world` | `sldb.api.init_relations` — this one delegates |
+> | `kgdb.ingest.typed.build_typed_snapshot` | sldb's edge index, rebuilt by the write itself: `sldb.api.load_edge_index` |
+> | `kgdb.query.{StructuredQuery, execute_query}` | `sldb.store.graph` / `sldb.api.graph.execute_query` |
+> | `kgdb.query.neighborhood.collect_neighborhood*` | `sldb.api.graph.collect_neighborhood*` |
+> | `kgdb.contracts.io.{GraphSnapshot, QueryResult}` | `sldb.store.graph` |
+> | `kgdb.graph.{save_graph, load_graph}` | `sldb.store.graph.graph_io` — same node-link JSON, no networkx |
+> | `kgdb.ingest.sldb.sldb_semantic_export_to_snapshot` | `sldb.api.graph.ingest_sldb` |
+> | `kgdb ingest \| get \| list \| query \| edges` | `sldb edges …` and `sldb graph …` |
+> | `kgdb.contracts.persistence` (declared, never implemented) | implemented as sldb's write journal: `sldb journal` |
+>
+> What did not come along: the networkx dependency (sldb traverses its own adjacency maps) and the
+> JSON-lines query server. `kgdb.ingest.typed` stays here as the oracle the parity test compares
+> against.
+
+`kgdb` was the graph persistence, traversal, and query substrate for the HUM ecosystem.
 
 ## Installation
 
